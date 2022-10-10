@@ -10,6 +10,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { SignupComponent } from './signup/signup.component';
 import { ProductInfoComponent } from './product-info/product-info.component';
 import { LoginComponent } from './login/login.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { LoginComponent } from './login/login.component';
     FooterComponent,
     SignupComponent,
     ProductInfoComponent,
-    LoginComponent
+    LoginComponent,
+    AdminDashboardComponent
 
   ],
   imports: [
