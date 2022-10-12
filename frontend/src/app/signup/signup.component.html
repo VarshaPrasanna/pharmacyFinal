@@ -5,33 +5,58 @@
           <div class="login-form border p-5">
             <div class="text-center heading">
               <h2 class="mb-2">Sign Up</h2>
-              <p class="lead">Already have an account? <a routerLink="/login"> Login now</a></p>
+              <p class="lead">Already have an account? <a routerLink=""> Login now</a></p>
             </div>
-            <form action="#">
-              <div class="form-group mb-4">
-                <label for="#">Enter Your Name</label>
-                <input type="text" class="form-control" placeholder="Name">
-              </div>
-              <div class="form-group mb-4">
-                <label for="#">Enter Email Address</label>
-                <input type="text" class="form-control" placeholder="Email Address">
-              </div>
-              <div class="form-group mb-4">
-                <label for="#">Enter username</label>
-                <a class="float-right" href="">Forget password?</a>
-                <input type="text" class="form-control" placeholder="Password"> 
-              </div>
-              <div class="form-group mb-4">
-                <label for="#">Enter Password</label>
-                <input type="text" class="form-control" placeholder="Password"> 
+            <form novalidate [formGroup]="signUpForm">
+              <div class="form-group">
+                <label for="Name">Enter your name</label>
+                <input type="text" class="form-control" placeholder="Enter name" formControlName="name"
+                [ngClass]="{'is-invalid':name.errors && (name.touched || name.dirty),'is-valid' :name.valid}">
+                <div class="invalid-feedback">
+                  <strong *ngIf = "name.errors?.['required']">Name is required </strong>
+                </div>
               </div>
               <div class="form-group">
-                <label for="#">Confirm Password</label>
-                <input type="text" class="form-control" placeholder="Confirm Password"> 
+                <label for="email">Enter Email Address</label>
+                <input type="text" class="form-control" placeholder="Enter emailid" formControlName="email"
+                [ngClass]="{'is-invalid':email.errors && (email.touched || email.dirty),'is-valid' :email.valid}">
+                <div class="invalid-feedback">
+                  <strong *ngIf = "email.errors?.['required']">emailid is required </strong>
+                  <strong *ngIf = "email.errors?.['pattern']">invalid emailid </strong>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="userName">Enter username</label>
+                <input type="text" class="form-control" placeholder="Enter Username" formControlName="userName"
+                [ngClass]="{'is-invalid':userName.errors && (userName.touched || userName.dirty),'is-valid' :userName.valid}">
+                <div class="invalid-feedback">
+                  <strong *ngIf = "userName.errors?.['required']">userName is required </strong>
+                  <strong *ngIf = "userName.errors?.['pattern']">invalid username </strong>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="password">Enter Password</label>
+                
+                <input type="text" class="form-control" placeholder="Enter Password" formControlName="password"
+                [ngClass]="{'is-invalid':password.errors && (password.touched || password.dirty),'is-valid' :password.valid}">
+                <div class="invalid-feedback">
+                  <strong *ngIf = "password.errors?.['required']">password is required </strong>
+                  <strong *ngIf = "password.errors?.['pattern']">password should contain atleast one uppercase and .....</strong>
+
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="confirmpassword">Confirm Password</label>
+                <input type="text" class="form-control" placeholder="re-Enter Password" formControlName="confirmPassword"
+                [ngClass]="{'is-invalid':confirmPassword.errors && (confirmPassword.touched || confirmPassword.dirty),'is-valid' :confirmPassword.valid}">
+                <div class="invalid-feedback">
+                  <strong *ngIf = "confirmPassword.errors?.['required']">password is required</strong>
+                  <strong *ngIf = "signUpForm.errors?.['passwordMatch()']">password is mismatched</strong>
+                </div>
               </div>
 
               
-            <a name="" id="" class="btn btn-primary" href="#" role="button">Signup</a>
+              <button type="submit" class="btn btn-primary" routerLink="">SignUp</button>
 
             </form>
           </div>
