@@ -11,6 +11,7 @@ import { SignupComponent } from './signup/signup.component';
 import { ProductInfoComponent } from './product-info/product-info.component';
 import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { CartComponent } from './cart/cart.component';
     SignupComponent,
     ProductInfoComponent,
     LoginComponent,
-    CartComponent
+    CartComponent,
+    PaymentComponent
 
   ],
   imports: [
