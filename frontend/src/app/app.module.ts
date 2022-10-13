@@ -14,6 +14,7 @@ import { CartComponent } from './cart/cart.component';
 import { PaymentComponent } from './payment/payment.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { DiscussionBoardComponent } from './discussion-board/discussion-board.component';
+import { AdminUsersComponent } from './admin-users/admin-users.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { DiscussionBoardComponent } from './discussion-board/discussion-board.co
     CartComponent,
     PaymentComponent,
     AdminDashboardComponent,
-    DiscussionBoardComponent
+    DiscussionBoardComponent,
+    AdminUsersComponent
 
   ],
   imports: [

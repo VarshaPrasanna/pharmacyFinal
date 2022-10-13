@@ -9,6 +9,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { SignupComponent } from './signup/signup.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { DiscussionBoardComponent } from './discussion-board/discussion-board.component';
+import { AdminUsersComponent } from './admin-users/admin-users.component';
 
 
 
@@ -20,9 +21,10 @@ const routes: Routes = [
   { path: "signup", component: SignupComponent },
   { path: "login", component: LoginComponent },
   { path:"cart", component: CartComponent},
-  {path: "payment", component:PaymentComponent},
+  { path: "payment", component:PaymentComponent},
   { path: "admin", component: AdminDashboardComponent },
   { path: "discussion-board", component: DiscussionBoardComponent },
+  { path: "manage-users", component: AdminUsersComponent},
 ];
 
 @NgModule({
