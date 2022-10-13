@@ -9,6 +9,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { SignupComponent } from './signup/signup.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { DiscussionBoardComponent } from './discussion-board/discussion-board.component';
+import { ViewProductsComponent } from './admin-dashboard/Manage-Products/view-products/view-products.component';
 
 
 
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: "payment", component:PaymentComponent},
   { path: "admin", component: AdminDashboardComponent },
   { path: "discussion-board", component: DiscussionBoardComponent },
+  {path: "Manage-Products",component:ViewProductsComponent }
 ];
 
 @NgModule({
