@@ -12,13 +12,14 @@ const AuthController = {
         const newUser = new User({
             username: req.body.username,
             email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 10)
+            password: bcrypt.hashSync(req.body.password, 10),
+            isAdmin: req.body.isAdmin
         });
 
         try {
             const user = await newUser.save();
             res.status(201).json({
-                type : 'success',
+                type: 'success',
                 message: "User has been created successfuly",
                 user
             })
@@ -33,7 +34,7 @@ const AuthController = {
 
     /* login existing user */
     async login_user(req, res) {
-        
+
         const user = await User.findOne({ username: req.body.username });
 
         if (!user || !bcrypt.compareSync(req.body.password, user.password)) {
@@ -45,9 +46,10 @@ const AuthController = {
 
             const accessToken = jwt.sign({
                 id: user._id,
-                isAdmin: user.isAdmin}, 
-            api_config.api.jwt_secret,
-            { expiresIn: "1d"}
+                isAdmin: user.isAdmin
+            },
+                api_config.api.jwt_secret,
+                { expiresIn: "1d" }
             );
 
             const { password, ...data } = user._doc;

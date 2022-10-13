@@ -6,6 +6,8 @@ import { ProductInfoComponent } from './product-info/product-info.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { DiscussionBoardComponent } from './discussion-board/discussion-board.component';
+
 
 
 
@@ -15,7 +17,8 @@ const routes: Routes = [
 
   { path: "signup", component: SignupComponent },
   { path: "login", component: LoginComponent },
-  { path: "admin", component: AdminDashboardComponent }
+  { path: "admin", component: AdminDashboardComponent },
+  { path: "discussion-board", component: DiscussionBoardComponent }
 ];
 
 @NgModule({

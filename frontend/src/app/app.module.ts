@@ -11,6 +11,7 @@ import { SignupComponent } from './signup/signup.component';
 import { ProductInfoComponent } from './product-info/product-info.component';
 import { LoginComponent } from './login/login.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { DiscussionBoardComponent } from './discussion-board/discussion-board.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     SignupComponent,
     ProductInfoComponent,
     LoginComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    DiscussionBoardComponent
 
   ],
   imports: [
