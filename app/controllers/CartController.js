@@ -1,4 +1,5 @@
 const Cart = require('../models/Cart');
+const Product = require('../models/Product');
 
 const CartController = {
 
@@ -22,7 +23,7 @@ const CartController = {
     /* get user cart */
     async get_cart(req, res) {
         try {
-            const cart = await Cart.findOne({ userId: req.params.userId});
+            const cart = await Cart.findOne({ userId: req.params.userId });
             if (!cart) {
                 res.status(404).json({
                     type: "error",
@@ -32,6 +33,7 @@ const CartController = {
                 res.status(200).json({
                     type: "success",
                     cart
+
                 })
             }
         } catch (err) {
