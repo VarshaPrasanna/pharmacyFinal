@@ -1,4 +1,5 @@
 const User = require('../models/User');
+const bcrypt = require('bcrypt')
 
 const UserController = {
 
@@ -17,7 +18,7 @@ const UserController = {
                 err
             })
         }
-       
+
     },
 
     /* get single user */
@@ -45,16 +46,22 @@ const UserController = {
         const lastYear = new Date(date.setFullYear(date.getFullYear() - 1));
         try {
             const data = await User.aggregate([
-                { $match : { 
-                    createdAt: { $gte: lastYear }
-                }},
-                { $project: { 
-                    month: { $month: "$createdAt"}
-                }},
-                { $group : {
-                    _id: "$month", 
-                    total: { $sum: 1},
-                }}
+                {
+                    $match: {
+                        createdAt: { $gte: lastYear }
+                    }
+                },
+                {
+                    $project: {
+                        month: { $month: "$createdAt" }
+                    }
+                },
+                {
+                    $group: {
+                        _id: "$month",
+                        total: { $sum: 1 },
+                    }
+                }
             ]);
             res.status(200).json({
                 type: "success",
@@ -71,15 +78,15 @@ const UserController = {
 
     /* update user */
     async update_user(req, res) {
-        if(req.body.password) {
+        if (req.body.password) {
             req.body.password = bcrypt.hashSync(req.body.password, 10)
         }
-        
+
         try {
             const updatedUser = await User.findByIdAndUpdate(req.params.id, {
                 $set: req.body
-            }, 
-            { new: true }
+            },
+                { new: true }
             );
             res.status(200).json({
                 type: "success",

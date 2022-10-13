@@ -1,4 +1,5 @@
 const Order = require('../models/Order');
+const Cart = require('../models/Cart')
 
 const OrderController = {
 
@@ -64,14 +65,14 @@ const OrderController = {
         }
     },
 
+
     /* update order */
     async update_order(req, res) {
         try {
             const updatedOrder = await Cart.findByIdAndUpdate(req.params.id, {
+
                 $set: req.body
-            },
-                { new: true }
-            );
+            }, { new: true });
             res.status(200).json({
                 type: "success",
                 message: "Cart updated successfully",
