@@ -7,7 +7,7 @@
               <h2 class="mb-2">Login</h2>
               <p class="lead">Don't have an account? <a routerLink="">Create a free account</a></p>
             </div>
-            <form novalidate [formGroup]="loginForm" >
+            <form novalidate [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
               <div class="form-group">
                 <label for="userName">Enter username</label>
                 <input type="text" class="form-control" placeholder="Enter Username" formControlName="userName"
@@ -25,9 +25,9 @@
                   <strong *ngIf = "password.errors?.['required']">password is required </strong>
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary" routerLink="">Login</button>
+              <button type="submit" class="btn btn-primary" >Login</button>
               
-              <a name="" id="" class="btn btn-primary" routerLink="/admin" role="button">Admin</a>
+              <!-- <a name="" id="" class="btn btn-primary" type="submit">Admin</a> -->
 
              
             </form>

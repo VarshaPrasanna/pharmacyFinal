@@ -11,6 +11,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { DiscussionBoardComponent } from './discussion-board/discussion-board.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { ViewProductsComponent } from './admin-dashboard/Manage-Products/view-products/view-products.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 
@@ -21,12 +22,18 @@ const routes: Routes = [
 
   { path: "signup", component: SignupComponent },
   { path: "login", component: LoginComponent },
-  { path:"cart", component: CartComponent},
-  { path: "payment", component:PaymentComponent},
+  { path: "cart", component: CartComponent },
+  { path: "payment", component: PaymentComponent },
   { path: "admin", component: AdminDashboardComponent },
   { path: "discussion-board", component: DiscussionBoardComponent },
-  { path: "manage-users", component: AdminUsersComponent},
-  {path: "Manage-Products",component:ViewProductsComponent },
+  { path: "Manage-Products", component: ViewProductsComponent },
+  { path: "profile", component: UserProfileComponent },
+  { path: "cart", component: CartComponent },
+  { path: "payment", component: PaymentComponent },
+  { path: "admin", component: AdminDashboardComponent },
+  { path: "discussion-board", component: DiscussionBoardComponent },
+  { path: "manage-users", component: AdminUsersComponent },
+  { path: "Manage-Products", component: ViewProductsComponent },
 ];
 
 @NgModule({
