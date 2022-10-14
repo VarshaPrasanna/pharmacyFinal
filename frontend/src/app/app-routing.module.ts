@@ -9,6 +9,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { SignupComponent } from './signup/signup.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { DiscussionBoardComponent } from './discussion-board/discussion-board.component';
+import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { ViewProductsComponent } from './admin-dashboard/Manage-Products/view-products/view-products.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
@@ -26,7 +27,13 @@ const routes: Routes = [
   { path: "admin", component: AdminDashboardComponent },
   { path: "discussion-board", component: DiscussionBoardComponent },
   { path: "Manage-Products", component: ViewProductsComponent },
-  { path: "profile", component: UserProfileComponent }
+  { path: "profile", component: UserProfileComponent },
+  { path: "cart", component: CartComponent },
+  { path: "payment", component: PaymentComponent },
+  { path: "admin", component: AdminDashboardComponent },
+  { path: "discussion-board", component: DiscussionBoardComponent },
+  { path: "manage-users", component: AdminUsersComponent },
+  { path: "Manage-Products", component: ViewProductsComponent },
 ];
 
 @NgModule({

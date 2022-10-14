@@ -1,8 +1,10 @@
-export class User {
 
-    username: string = '';
+export class User {
+    name: string = '';
     email: string = '';
+    username: string = '';
     password: string = '';
 
-    token: string = '';
+    constructor() { }
+
 }

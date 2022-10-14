@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PaymentComponent } from './payment/payment.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { DiscussionBoardComponent } from './discussion-board/discussion-board.component';
+import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { ManageProductsComponent } from './admin-dashboard/Manage-Products/manage-products/manage-products.component';
 import { AddProductsComponent } from './admin-dashboard/Manage-Products/add-products/add-products.component';
 import { UpdateProductsComponent } from './admin-dashboard/Manage-Products/update-products/update-products.component';
@@ -36,11 +37,12 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     PaymentComponent,
     AdminDashboardComponent,
     DiscussionBoardComponent,
+    AdminUsersComponent,
     ManageProductsComponent,
     AddProductsComponent,
     UpdateProductsComponent,
     ViewProductsComponent,
-    UserProfileComponent,
+
 
 
 
