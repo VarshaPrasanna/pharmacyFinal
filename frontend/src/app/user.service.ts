@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { UserMockData } from './mock-data/users-mock-data';
 import { User } from './models/user';
 
 @Injectable({
@@ -6,34 +7,17 @@ import { User } from './models/user';
 })
 export class UserService {
 
-  users : User[] = [
-    {
-      name: 'Ram G',
-      username: 'ram',
-      userEmail: 'ram@gmail.com',
-      password: 'sjjkdj'
-    },
-    {
-      name: 'Rahma k',
-      username: 'rahma',
-      userEmail: 'rahma@gmail.com',
-      password: 'sjjkdj'
-    },
-    {
-      name: 'Krish P',
-      username: 'krish',
-      userEmail: 'krish@gmail.com',
-      password: 'sjjkdj'
-    },
-  ]
+  users: User[] = [];
 
-  constructor() { }
+  constructor() {
+    this.users = UserMockData.Users;
+   }
 
   getAllUsers(){
     return this.users;
   }
 
-  addUser(user: any){
+  addUser(user: User){
     this.users.push(user);
   }
 

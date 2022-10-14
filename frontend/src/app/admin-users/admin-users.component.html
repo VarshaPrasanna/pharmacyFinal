@@ -16,7 +16,7 @@
         <tr *ngFor="let user of users; let i = index">
             <td scope="row">{{user.name}}</td>
             <td>{{user.username}}</td>
-            <td>{{user.userEmail}}</td>
+            <td>{{user.email}}</td>
             <td>
                 <button type="button" class="btn ml-1 btn-danger btn-sm" (click)="deleteUser(i)">Delete</button>
             </td>
