@@ -1,7 +1,8 @@
 <div class="card">
     <div class="card-body">
         <h4 class="card-title ml-4">Checkout</h4>
-        <a class="btn btn-light ml-4 btn-sm" href="#"> < Continue shopping </a>
+        <a class="btn btn-light ml-4 btn-sm" href="#">
+            < Continue shopping </a>
     </div>
 </div>
 
@@ -9,64 +10,138 @@
     <div class="col-lg-5">
         <h5 class="p-3"> Shipping Details</h5>
         <div class="container">
-            <form>
+            <form [formGroup]="addressForm">
 
                 <div class="form-group">
                     <label for="fullName">Full Name</label>
-                    <input type="text" name="fullName" class="form-control">
+                    <input type="text" formControlName="fullName" class="form-control"
+                        [ngClass]="{'is-invalid':AddressForm['fullName'].errors && (AddressForm['fullName'].touched || AddressForm['fullName'].dirty), 'is-valid': AddressForm['fullName'].valid}" />
+
+                    <!-- Error-->
+                    <div class="invalid-feedback" *ngIf="AddressForm['fullName'].errors?.['required']">
+                        Name is required
+                    </div>
+                    <div class="invalid-feedback" *ngIf="AddressForm['fullName'].errors?.['minlength']">
+                        Name should be minimum 3 characters
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label for="address">Shipping Address</label>
-                    <input type="text" name="address" class="form-control">
+                    <input type="text" formControlName="address" class="form-control"
+                        [ngClass]="{'is-invalid':AddressForm['address'].errors && (AddressForm['address'].touched || AddressForm['address'].dirty), 'is-valid': AddressForm['address'].valid}" />
+
+                    <!-- Error-->
+                    <div class="invalid-feedback" *ngIf="AddressForm['address'].errors?.['required'] && (AddressForm['address'].touched || AddressForm['address'].dirty)">
+                        Shipping Address is required
+                    </div>
                 </div>
 
                 <div class="row">
+
                     <div class="form-group col">
                         <label for="city">City</label>
-                        <input type="text" name="city" class="form-control">
+                        <input type="text" formControlName="city" class="form-control"
+                            [ngClass]="{'is-invalid':AddressForm['city'].errors && (AddressForm['city'].touched || AddressForm['city'].dirty), 'is-valid': AddressForm['city'].valid}" />
+
+                        <!-- Error-->
+                        <div class="invalid-feedback" *ngIf="AddressForm['city'].errors?.['required']">
+                            City is required
+                        </div>
                     </div>
+
 
                     <div class="form-group col">
                         <label for="pincode">Pincode</label>
-                        <input type="text" name="pincode" class="form-control">
+                        <input type="text" formControlName="pincode" class="form-control"
+                            [ngClass]="{'is-invalid':AddressForm['pincode'].errors && (AddressForm['pincode'].touched || AddressForm['pincode'].dirty), 'is-valid': AddressForm['pincode'].valid}" />
+
+                        <!-- Error-->
+                        <div class="invalid-feedback" *ngIf="AddressForm['pincode'].errors?.['required']">
+                            Pincode is required
+                        </div>
+                        <div class="invalid-feedback" *ngIf="AddressForm['pincode'].errors?.['pattern']">
+                            Pincode should contain only numbers
+                        </div>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="state">State</label>
-                    <input type="text" name="state" class="form-control">
+                    <input type="text" formControlName="state" class="form-control"
+                        [ngClass]="{'is-invalid': AddressForm['state'].errors && (AddressForm['state'].touched || AddressForm['state'].dirty), 'is-valid': AddressForm['state'].valid}" />
+
+                    <!-- Error -->
+                    <div class="invalid-feedback" *ngIf="AddressForm['state'].errors?.['required']">
+                        State is required
+                    </div>
                 </div>
 
-            </form>
+           </form> 
         </div>
     </div>
 
     <div class="col-lg-5">
         <h5 class="p-3">Payment Details</h5>
         <div class="container">
-            <form>
+            <form [formGroup]="paymentForm">
 
                 <div class="form-group">
                     <label for="cardName">Cardholder's Name</label>
-                    <input type="text" name="cardName" class="form-control">
+                    <input type="text" formControlName="cardName" class="form-control"
+                        [ngClass]="{'is-invalid':PaymentForm['cardName'].errors && (PaymentForm['cardName'].touched || PaymentForm['cardName'].dirty), 'is-valid': PaymentForm['cardName'].valid}" />
+
+                    <!-- Error-->
+                    <div class="invalid-feedback" *ngIf="PaymentForm['cardName'].errors?.['required']">
+                        Cardholder's Name is required
+                    </div>
+                    <div class="invalid-feedback" *ngIf="PaymentForm['cardName'].errors?.['minlength']">
+                        Cardholder's Name should be minimum 3 characters
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label for="cardNumber">Card Number</label>
-                    <input type="text" name="cardNumber" class="form-control">
+                    <input type="text" formControlName="cardNumber" class="form-control"
+                    [ngClass]="{'is-invalid':PaymentForm['cardNumber'].errors && (PaymentForm['cardNumber'].touched || PaymentForm['cardNumber'].dirty), 'is-valid': PaymentForm['cardNumber'].valid}" />
+
+                    <!-- Error-->
+                    <div class="invalid-feedback" *ngIf="PaymentForm['cardNumber'].errors?.['required']">
+                        Card Number is required
+                    </div>
+                    <div class="invalid-feedback" *ngIf="PaymentForm['cardNumber'].errors?.['pattern']">
+                        Card Number should contain only numbers
+                    </div>
                 </div>
 
                 <div class="row">
 
                     <div class="form-group col">
                         <label for="expDate">Exp Date</label>
-                        <input type="text" name="expDate" class="form-control">
+                        <input type="month" formControlName="expDate" class="form-control" value="23-07"
+                        [ngClass]="{'is-invalid':PaymentForm['expDate'].errors && (PaymentForm['expDate'].touched || PaymentForm['expDate'].dirty), 'is-valid': PaymentForm['expDate'].valid}" />
+
+                        <!-- Error-->
+                        <div class="invalid-feedback" *ngIf="PaymentForm['expDate'].errors?.['required']">
+                            Expiry date is required
+                        </div>
                     </div>
 
                     <div class="form-group col">
                         <label for="cvv">cvv</label>
-                        <input type="text" name="cvv" class="form-control">
+                        <input type="text" formControlName="cvv" class="form-control"
+                        [ngClass]="{'is-invalid':PaymentForm['cvv'].errors && (PaymentForm['cvv'].touched || PaymentForm['cvv'].dirty), 'is-valid': PaymentForm['cvv'].valid}" />
+
+                        <!-- Error-->
+                        <div class="invalid-feedback" *ngIf="PaymentForm['cvv'].errors?.['required']">
+                            CVV is required
+                        </div>
+                        <div class="invalid-feedback" *ngIf="PaymentForm['cvv'].errors?.['pattern']">
+                            CVV should contain only numbers
+                        </div>
+                        <div class="invalid-feedback" *ngIf="PaymentForm['cvv'].errors?.['minlength'] || PaymentForm['cvv'].errors?.['maxlength']">
+                            CVV should contain only 3 or 4 digits
+                        </div>
                     </div>
 
                 </div>
@@ -75,4 +150,3 @@
         </div>
     </div>
 </div>
-
