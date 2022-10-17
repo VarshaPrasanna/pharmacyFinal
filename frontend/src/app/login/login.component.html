@@ -1,38 +1,36 @@
 <div class="account section">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-6">
-          <div class="login-form border p-5">
-            <div class="text-center heading">
-              <h2 class="mb-2">Login</h2>
-              <p class="lead">Don't have an account? <a routerLink="">Create a free account</a></p>
-            </div>
-            <form novalidate [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
-              <div class="form-group">
-                <label for="userName">Enter username</label>
-                <input type="text" class="form-control" placeholder="Enter Username" formControlName="userName"
-                [ngClass]="{'is-invalid':userName.errors && (userName.touched || userName.dirty),'is-valid' :userName.valid}">
-                <div class="invalid-feedback">
-                  <strong *ngIf = "userName.errors?.['required']">userName is required </strong>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="password">Enter Password</label>
-                <a class="float-right" routerLink="">Forget password?</a>
-                <input type="text" class="form-control" placeholder="Enter Password" formControlName="password"
-                [ngClass]="{'is-invalid':password.errors && (password.touched || password.dirty),'is-valid' :password.valid}">
-                <div class="invalid-feedback">
-                  <strong *ngIf = "password.errors?.['required']">password is required </strong>
-                </div>
-              </div>
-              <button type="submit" class="btn btn-primary" >Login</button>
-              
-              <!-- <a name="" id="" class="btn btn-primary" type="submit">Admin</a> -->
-
-             
-            </form>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="login-form border p-5">
+          <div class="text-center heading">
+            <h2 class="mb-2">Login</h2>
+            <p class="lead">Don't have an account? <a routerLink="">Create a free account</a></p>
           </div>
+          <form novalidate [formGroup]="loginForm" (ngSubmit)="loginUser()">
+            <div class="form-group">
+              <label for="username">Enter username</label>
+              <input type="text" class="form-control" placeholder="Enter username" formControlName="username">
+              <!-- <div class="invalid-feedback">
+                <strong *ngIf="userName.errors?.['required']">userName is required </strong>
+              </div> -->
+            </div>
+            <div class="form-group">
+              <label for="password">Enter Password</label>
+              <a class="float-right" routerLink="">Forget password?</a>
+              <input type="text" class="form-control" placeholder="Enter Password" formControlName="password">
+              <!-- <div class="invalid-feedback">
+                <strong *ngIf="password.errors?.['required']">password is required </strong>
+              </div> -->
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+
+            <!-- <a name="" id="" class="btn btn-primary" type="submit">Admin</a> -->
+
+
+          </form>
         </div>
       </div>
     </div>
   </div>
+</div>

@@ -12,7 +12,7 @@ import { DiscussionBoardComponent } from './discussion-board/discussion-board.co
 import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { ViewProductsComponent } from './admin-dashboard/Manage-Products/view-products/view-products.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-
+import { AuthGuard } from "./auth.guard";
 
 
 
@@ -34,6 +34,7 @@ const routes: Routes = [
   { path: "discussion-board", component: DiscussionBoardComponent },
   { path: "manage-users", component: AdminUsersComponent },
   { path: "Manage-Products", component: ViewProductsComponent },
+  { path: 'profile/:id', component: UserProfileComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

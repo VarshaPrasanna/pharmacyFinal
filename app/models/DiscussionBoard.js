@@ -20,4 +20,4 @@ const DboardSchema = new mongoose.Schema({
     { timestamps: true }
 );
 
-module.exports = mongoose.model('Cart', CartSchema);
+module.exports = mongoose.model('Message', DboardSchema);

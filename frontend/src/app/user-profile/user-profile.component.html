@@ -1,110 +1,49 @@
+<section class="ftco-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-center mb-5">
+        <button type="button" class="btn btn-outline-primary">Edit Profile</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="table-wrap">
+          <table class="table table-bordered  table-hover">
+            <thead>
+              <tr>
+                <th>Your Name</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+
+                <td>{{this.User.data.username}}</td>
+                <td>{{this.User.data.email}}</td>
+
+              </tr>
+
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <div class="panel-header panel-header-sm">
 </div>
 <div class="main-content">
   <div class="row">
-    <div class="col-md-8">
-      <div class="card">
-        <div class="card-header">
-      
-          
-          <button type="button" class="btn btn-outline-primary">Edit Profile</button>
-        </div>
-        <div class="card-body">
-          <form>
-            <div class="row">
-                <div class="col-md-3 px-1">
-                    <div class="form-group">
-                      <label>Username</label>
-                      <input type="text" class="form-control" placeholder="Username" >
-                    </div>
-              
-              
-              </div>
-              <div class="col-md-4 pl-1">
-                <div class="form-group">
-                  <label for="email">Email address</label>
-                  <input name="email" id="email" type="email" class="form-control" placeholder="Email">
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6 pr-1">
-                <div class="form-group">
-                  <label>First Name</label>
-                  <input type="text" class="form-control" placeholder="First name" >
-                </div>
-              </div>
-              <div class="col-md-6 pl-1">
-                <div class="form-group">
-                  <label>Last Name</label>
-                  <input type="text" class="form-control" placeholder="Last Name">
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label>Address</label>
-                  <input type="text" class="form-control" placeholder="Home Address" >
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-4 pr-1">
-                <div class="form-group">
-                  <label>City</label>
-                  <input type="text" class="form-control" placeholder="City">
-                </div>
-              </div>
-              <div class="col-md-4 px-1">
-                <div class="form-group">
-                  <label>Country</label>
-                  <input type="text" class="form-control" placeholder="Country" >
-                </div>
-              </div>
-              <div class="col-md-4 pl-1">
-                <div class="form-group">
-                  <label>Postal Code</label>
-                  <input type="number" class="form-control" placeholder="ZIP Code">
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group">
-                  
-                  
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
     <div class="col-md-4">
-      <div class="card card-user">
+      <div class="card text-blue bg-light">
         <div class="image">
-          <img src="assets/images/profile.png" alt="...">
+          <img src="assets/images/profile.png">
         </div>
+
         <div class="card-body">
-          <div class="author">
-           
-            <p class="description">
-             Sana
-            </p>
-          </div>
-      
-        <hr>
-        <div class="button-container">
-          <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
-            <i class="fab fa-facebook-f"></i>
-          </button>
-          <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
-            <i class="fab fa-twitter"></i>
-          </button>
-          <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
-            <i class="fab fa-google-plus-g"></i>
-          </button>
+          <h4 class="card-title">{{this.User.data.username}}</h4>
+          <p class="card-text">{{this.User.data.email}}</p>
         </div>
       </div>
     </div>

@@ -10,6 +10,9 @@ const AuthController = {
     async create_user(req, res, next) {
 
         const newUser = new User({
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            gender: req.body.gender,
             username: req.body.username,
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password, 10),

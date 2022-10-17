@@ -11,14 +11,14 @@ export class AdminUsersComponent implements OnInit {
 
   users: User[] = [];
 
-  constructor(private userService: UserService) { 
-    this.users = userService.getAllUsers();
+  constructor(private userService: UserService) {
+    //this.users = userService.getAllUsers();
   }
 
   ngOnInit(): void {
   }
 
-  deleteUser(i: any){
-    this.userService.deleteUser(i);
+  deleteUser(i: any) {
+    //this.userService.deleteUser(i);
   }
 }

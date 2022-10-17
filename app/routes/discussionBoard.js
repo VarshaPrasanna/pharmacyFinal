@@ -5,6 +5,8 @@ const { DiscussionBoardController } = require('../controllers');
 const { authenticationVerifier, accessLevelVerifier, isAdminVerifier } = require('../middlewares/verifyToken');
 
 router.get('/', isAdminVerifier, DiscussionBoardController.get_messages);
-router.get('/:userId', accessLevelVerifier, DiscussionBoardController.get_message)
+router.get('/:userId', DiscussionBoardController.get_message);
+router.post('/', DiscussionBoardController.post_message)
+router.post('/reply', isAdminVerifier, DiscussionBoardController.post_message)
 
 module.exports = router;

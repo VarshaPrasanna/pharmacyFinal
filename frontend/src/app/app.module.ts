@@ -11,7 +11,7 @@ import { SignupComponent } from './signup/signup.component';
 import { ProductInfoComponent } from './product-info/product-info.component';
 import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
-import { HttpClientModule } from '@angular/common/http';
+
 import { PaymentComponent } from './payment/payment.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { DiscussionBoardComponent } from './discussion-board/discussion-board.component';
@@ -21,9 +21,9 @@ import { AddProductsComponent } from './admin-dashboard/Manage-Products/add-prod
 import { UpdateProductsComponent } from './admin-dashboard/Manage-Products/update-products/update-products.component';
 import { ViewProductsComponent } from './admin-dashboard/Manage-Products/view-products/view-products.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { AuthInterceptor } from './auth.interceptor';
 
-
-
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +42,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     AddProductsComponent,
     UpdateProductsComponent,
     ViewProductsComponent,
+    UserProfileComponent
 
 
 
@@ -53,14 +54,21 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     SlickCarouselModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
+    HttpClientModule
+
   ],
   exports: [
     HomeComponent,
     HeaderComponent,
     FooterComponent,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

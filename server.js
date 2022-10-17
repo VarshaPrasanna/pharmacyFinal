@@ -12,13 +12,14 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors());
 
 
-const { auth_route, user_route, product_route, cart_route, order_route } = require('./app/routes/');
+const { auth_route, user_route, product_route, cart_route, order_route, discussionBoard_route } = require('./app/routes/');
 
 app.use('/auth', auth_route);
 app.use('/users', user_route);
 app.use('/products', product_route);
 app.use('/carts', cart_route);
 app.use('/orders', order_route);
+app.use('/message', discussionBoard_route);
 
 const dbConfig = require('./config/database.config.js');
 
@@ -33,6 +34,11 @@ mongoose.connect(dbConfig.url, {
         console.log('Could not connect to the database. Exiting now...', err);
         process.exit();
     });
+
+app.post("/members", cors(), (req, res) => {
+    console.log(req.body);
+    res.status(200).send({ "message": "data received" });
+});
 
 /* listen for requests */
 app.listen(3000, () => {
