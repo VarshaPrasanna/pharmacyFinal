@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 //import { UserMockData } from './mock-data/users-mock-data';
 import { User } from './models/user';
-import { Observable, throwError } from 'rxjs';
+import { Observable, Subject, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import {
   HttpClient,
@@ -15,11 +15,15 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class UserService {
+  isUserLogged = new Subject<boolean>();
   API_URL: string = 'http://localhost:3000';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-  currentUser = {};
+
   users: User[] = [];
+  currentUserId!: any;
+  id!: number;
+
 
 
   constructor(private httpClient: HttpClient, public router: Router, private auth: AuthService) {
@@ -27,6 +31,16 @@ export class UserService {
   }
 
 
+  ngOnInit(): void {
+
+
+    this.currentUserId = this.getUser(this.id);
+    console.log(this.currentUserId);
+  }
+
+  clearSession(): void {
+    localStorage.clear();
+  }
   getAccessToken() {
     return localStorage.getItem('accessToken');
   }
@@ -38,12 +52,31 @@ export class UserService {
     );
     return headers;
   }
-
+  isLoggedIn(): boolean {
+    try {
+      if (localStorage.getItem('userId')) {
+        return true;
+      }
+      return false;
+    } catch (err) {
+      return false;
+    }
+  }
 
   getUser(id: number) {
-    return this.httpClient.get(`${this.API_URL}/users/myinfo/634ab165694d97064f69f010`, {
+    const userId = localStorage.getItem('userId')
+    return this.httpClient.get(`${this.API_URL}/users/myinfo/${userId}`, {
       headers: this.getAuthHeader()
+
     });
   }
+  // Update user
+  updateUser(id: any, data: any): Observable<any> {
+    const userId = localStorage.getItem('userId')
+    let url = `${this.API_URL}/users/update/${userId}`;
+    return this.httpClient.put(url, data, { headers: this.getAuthHeader() })
+
+  }
+
 
 }

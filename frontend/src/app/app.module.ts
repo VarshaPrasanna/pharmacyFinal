@@ -24,6 +24,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AuthInterceptor } from './auth.interceptor';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { EditUserComponent } from './edit-user/edit-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     AddProductsComponent,
     UpdateProductsComponent,
     ViewProductsComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    EditUserComponent
 
 
 

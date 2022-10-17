@@ -38,6 +38,7 @@ export class AuthService {
     return this.httpClient.post<any>(`${this.API_URL}/auth/login/`, user)
       .subscribe((res: any) => {
         localStorage.setItem('token', res.accessToken)
+        localStorage.setItem('userId', res._id)
         //localStorage.setItem('isAdmin', res.isAdmin)
         //this.currentUserSubject.next(res.user); // <-- pump the value in here
         console.log(res.isAdmin)
@@ -55,11 +56,18 @@ export class AuthService {
   getAccessToken() {
     return localStorage.getItem('accessToken');
   }
+  getUserId() {
+    return localStorage.getItem('id');
+  }
 
   get isLoggedIn(): boolean {
     let authToken = localStorage.getItem('accessToken');
     return (authToken !== null) ? true : false;
   }
+  clearSession(): void {
+    localStorage.clear();
+  }
+
 
   logout() {
     if (localStorage.removeItem('accessToken') == null) {

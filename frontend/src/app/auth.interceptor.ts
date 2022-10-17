@@ -19,7 +19,11 @@ export class AuthInterceptor implements HttpInterceptor {
     const accessToken = this.authService.getAccessToken();
     if (accessToken) {
       const cloned = req.clone({
-        headers: req.headers.set("token", accessToken)
+        setHeaders: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + accessToken
+        }
       });
       console.log(accessToken)
       return next.handle(cloned);
@@ -27,12 +31,14 @@ export class AuthInterceptor implements HttpInterceptor {
     else {
       return next.handle(req);
     }
-    // req = req.clone({
-    //   headers: req.headers.set('Content-Type', 'application/json', 'token', 'accessToken')
-    //   // setHeaders: {
-    //   //   token: 'accessToken'
-    //   // }
-    // });
+
 
   }
+  // req = req.clone({
+  //   headers: req.headers.set('Content-Type', 'application/json', 'token', 'accessToken')
+  //   // setHeaders: {
+  //   //   token: 'accessToken'
+  //   // }
+  // });
+
 }
