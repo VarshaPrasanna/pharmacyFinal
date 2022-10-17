@@ -1,32 +1,93 @@
 <nav class="navbar navbar-expand-lg " style="background-color: #a7a5a8;">
-    <a class="navbar-brand">Digital Pharma</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" routerLinkActive="active" routerLink="/Manage-Products">Manage Products</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link"  routerLinkActive="active" routerLink="/Manage-orders">Manage Orders</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link"routerLinkActive="active" routerLink="/Manage-Users">Manage Users </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="/Messages">Messages </a>
-        </li>
-      </ul>
-    </div>
-    <div>
-        <a  name="logout" id="logout" class="btn btn-primary " role="button" color>Logout</a>
+  <a class="navbar-brand">Digital Pharma</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" routerLinkActive="active" routerLink="/Manage-Products">Manage Products</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  routerLinkActive="active" routerLink="/Manage-orders">Manage Orders</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/Manage-Users">Manage Users </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/Messages">Messages </a>
+      </li>
+    </ul>
+  </div>
+  <div>
+      <a routerLinkActive="active" routerLink="/" name="logout" id="logout" class="btn btn-primary " role="button" color>Logout</a>
 
-    </div>
-  </nav>
+  </div>
+</nav>
 
-<p>admin-dashboard works!</p>
-<a routerLinkActive="active" routerLink="/Manage-Products">Manage Products</a><br>
-<a routerLinkActive="active" routerLink="/Manage-orders">Manage Orders</a><br>
-<a routerLinkActive="active" routerLink="/Manage-Users">Manage Users</a><br>
-<a routerLinkActive="active" routerLink="/Messages">Messages</a>
+  <div style="height: 15%;">
+
+      <h1 style="padding: 1%;"> Welcome Admin</h1>
+
+  </div>
+
+
+
+<div style="height: 30%;">
+<table align="center" >
+  <td style="width: 50%;">
+    <div class="card">
+      
+      <div class="card-body">
+        <h5 class="card-title">Manage Products</h5>
+        <p class="card-text"> Click below to View ,Add products and update, delete existing products</p>
+        <a routerLinkActive="active" routerLink="/Manage-Products" class="btn btn-primary">Manage Products</a>
+      </div>
+    </div>
+  </td>
+  <td style="width:50%">
+    <div class="card">
+      
+      <div class="card-body">
+        <h5 class="card-title">Manage Users</h5>
+        <p class="card-text">Click below to View registered users and block them</p>
+        <a routerLinkActive="active" routerLink="/Manage-Users" class="btn btn-primary">Manage Users</a>
+      </div>
+      
+    </div>
+  </td>
+</table>
+</div>
+
+<div>
+<table align="center">
+  <td style="width: 50%;">
+    <div class="card">
+      
+      <div class="card-body">
+        <h5 class="card-title">Manage Orders</h5>
+        <p class="card-text">Click below to see pending orders and change Delivery status of orders </p>
+        <a routerLinkActive="active" routerLink="/Manage-orders" class="btn btn-primary">Manage Orders</a>
+      </div>
+    </div>
+  </td>
+
+  <td style="width: 50%;">
+    <div class="card">
+      
+      <div class="card-body">
+        <h5 class="card-title">Messages</h5>
+        <p class="card-text">Click below to check your Messages and see your Previous Messages</p>
+        <a routerLinkActive="active" routerLink="/Messages" class="btn btn-primary"> Messages </a>
+      </div>
+    </div>
+  </td>
+</table>
+</div>
+
+
+
+
+
+
+

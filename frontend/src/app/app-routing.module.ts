@@ -34,7 +34,8 @@ const routes: Routes = [
   { path: "discussion-board", component: DiscussionBoardComponent },
   { path: "manage-users", component: AdminUsersComponent },
   { path: "Manage-Products", component: ViewProductsComponent },
-  { path: 'profile/:id', component: UserProfileComponent, canActivate: [AuthGuard] }
+  { path: 'profile/:id', component: UserProfileComponent, canActivate: [AuthGuard] },
+  { path: "log-out",component:HomeComponent}
 ];
 
 @NgModule({
