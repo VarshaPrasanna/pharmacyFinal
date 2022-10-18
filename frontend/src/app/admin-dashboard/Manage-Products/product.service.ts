@@ -1,43 +1,45 @@
-import { Injectable} from "@angular/core";
+import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { HttpClient} from '@angular/common/http';
+import {
+  HttpClient, HttpHeaders
+} from '@angular/common/http';
+import { Pipe, PipeTransform } from '@angular/core';
 
-import { ServerResponse } from "./models/ServerResponse";
-
+import { AuthService } from "src/app/auth.service";
+//import { ServerResponse } from "./models/ServerResponse";
 import { Product } from "./models/product";
+import { Router } from "@angular/router";
+import { map } from 'rxjs/operators';
 
-const domain = 'http://localhost:3000';
-const viewProduct = domain+'';
-const addProduct = domain+'';
-const updateProduct=domain+'';
-const deleteProduct=domain+'';
+
 
 @Injectable({
-  providedIn:'root'
+  providedIn: 'root'
 })
 
 export class ProductService {
-  constructor(private http: HttpClient) { }
+  API_URL: string = 'http://localhost:3000';
+  headers = new HttpHeaders().set('Content-Type', 'application/json');
 
+  constructor(private httpClient: HttpClient, public router: Router, private auth: AuthService) { }
 
-  viewProduct(id:string):Observable<ServerResponse<Product>>{
-    return this.http.get<ServerResponse<Product>>(viewProduct+id)
+  getAuthHeader(): HttpHeaders {
+    const headers = new HttpHeaders(
+      {
+        Authorization: '' + this.auth.getAccessToken()
+      }
+    );
+    return headers;
   }
+  // Get all Products
 
-  addProduct(payload:Product):Observable<ServerResponse<Product>>{
-    return this.http.post<ServerResponse<Product>>(addProduct, payload);
-  }
+  getProducts() {
 
-
-  updateProduct(id:String, payload:Product):Observable<ServerResponse<Product>>{
-    return this.http.put<ServerResponse<Product>>(updateProduct+id, payload);
-  }
-
-  deleteProduct(id:String):Observable<ServerResponse<Product>>{
-    return this.http.delete<ServerResponse<Product>>(deleteProduct+id);
+    return this.httpClient.get(`${this.API_URL}/products`, {
+      headers: this.getAuthHeader()
+    })
   }
 
 
 }
-
 

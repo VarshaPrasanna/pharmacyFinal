@@ -1,11 +1,7 @@
-/* import { Component, OnInit } from '@angular/core';
-
-import { Router,ActivatedRoute } from '@angular/router';
-import { Product } from '../models/product';
-
+import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
-
-
+import { Product } from '../models/product';
+//import { ProductMockData } from 'src/app/mock-data/products-mock-data';
 @Component({
   selector: 'app-view-products',
   templateUrl: './view-products.component.html',
@@ -13,21 +9,30 @@ import { ProductService } from '../product.service';
 })
 export class ViewProductsComponent implements OnInit {
 
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    private ProductService: ProductService
-    ) {}
- products: any=[];
-  ngOnInit(): void {
-    this.ProductId = this.route.snapshot.paramMap.get('ProductId');
+  Product!: any;
+  constructor(private productService: ProductService) {
+
+    this.readProducts();
 
   }
-  this.ProductService
-  .viewProduct(this.ProductId)
-  .subscribe((res)=>{
-    this.Product=res.data;
-  })
- 
+
+
+  ngOnInit(): void {
+  }
+  readProducts() {
+    this.productService.getProducts().subscribe((data) => {
+      this.Product = data;
+      console.log(this.Product)
+    });
+  }
+
+  // below code for backend
+
+  // products: any=[];
+  //constructor( private productService : ProductService) {this.getAllProducts}
+  //   getAllProducts(){
+  //   this.productService.getProducts().subscribe((productdata)=>{
+  //     this.products =productdata;
+  //   })
+  // } 
 }
- */

@@ -1,11 +1,19 @@
 export class Product {
-    title: string = "";
-    description: string = "";
-    img: string = "";
-    categories: string='';
-    price: number = 0;
+  _id!: string;
+  title!: string
+  description!: string
+  img!: string
+  categories!: string
+  price!: number
 
-    constructor(){
-      
-    }
+  constructor() {
+    this._id = '';
+    this.title = '';
+    this.description = '';
+    this.img = '';
+    this.categories = '';
+    this.price = 0;
+
+
   }
+}
