@@ -13,7 +13,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let user of users; let i = index">
+        <tr *ngFor="let user of users?.users; let i = index">
             <td scope="row">{{user.firstName}}</td>
             <td>{{user.username}}</td>
             <td>{{user.email}}</td>

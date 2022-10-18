@@ -9,7 +9,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { SignupComponent } from './signup/signup.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { DiscussionBoardComponent } from './discussion-board/discussion-board.component';
-import { AdminUsersComponent } from './admin-users/admin-users.component';
+import { AdminUsersComponent } from './admin-dashboard/admin-users/admin-users.component';
 //import { ViewProductsComponent } from './admin-dashboard/Manage-Products/view-products/view-products.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AuthGuard } from "./auth.guard";

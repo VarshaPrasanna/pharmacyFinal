@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../models/user';
-import { UserService } from '../user.service';
+import { User } from '../../models/user';
+import { UserService } from '../../user.service';
 
 @Component({
   selector: 'app-admin-users',
@@ -24,8 +24,8 @@ export class AdminUsersComponent implements OnInit {
   }
 
   getUsers(){
-    this.userService.getAllUsers().subscribe((res) => {
-      this.users = res.data;
+    this.userService.getAllUsers().subscribe((data) => {
+      this.users = data;
     })
   }
 }
