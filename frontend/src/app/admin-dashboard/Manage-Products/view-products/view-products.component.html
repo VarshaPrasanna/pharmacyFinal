@@ -20,18 +20,18 @@
                 <td>{{product.img}}</td>
                 <td>{{product.title}}</td>
                 <td>{{product.description}}</td>
-                <td>{{product.category}}</td>
+                <td>{{product.categories}}</td>
                 <td>{{product.price | currency: 'INR'}}</td>
 
                 <td class="text-center edit-block">
                     <!-- <span class="edit" [routerLink]="['/update',product._id]"> -->
-                    <!-- <span class="edit" [routerLink]="['/update-product',product.id]">
-                        <button type="button" class="btn btn-success btn-sm">update</button>
-                    </span> -->
+                    <span class="edit">
+                        <button type="button" class="btn btn-success btn-sm"  [routerLink]="['/update-product',product._id]">update</button>
+                    </span>
                 </td>
             </tr>
         </tbody>
     </table>
 </div>
-<button routerLink="/add-product">add products</button>
+<button routerLink="/add-products">add products</button>
 <!-- <button routerLink="/update-product">update product</button> -->

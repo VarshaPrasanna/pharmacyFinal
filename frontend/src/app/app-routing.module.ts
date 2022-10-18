@@ -11,6 +11,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { DiscussionBoardComponent } from './discussion-board/discussion-board.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { ViewProductsComponent } from './admin-dashboard/Manage-Products/view-products/view-products.component';
+import { AddProductsComponent } from './admin-dashboard/Manage-Products/add-products/add-products.component';
+import { UpdateProductsComponent } from './admin-dashboard/Manage-Products/update-products/update-products.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AuthGuard } from "./auth.guard";
 import { EditUserComponent } from './edit-user/edit-user.component';
@@ -28,6 +30,8 @@ const routes: Routes = [
   { path: "admin", component: AdminDashboardComponent },
   { path: "discussion-board", component: DiscussionBoardComponent },
   { path: "Manage-Products", component: ViewProductsComponent },
+  {path: "add-products", component: AddProductsComponent},
+  {path: "update-product", component: UpdateProductsComponent},
   { path: "profile", component: UserProfileComponent },
   { path: "cart", component: CartComponent },
   { path: "payment", component: PaymentComponent },

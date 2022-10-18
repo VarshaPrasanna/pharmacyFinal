@@ -1,1 +1,86 @@
-<p>update-products works!</p>
+<!-- <p>update-products works!</p> -->
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">edit product</h4>
+        <!-- <div class="alert alert-primary alert-dismissible fade show" role="alert"
+        *ngIf= "formSubmitted">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span>
+            </button>
+            <strong>Bingo!!!!!product edit successfully.....</strong>
+        </div> -->
+        <div class="row">
+            <div class="col-md-6">
+                <form novalidate [formGroup]="updateProductForm">
+                    <div class="form-group">
+                        <label for="title">title</label>
+                        <input class="form-control" type="text" formControlName="title" 
+                        [ngClass]="{'is-invalid':title.errors && (title.touched || title.dirty),'is-valid' :title.valid}">
+                        <!-- error -->
+                        <div
+                          class="invalid-feedback"
+                          *ngIf = "title.errors?.['required']"
+                        >
+                          Name is required.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputdescription">description</label>
+                        <input class="form-control" type="text" formControlName="description"  [ngClass]="{'is-invalid':description.errors && (description.touched || description.dirty),'is-valid' :description.valid}">
+                        <!-- error -->
+                        <div
+                          class="invalid-feedback"
+                          *ngIf = "description.errors?.['required']"
+                        >
+                          Enter your description
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputimg">img</label>
+                        <!-- <img src="" > -->
+                        <!-- error -->
+                        <!-- <div
+                          class="invalid-feedback"
+                          
+                        >
+                          Choose image
+                        </div> -->
+                      </div>
+                      <div class="form-group">
+                        <label for="inputcategory">category</label>
+                        <input
+                          class="form-control"
+                          type="text"
+                          formControlName="categories" [ngClass]="{'is-invalid':categories.errors && (categories.touched || categories.dirty),'is-valid' :categories.valid}">
+                        <!-- error -->
+                        <div
+                          class="invalid-feedback"
+                          *ngIf = "categories.errors?.['required']"
+                        >
+                          Enter your category.
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputprice">price</label>
+                        <input
+                          class="form-control"
+                          type="text"
+                          formControlName="price" [ngClass]="{'is-invalid':price.errors && (price.touched || price.dirty),'is-valid' :price.valid}">
+                        <!-- error -->
+                        <div
+                          class="invalid-feedback"
+                          *ngIf = "price.errors?.['required']"
+                        >
+                          Enter your price.
+                        </div>
+                      </div>
+                      <!-- <button type="submit" [disabled] = "updateProductForm.invalid"
+                      (click)="editProduct()" class="btn btn-primary">submit</button> -->
+                      <button type="submit" 
+                      class="btn btn-primary" (click)="editProduct()">submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
