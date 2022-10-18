@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../models/user';
 import { UserService } from '../../user.service';
 
 @Component({
@@ -19,8 +18,11 @@ export class AdminUsersComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  deleteUser(i: any) {
-    //this.userService.deleteUser(i);
+  deleteUser(id: string) {
+    this.userService.deleteUser(id).subscribe(()=>{  
+      console.log("Deleted");  
+      this.getUsers();
+  }); 
   }
 
   getUsers(){
