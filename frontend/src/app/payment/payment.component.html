@@ -6,7 +6,14 @@
     </div>
 </div>
 
-<div class="row justify-content-around">
+<div class="card align-items-center"*ngIf="submitted">
+    <div class="card-body">
+        <h2 class="card-title text-success">Your Order has been placed!</h2>
+        <a name="" id="" class="btn btn-success btn-block" href="#" role="button">View order status</a>
+    </div>
+</div>
+
+<div class="row justify-content-around" *ngIf="!submitted">
     <div class="col-lg-5">
         <h5 class="p-3"> Shipping Details</h5>
         <div class="container">
@@ -146,7 +153,8 @@
 
                 </div>
             </form>
-            <a class="btn btn-dark mt-5 mb-5 btn-lg btn-block" href="#">Place Order</a>
+            <button type="button"class="btn btn-dark mt-5 mb-5 btn-lg btn-block" [disabled]="(addressForm.invalid) && (paymentForm.invalid)"
+            (click)="onSubmit()">Place Order</button>
         </div>
     </div>
 </div>

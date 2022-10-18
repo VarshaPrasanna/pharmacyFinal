@@ -9,10 +9,11 @@ import { UserService } from '../user.service';
 })
 export class AdminUsersComponent implements OnInit {
 
-  users: User[] = [];
+  users: any;
 
   constructor(private userService: UserService) {
-    //this.users = userService.getAllUsers();
+    this.getUsers();
+    console.log(this.users);
   }
 
   ngOnInit(): void {
@@ -20,5 +21,11 @@ export class AdminUsersComponent implements OnInit {
 
   deleteUser(i: any) {
     //this.userService.deleteUser(i);
+  }
+
+  getUsers(){
+    this.userService.getAllUsers().subscribe((res) => {
+      this.users = res.data;
+    })
   }
 }

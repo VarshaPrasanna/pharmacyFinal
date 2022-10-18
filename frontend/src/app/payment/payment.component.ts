@@ -45,5 +45,7 @@ export class PaymentComponent implements OnInit {
     return this.paymentForm.controls;
   }
 
-
+  onSubmit(){
+    this.submitted = true;
+  }
 }
