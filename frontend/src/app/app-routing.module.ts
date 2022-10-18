@@ -9,8 +9,8 @@ import { PaymentComponent } from './payment/payment.component';
 import { SignupComponent } from './signup/signup.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { DiscussionBoardComponent } from './discussion-board/discussion-board.component';
-import { AdminUsersComponent } from './admin-users/admin-users.component';
-import { ViewProductsComponent } from './admin-dashboard/Manage-Products/view-products/view-products.component';
+import { AdminUsersComponent } from './admin-dashboard/admin-users/admin-users.component';
+//import { ViewProductsComponent } from './admin-dashboard/Manage-Products/view-products/view-products.component';
 import { AddProductsComponent } from './admin-dashboard/Manage-Products/add-products/add-products.component';
 import { UpdateProductsComponent } from './admin-dashboard/Manage-Products/update-products/update-products.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -29,7 +29,6 @@ const routes: Routes = [
   { path: "payment", component: PaymentComponent },
   { path: "admin", component: AdminDashboardComponent },
   { path: "discussion-board", component: DiscussionBoardComponent },
-  { path: "Manage-Products", component: ViewProductsComponent },
   {path: "add-products", component: AddProductsComponent},
   {path: "update-product", component: UpdateProductsComponent},
   { path: "profile", component: UserProfileComponent },
@@ -38,7 +37,7 @@ const routes: Routes = [
   { path: "admin", component: AdminDashboardComponent },
   { path: "discussion-board", component: DiscussionBoardComponent },
   { path: "manage-users", component: AdminUsersComponent },
-  { path: "Manage-Products", component: ViewProductsComponent },
+  //{ path: "Manage-Products", component: ViewProductsComponent },
   { path: 'profile/:id', component: UserProfileComponent, canActivate: [AuthGuard] },
   { path: 'edit-user', component: EditUserComponent },
   { path: "log-out", component: HomeComponent }

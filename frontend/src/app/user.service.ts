@@ -42,12 +42,12 @@ export class UserService {
     localStorage.clear();
   }
   getAccessToken() {
-    return localStorage.getItem('accessToken');
+    return localStorage.getItem('token');
   }
   getAuthHeader(): HttpHeaders {
     const headers = new HttpHeaders(
       {
-        Authorization: '' + this.auth.getAccessToken()
+        Authorization: ''+this.auth.getAccessToken()
       }
     );
     return headers;
@@ -78,5 +78,14 @@ export class UserService {
 
   }
 
+  getAllUsers(): Observable<any> {
+    let url = `${this.API_URL}/users`;
+    return this.httpClient.get(url, { headers: this.getAuthHeader() });
+  }
 
+  deleteUser(id: string){
+    return this.httpClient.delete(`${this.API_URL}/users/${id}`, {
+      headers: this.getAuthHeader()
+    });
+  }
 }

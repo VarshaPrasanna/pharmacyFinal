@@ -1,0 +1,19 @@
+<p>admin-manage-orders works!</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>UserId</th>
+            <th>Address</th>
+            <th>Amount</th>
+            <th>Order Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let order of orders">
+            <td scope="row">{{order.userId}}</td>
+            <td>{{order.address}}</td>
+            <td>{{order.amount}}</td>
+            <td>{{order.status}}</td>
+        </tr>
+    </tbody>
+</table>

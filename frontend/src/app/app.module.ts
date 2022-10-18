@@ -15,17 +15,19 @@ import { CartComponent } from './cart/cart.component';
 import { PaymentComponent } from './payment/payment.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { DiscussionBoardComponent } from './discussion-board/discussion-board.component';
-import { AdminUsersComponent } from './admin-users/admin-users.component';
+import { AdminUsersComponent } from './admin-dashboard/admin-users/admin-users.component';
 import { ManageProductsComponent } from './admin-dashboard/Manage-Products/manage-products/manage-products.component';
 import { AddProductsComponent } from './admin-dashboard/Manage-Products/add-products/add-products.component';
 import { UpdateProductsComponent } from './admin-dashboard/Manage-Products/update-products/update-products.component';
 import { ViewProductsComponent } from './admin-dashboard/Manage-Products/view-products/view-products.component';
+
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AuthInterceptor } from './auth.interceptor';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { EditUserComponent } from './edit-user/edit-user.component';
 // import { ValueArrayPipe } from './pipes/value-array.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +48,8 @@ import { EditUserComponent } from './edit-user/edit-user.component';
     ViewProductsComponent,
     UserProfileComponent,
     EditUserComponent,
-    // ValueArrayPipe
+    
+
 
 
 
