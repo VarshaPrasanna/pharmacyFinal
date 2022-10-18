@@ -8,6 +8,8 @@
             <p class="lead">Already have an account? <a routerLink="/login"> Login now</a></p>
           </div>
           <form novalidate [formGroup]="signUpForm" (ngSubmit)="registerUser()">
+
+
             <div class="form-group">
               <label for="firstName">Enter your firstName</label>
               <input type="text" class="form-control" placeholder="Enter firstName" formControlName="firstName">

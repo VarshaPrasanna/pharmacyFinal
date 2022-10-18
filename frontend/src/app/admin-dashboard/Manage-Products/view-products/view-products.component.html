@@ -1,1 +1,37 @@
-<p>view-products works!</p>
+<div class="container">
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Product ID</th>
+                <th scope="col">img</th>
+                <th scope="col">title</th>
+                <th scope="col">description</th>
+                <th scope="col">categories</th>
+                <th scope="col">price</th>
+
+                <th scope="col center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of Product.products;let i = index">
+                <!-- <th scope="row">{{product._id}}</th> -->
+                <th scope="row">{{product._id}}</th>
+                <td>{{product.img}}</td>
+                <td>{{product.title}}</td>
+                <td>{{product.description}}</td>
+                <td>{{product.category}}</td>
+                <td>{{product.price | currency: 'INR'}}</td>
+
+                <td class="text-center edit-block">
+                    <!-- <span class="edit" [routerLink]="['/update',product._id]"> -->
+                    <!-- <span class="edit" [routerLink]="['/update-product',product.id]">
+                        <button type="button" class="btn btn-success btn-sm">update</button>
+                    </span> -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<button routerLink="/add-product">add products</button>
+<!-- <button routerLink="/update-product">update product</button> -->

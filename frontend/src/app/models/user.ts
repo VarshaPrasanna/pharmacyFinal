@@ -18,7 +18,7 @@ export class User {
         this.email = '';
         this.password = '';
         this.isAdmin;
-        this.accessToken = '18';
+        this.accessToken = '';
     }
 
 
