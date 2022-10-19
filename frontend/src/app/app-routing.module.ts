@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 
-import { ProductInfoComponent } from './product-info/product-info.component';
+import { ProductInfoComponent } from './product-list/product-info/product-info.component';
 import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
 import { PaymentComponent } from './payment/payment.component';
@@ -10,10 +10,12 @@ import { SignupComponent } from './signup/signup.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { DiscussionBoardComponent } from './discussion-board/discussion-board.component';
 import { AdminUsersComponent } from './admin-dashboard/admin-users/admin-users.component';
-//import { ViewProductsComponent } from './admin-dashboard/Manage-Products/view-products/view-products.component';
+import { ViewProductsComponent } from './admin-dashboard/Manage-Products/view-products/view-products.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AuthGuard } from "./auth.guard";
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { ManageQueryComponent } from './admin-dashboard/manage-query/manage-query.component';
 
 
 
@@ -33,10 +35,12 @@ const routes: Routes = [
   { path: "admin", component: AdminDashboardComponent },
   { path: "discussion-board", component: DiscussionBoardComponent },
   { path: "manage-users", component: AdminUsersComponent },
-  //{ path: "Manage-Products", component: ViewProductsComponent },
+  { path: "Manage-Products", component: ViewProductsComponent },
   { path: 'profile/:id', component: UserProfileComponent, canActivate: [AuthGuard] },
   { path: 'edit-user', component: EditUserComponent },
-  { path: "log-out", component: HomeComponent }
+  { path: "log-out", component: HomeComponent },
+  { path: "product-list", component: ProductListComponent },
+  { path: "messageList", component: ManageQueryComponent }
 ];
 
 @NgModule({

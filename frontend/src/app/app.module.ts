@@ -8,7 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { SignupComponent } from './signup/signup.component';
-import { ProductInfoComponent } from './product-info/product-info.component';
+import { ProductInfoComponent } from './product-list/product-info/product-info.component';
 import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
 
@@ -19,12 +19,17 @@ import { AdminUsersComponent } from './admin-dashboard/admin-users/admin-users.c
 import { ManageProductsComponent } from './admin-dashboard/Manage-Products/manage-products/manage-products.component';
 //import { AddProductsComponent } from './admin-dashboard/Manage-Products/add-products/add-products.component';
 //import { UpdateProductsComponent } from './admin-dashboard/Manage-Products/update-products/update-products.component';
-//import { ViewProductsComponent } from './admin-dashboard/Manage-Products/view-products/view-products.component';
+import { ViewProductsComponent } from './admin-dashboard/Manage-Products/view-products/view-products.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AuthInterceptor } from './auth.interceptor';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ValueArrayPipe } from './pipes/value-array.pipe';
+import { BlogComponent } from './blog/blog.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { ManageQueryComponent } from './admin-dashboard/manage-query/manage-query.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,10 +46,15 @@ import { ValueArrayPipe } from './pipes/value-array.pipe';
     AdminUsersComponent,
     ManageProductsComponent,
     // //AddProductsComponent,
-   // // UpdateProductsComponent,
-    //ViewProductsComponent,
+    // // UpdateProductsComponent,
+    ViewProductsComponent,
     UserProfileComponent,
-    ValueArrayPipe
+    ValueArrayPipe,
+
+    BlogComponent,
+    ProductListComponent,
+    ManageQueryComponent,
+
 
 
 

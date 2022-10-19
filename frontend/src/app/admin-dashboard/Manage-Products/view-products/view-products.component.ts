@@ -10,6 +10,7 @@ import { Product } from '../models/product';
 export class ViewProductsComponent implements OnInit {
 
   Product!: any;
+
   constructor(private productService: ProductService) {
 
     this.readProducts();
@@ -26,13 +27,5 @@ export class ViewProductsComponent implements OnInit {
     });
   }
 
-  // below code for backend
 
-  // products: any=[];
-  //constructor( private productService : ProductService) {this.getAllProducts}
-  //   getAllProducts(){
-  //   this.productService.getProducts().subscribe((productdata)=>{
-  //     this.products =productdata;
-  //   })
-  // } 
 }
