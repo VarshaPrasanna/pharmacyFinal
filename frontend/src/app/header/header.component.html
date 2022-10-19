@@ -88,56 +88,56 @@
         <a name="logout" id="logout" class="btn btn-outline-primary m-1" routerLink="/" role="button" (click)="logout()"
           color>Logout</a>
 
-
+          <li class="dropdown cart-nav dropdown-slide list-inline-item">
+            <a href="#" class="dropdown-toggle cart-icon m-1" data-toggle="dropdown" data-hover="dropdown">
+              <i class="tf-ion-android-cart"></i>
+            </a>
+            <div class="dropdown-menu cart-dropdown">
+              <!-- Cart Item -->
+              <div class="media">
+    
+                <a routerLink="/product-info">
+                  <img class="media-object img- mr-3" src="assets/images/cart-1.jpg" alt="image" />
+                </a>
+                <div class="media-body">
+                  <h6>Thermometer</h6>
+                  <div class="cart-price">
+                    <span>1 x</span>
+                    <span>1250.00</span>
+                  </div>
+                </div>
+                <a href="#" class="remove"><i class="tf-ion-close"></i></a>
+              </div><!-- / Cart Item -->
+    
+              <!-- Cart Item -->
+              <div class="media">
+                <a routerLink="/product-info">
+                  <img class="media-object img-fluid mr-3" src="assets/images/cart-2.jpg" alt="image" />
+                </a>
+                <div class="media-body">
+                  <h6>Vaporizer</h6>
+                  <div class="cart-price">
+                    <span>1 x</span>
+                    <span>1250.00</span>
+                  </div>
+                </div>
+                <a href="#" class="remove"><i class="tf-ion-close"></i></a>
+              </div><!-- / Cart Item -->
+    
+              <div class="cart-summary">
+                <span class="h6">Total</span>
+                <span class="total-price h6">$1799.00</span>
+    
+                <div class="text-center cart-buttons mt-3">
+                  <a routerLink="/cart" class="btn btn-small btn-transparent btn-block">View Cart</a>
+                  <a href="#" class="btn btn-small btn-main btn-block">Checkout</a>
+                </div>
+              </div>
+            </div>
+          </li>
       </ng-template>
 
-      <li class="dropdown cart-nav dropdown-slide list-inline-item">
-        <a href="#" class="dropdown-toggle cart-icon m-1" data-toggle="dropdown" data-hover="dropdown">
-          <i class="tf-ion-android-cart"></i>
-        </a>
-        <div class="dropdown-menu cart-dropdown">
-          <!-- Cart Item -->
-          <div class="media">
-
-            <a routerLink="/product-info">
-              <img class="media-object img- mr-3" src="assets/images/cart-1.jpg" alt="image" />
-            </a>
-            <div class="media-body">
-              <h6>Thermometer</h6>
-              <div class="cart-price">
-                <span>1 x</span>
-                <span>1250.00</span>
-              </div>
-            </div>
-            <a href="#" class="remove"><i class="tf-ion-close"></i></a>
-          </div><!-- / Cart Item -->
-
-          <!-- Cart Item -->
-          <div class="media">
-            <a routerLink="/product-info">
-              <img class="media-object img-fluid mr-3" src="assets/images/cart-2.jpg" alt="image" />
-            </a>
-            <div class="media-body">
-              <h6>Vaporizer</h6>
-              <div class="cart-price">
-                <span>1 x</span>
-                <span>1250.00</span>
-              </div>
-            </div>
-            <a href="#" class="remove"><i class="tf-ion-close"></i></a>
-          </div><!-- / Cart Item -->
-
-          <div class="cart-summary">
-            <span class="h6">Total</span>
-            <span class="total-price h6">$1799.00</span>
-
-            <div class="text-center cart-buttons mt-3">
-              <a routerLink="/cart" class="btn btn-small btn-transparent btn-block">View Cart</a>
-              <a href="#" class="btn btn-small btn-main btn-block">Checkout</a>
-            </div>
-          </div>
-        </div>
-      </li>
+      
 
     </ul>
   </div>
