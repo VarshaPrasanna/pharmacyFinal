@@ -10,8 +10,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ViewProductsComponent implements OnInit {
 
-  product!: any ;
-  
+  product!: any;
+
   constructor(
     private router: Router,
     private productService: ProductService) {
@@ -29,23 +29,15 @@ export class ViewProductsComponent implements OnInit {
       console.log(this.product)
     });
   }
-  deleteProduct(product: any, index: any){
-   if(window.confirm('Are you sure')){
-    this.productService.deleteProduct(product._id).subscribe(
-      (data)=>{
-      this.product.products.splice(index,1);
-      // this.product = data;
-   })
-   }
+  deleteProduct(product: any, index: any) {
+    if (window.confirm('Are you sure')) {
+      this.productService.deleteProduct(product._id).subscribe(
+        (data) => {
+          this.product.products.splice(index, 1);
+          // this.product = data;
+        })
+    }
   }
 
-  // below code for backend
 
-  // products: any=[];
-  //constructor( private productService : ProductService) {this.getAllProducts}
-  //   getAllProducts(){
-  //   this.productService.getProducts().subscribe((productdata)=>{
-  //     this.products =productdata;
-  //   })
-  // } 
 }

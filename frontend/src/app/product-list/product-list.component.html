@@ -1,0 +1,51 @@
+<app-header></app-header>
+<div class="col-md-3">
+    <div class=" mb-4 mt-2">
+        <select class="form-control" [(ngModel)]="sortOption">
+            <option value="product_name|asc">Sort By Name (A to Z)</option>
+            <option value="product_name|desc">Sort By Name (Z to A)</option>
+            <option value="product_price|lth">Sort By Price (Low to High)</option>
+            <option value="product_price|htl">Sort By Price (High to Low)</option>
+        </select>
+    </div>
+</div>
+
+
+
+
+
+<section class="container2" *ngFor="let product of Product.products;let i = index">
+
+    <div>
+
+        <div class="col-md-3 col-sm-6" class="column">
+            <a href="/">
+                <div class="our-team">
+                    <div class="pic">
+                        <img src="{{product.image}}">
+                    </div>
+
+                    <div class="card-body">
+                        <h6 class="card-title font-weight-bold">{{product.title}}</h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="card-text"> <small> {{product.description}} </small></p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="text-right"> <small> {{product.price | currency: 'INR'}} </small> </p>
+                            </div>
+                        </div>
+                        <button class="btn btn-sm btn-primary">Add to Cart</button>
+                    </div>
+
+
+                </div>
+            </a>
+        </div>
+    </div>
+
+
+
+
+
+</section>

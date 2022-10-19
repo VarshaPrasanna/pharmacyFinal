@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../user.service';
 
+
 @Component({
   selector: 'app-admin-users',
   templateUrl: './admin-users.component.html',
@@ -25,7 +26,7 @@ export class AdminUsersComponent implements OnInit {
   }); 
   }
 
-  getUsers(){
+  getUsers() {
     this.userService.getAllUsers().subscribe((data) => {
       this.users = data;
     })
