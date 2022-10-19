@@ -80,7 +80,12 @@ export class UserService {
 
   getAllUsers(): Observable<any> {
     let url = `${this.API_URL}/users`;
-    //console.log(localStorage.getItem('token'));
     return this.httpClient.get(url, { headers: this.getAuthHeader() });
+  }
+
+  deleteUser(id: string){
+    return this.httpClient.delete(`${this.API_URL}/users/${id}`, {
+      headers: this.getAuthHeader()
+    });
   }
 }

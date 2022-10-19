@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { Product } from '../models/product';
 //import { ProductMockData } from 'src/app/mock-data/products-mock-data';
+import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-view-products',
   templateUrl: './view-products.component.html',
@@ -9,9 +10,11 @@ import { Product } from '../models/product';
 })
 export class ViewProductsComponent implements OnInit {
 
-  Product!: any;
+  product!: any;
 
-  constructor(private productService: ProductService) {
+  constructor(
+    private router: Router,
+    private productService: ProductService) {
 
     this.readProducts();
 
@@ -22,9 +25,18 @@ export class ViewProductsComponent implements OnInit {
   }
   readProducts() {
     this.productService.getProducts().subscribe((data) => {
-      this.Product = data;
-      console.log(this.Product)
+      this.product = data;
+      console.log(this.product)
     });
+  }
+  deleteProduct(product: any, index: any) {
+    if (window.confirm('Are you sure')) {
+      this.productService.deleteProduct(product._id).subscribe(
+        (data) => {
+          this.product.products.splice(index, 1);
+          // this.product = data;
+        })
+    }
   }
 
 

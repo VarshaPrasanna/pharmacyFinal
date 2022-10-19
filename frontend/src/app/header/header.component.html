@@ -35,7 +35,7 @@
         </li><!-- / Blog -->
 
         <!-- Account -->
-        <li class="nav-item dropdown dropdown-slide">
+        <!-- <li class="nav-item dropdown dropdown-slide">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown5" role="button" data-delay="350"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Account.
@@ -49,13 +49,14 @@
             <li><a routerLink="/signup">SignUp Page</a></li>
             <li><a href="#">Forgot Password</a></li>
           </ul>
-        </li><!-- / Account -->
+        </li> --><!-- / Account -->
 
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/discussion-board">Dicussion Board</a>
+        </li>
 
-
-
-        <button style='font-size:12px' size="10px" type="button" class="btn btn-outline-primary"
-          routerLink="/discussion-board">Dicussion Board<i class='tf-ion-ios-chatboxes'></i></button>
+        <!-- <button style='font-size:12px' size="10px" type="button" class="btn btn-outline-primary"
+          routerLink="/discussion-board">Dicussion Board<i class='tf-ion-ios-chatboxes'></i></button> -->
       </ul>
     </div>
 
@@ -68,17 +69,17 @@
       <ng-template [ngIf]="!isUserLogged()">
 
         <li class="list-inline-item">
-          <a name="signup" id="signup" color="orange" class="btn btn-outline-primary" routerLink="/signup"
+          <a name="signup" id="signup" color="orange" class="btn btn-outline-primary m-1" routerLink="/signup"
             role="button">Signup</a>
         </li>
-        <a name="login" id="login" class="btn btn-outline-primary" routerLink="/login" role="button" color>Login</a>
+        <a name="login" id="login" class="btn btn-outline-primary m-1" routerLink="/login" role="button" color>Login</a>
       </ng-template>
 
       <!-- LOGOUT -->
 
       <ng-template [ngIf]="isUserLogged()">
-        <button style='font-size:12px' size="10px" type="button" routerLink="/profile"
-          class="btn btn-outline-primary">Welcome, {{this.User.data.firstName}}<svg xmlns="http://www.w3.org/2000/svg"
+        <button size="10px" type="button" routerLink="/profile"
+          class="btn btn-outline-primary m-1">Welcome, {{this.User.data.firstName}}<svg xmlns="http://www.w3.org/2000/svg"
             width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
             <path
               d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
@@ -86,59 +87,59 @@
 
 
 
-        <a name="logout" id="logout" class="btn btn-outline-primary" routerLink="/" role="button" (click)="logout()"
+        <a name="logout" id="logout" class="btn btn-outline-primary m-1" routerLink="/" role="button" (click)="logout()"
           color>Logout</a>
 
-
+          <li class="dropdown cart-nav dropdown-slide list-inline-item">
+            <a href="#" class="dropdown-toggle cart-icon m-1" data-toggle="dropdown" data-hover="dropdown">
+              <i class="tf-ion-android-cart"></i>
+            </a>
+            <div class="dropdown-menu cart-dropdown">
+              <!-- Cart Item -->
+              <div class="media">
+    
+                <a routerLink="/product-info">
+                  <img class="media-object img- mr-3" src="assets/images/cart-1.jpg" alt="image" />
+                </a>
+                <div class="media-body">
+                  <h6>Thermometer</h6>
+                  <div class="cart-price">
+                    <span>1 x</span>
+                    <span>1250.00</span>
+                  </div>
+                </div>
+                <a href="#" class="remove"><i class="tf-ion-close"></i></a>
+              </div><!-- / Cart Item -->
+    
+              <!-- Cart Item -->
+              <div class="media">
+                <a routerLink="/product-info">
+                  <img class="media-object img-fluid mr-3" src="assets/images/cart-2.jpg" alt="image" />
+                </a>
+                <div class="media-body">
+                  <h6>Vaporizer</h6>
+                  <div class="cart-price">
+                    <span>1 x</span>
+                    <span>1250.00</span>
+                  </div>
+                </div>
+                <a href="#" class="remove"><i class="tf-ion-close"></i></a>
+              </div><!-- / Cart Item -->
+    
+              <div class="cart-summary">
+                <span class="h6">Total</span>
+                <span class="total-price h6">$1799.00</span>
+    
+                <div class="text-center cart-buttons mt-3">
+                  <a routerLink="/cart" class="btn btn-small btn-transparent btn-block">View Cart</a>
+                  <a href="#" class="btn btn-small btn-main btn-block">Checkout</a>
+                </div>
+              </div>
+            </div>
+          </li>
       </ng-template>
 
-      <li class="dropdown cart-nav dropdown-slide list-inline-item">
-        <a href="#" class="dropdown-toggle cart-icon" data-toggle="dropdown" data-hover="dropdown">
-          <i class="tf-ion-android-cart"></i>
-        </a>
-        <div class="dropdown-menu cart-dropdown">
-          <!-- Cart Item -->
-          <div class="media">
-
-            <a routerLink="/product-info">
-              <img class="media-object img- mr-3" src="assets/images/cart-1.jpg" alt="image" />
-            </a>
-            <div class="media-body">
-              <h6>Thermometer</h6>
-              <div class="cart-price">
-                <span>1 x</span>
-                <span>1250.00</span>
-              </div>
-            </div>
-            <a href="#" class="remove"><i class="tf-ion-close"></i></a>
-          </div><!-- / Cart Item -->
-
-          <!-- Cart Item -->
-          <div class="media">
-            <a routerLink="/product-info">
-              <img class="media-object img-fluid mr-3" src="assets/images/cart-2.jpg" alt="image" />
-            </a>
-            <div class="media-body">
-              <h6>Vaporizer</h6>
-              <div class="cart-price">
-                <span>1 x</span>
-                <span>1250.00</span>
-              </div>
-            </div>
-            <a href="#" class="remove"><i class="tf-ion-close"></i></a>
-          </div><!-- / Cart Item -->
-
-          <div class="cart-summary">
-            <span class="h6">Total</span>
-            <span class="total-price h6">$1799.00</span>
-
-            <div class="text-center cart-buttons mt-3">
-              <a routerLink="/cart" class="btn btn-small btn-transparent btn-block">View Cart</a>
-              <a href="#" class="btn btn-small btn-main btn-block">Checkout</a>
-            </div>
-          </div>
-        </div>
-      </li>
+      
 
     </ul>
   </div>

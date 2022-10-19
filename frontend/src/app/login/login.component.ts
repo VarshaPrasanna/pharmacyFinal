@@ -27,7 +27,8 @@ export class LoginComponent implements OnInit {
     this.loginForm = new FormGroup({
       'username': this.username,
       'password': this.password
-    })
+    },
+    {updateOn : 'blur'})
   }
 
   loginUser() {
