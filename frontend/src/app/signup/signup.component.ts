@@ -39,8 +39,7 @@ ngOnInit(): void {
     'email': this.email,
     'password': this.password,
     'isAdmin': this.isAdmin
-  },
-  {updateOn: 'blur'})
+  })
 }
   changeGender(e:any){
     this.gender.setValue(e.target.value,{

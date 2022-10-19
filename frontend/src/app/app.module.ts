@@ -15,6 +15,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { DiscussionBoardComponent } from './discussion-board/discussion-board.component';
 import { AdminUsersComponent } from './admin-dashboard/admin-users/admin-users.component';
+import { AdminManageOrdersComponent } from './admin-dashboard/admin-manage-orders/admin-manage-orders.component';
 import { ManageProductsComponent } from './admin-dashboard/Manage-Products/manage-products/manage-products.component';
 import { AddProductsComponent } from './admin-dashboard/Manage-Products/add-products/add-products.component';
 import { UpdateProductsComponent } from './admin-dashboard/Manage-Products/update-products/update-products.component';
@@ -26,7 +27,7 @@ import { AuthInterceptor } from './auth.interceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { ValueArrayPipe } from './pipes/value-array.pipe';
-
+import { UpdateOrderStatusComponent } from './admin-dashboard/update-order-status/update-order-status.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +40,7 @@ import { ValueArrayPipe } from './pipes/value-array.pipe';
     CartComponent,
     PaymentComponent,
     AdminDashboardComponent,
+    AdminManageOrdersComponent,
     DiscussionBoardComponent,
     AdminUsersComponent,
     ManageProductsComponent,
@@ -48,6 +50,7 @@ import { ValueArrayPipe } from './pipes/value-array.pipe';
     UserProfileComponent,
     EditUserComponent,
     ValueArrayPipe,
+    UpdateOrderStatusComponent,
     
 
   ],

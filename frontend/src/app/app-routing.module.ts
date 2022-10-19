@@ -17,12 +17,13 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AuthGuard } from "./auth.guard";
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { AdminManageOrdersComponent } from './admin-dashboard/admin-manage-orders/admin-manage-orders.component';
-
+import { UpdateOrderStatusComponent } from './admin-dashboard/update-order-status/update-order-status.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "product-info", component: ProductInfoComponent },
   {path: "Manage-orders", component: AdminManageOrdersComponent},
+  {path: 'update-status/:id', component: UpdateOrderStatusComponent},
   { path: "signup", component: SignupComponent },
   { path: "login", component: LoginComponent },
   { path: "cart", component: CartComponent },
