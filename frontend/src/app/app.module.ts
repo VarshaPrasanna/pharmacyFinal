@@ -11,7 +11,6 @@ import { SignupComponent } from './signup/signup.component';
 import { ProductInfoComponent } from './product-info/product-info.component';
 import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
-
 import { PaymentComponent } from './payment/payment.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { DiscussionBoardComponent } from './discussion-board/discussion-board.component';
@@ -26,7 +25,7 @@ import { AuthInterceptor } from './auth.interceptor';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { EditUserComponent } from './edit-user/edit-user.component';
-// import { ValueArrayPipe } from './pipes/value-array.pipe';
+import { ValueArrayPipe } from './pipes/value-array.pipe';
 
 @NgModule({
   declarations: [
@@ -48,11 +47,8 @@ import { EditUserComponent } from './edit-user/edit-user.component';
     ViewProductsComponent,
     UserProfileComponent,
     EditUserComponent,
+    ValueArrayPipe,
     
-
-
-
-
 
   ],
   imports: [
@@ -61,7 +57,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
     SlickCarouselModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
 
   ],
   exports: [

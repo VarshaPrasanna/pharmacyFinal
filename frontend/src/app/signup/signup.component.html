@@ -12,52 +12,63 @@
 
             <div class="form-group">
               <label for="firstName">Enter your firstName</label>
-              <input type="text" class="form-control" placeholder="Enter firstName" formControlName="firstName">
-              <!-- <div class="invalid-feedback">
+              <input type="text" class="form-control" placeholder="Enter firstName" formControlName="firstName"
+              [ngClass]="{'is-invalid':firstName.errors && (firstName.touched || firstName.dirty),'is-valid' :firstName.valid}">
+              <div class="invalid-feedback">
                 <strong *ngIf="firstName.errors?.['required']">firstName is required </strong>
-              </div> -->
+              </div>
             </div>
             <div class="form-group">
               <label for="lastName">Enter your lastName</label>
-              <input type="text" class="form-control" placeholder="Enter lastName" formControlName="lastName">
-              <!-- <div class="invalid-feedback">
+              <input type="text" class="form-control" placeholder="Enter lastName" formControlName="lastName"
+              [ngClass]="{'is-invalid':lastName.errors && (lastName.touched || lastName.dirty),'is-valid' :lastName.valid}">
+              <div class="invalid-feedback">
                 <strong *ngIf="lastName.errors?.['required']">lastName is required </strong>
-              </div> -->
+              </div>
             </div>
             <div class="form-group">
               <label for="gender">Enter your gender</label>
-              <input type="text" class="form-control" placeholder="Enter gender" formControlName="gender">
-              <!-- <div class="invalid-feedback">
+              <div  (change)="changeGender($event)" formControlName="gender">
+               <input type="radio"  value='Male' name="gender">Male
+               <input type="radio" value='Female' name="gender">Female
+              </div>
+              <div class="invalid-feedback" *ngIf="gender.errors?.['required']">
+                <p>Please select either value</p>
+              </div>
+              <!-- <input type="text" class="form-control" placeholder="Enter gender" formControlName="gender"
+              [ngClass]="{'is-invalid':gender.errors && (gender.touched || gender.dirty),'is-valid' :gender.valid}">
+              <div class="invalid-feedback">
                 <strong *ngIf="gender.errors?.['required']">gender is required </strong>
               </div> -->
             </div>
             <div class="form-group">
               <label for="username">Enter username</label>
-              <input type="text" class="form-control" placeholder="Enter username" formControlName="username">
-              <!-- <div class="invalid-feedback">
+              <input type="text" class="form-control" placeholder="Enter username" formControlName="username"
+              [ngClass]="{'is-invalid':username.errors && (username.touched || username.dirty),'is-valid' :username.valid}">
+              <div class="invalid-feedback">
                 <strong *ngIf="username.errors?.['required']">userName is required </strong>
-                <strong *ngIf="username.errors?.['pattern']">invalid username </strong>
-              </div> -->
+                <strong *ngIf="username.errors?.['pattern']">invalid username(contain atleast one alphabet and one number) </strong>
+              </div>
             </div>
             <div class="form-group">
               <label for="email">Enter Email Address</label>
-              <input type="text" class="form-control" placeholder="Enter emailid" formControlName="email">
-              <!-- <div class="invalid-feedback">
+              <input type="text" class="form-control" placeholder="Enter emailid" formControlName="email"
+              [ngClass]="{'is-invalid':email.errors && (email.touched || email.dirty),'is-valid' :email.valid}">
+              <div class="invalid-feedback">
                 <strong *ngIf="email.errors?.['required']">emailid is required </strong>
                 <strong *ngIf="email.errors?.['pattern']">invalid emailid </strong>
-              </div> -->
+              </div>
             </div>
 
             <div class="form-group">
               <label for="password">Enter Password</label>
 
-              <input type="text" class="form-control" placeholder="Enter Password" formControlName="password">
-              <!-- <div class="invalid-feedback">
+              <input type="text" class="form-control" placeholder="Enter Password" formControlName="password"
+              [ngClass]="{'is-invalid':password.errors && (password.touched || password.dirty),'is-valid' :password.valid}">
+              <div class="invalid-feedback">
                 <strong *ngIf="password.errors?.['required']">password is required </strong>
-                <strong *ngIf="password.errors?.['pattern']">password should contain atleast one uppercase and
-                  .....</strong>
-
-              </div> -->
+                <strong *ngIf="password.errors?.['pattern']">should contain atleast 1 (uppercase,lowercase,number,symbol)</strong>
+              </div>
             </div>
 
             <div class="form-group">

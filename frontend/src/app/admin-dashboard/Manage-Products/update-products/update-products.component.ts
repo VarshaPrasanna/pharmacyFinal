@@ -13,42 +13,52 @@ import { Product } from '../models/product';
 export class UpdateProductsComponent implements OnInit{
   formSubmitted = false;
 updateProductForm!: FormGroup;
-// id!: string;
 title!: FormControl;
   description!: FormControl;
-  img!: FormControl;
+  image!: FormControl;
   categories!: FormControl;
   price!:FormControl;
+  // product! : any;
 
 constructor(
   private router: Router,
   private ProductService: ProductService,
   private acRoute: ActivatedRoute
-) { }
+) {}
 ngOnInit(): void {
   this.title = new FormControl('',[Validators.required]);
   this.description = new FormControl('',[Validators.required]);
-  this.img = new FormControl();
+  this.image = new FormControl('',[Validators.required]);
   this.categories = new FormControl('',[Validators.required]);
   this.price = new FormControl('',[Validators.required]);
 
   this.updateProductForm = new FormGroup({
     'title' : this.title,
     'description': this.description,
-    'img': this.img,
+    'image': this.image,
     'categories': this.categories,
     'price' : this.price
-  });
-   let id = this.acRoute.snapshot.paramMap.get('_id');
-      this.getProductById(id);
+  },
+  {updateOn : 'blur'});
+   let id = this.acRoute.snapshot.paramMap.get('id');
+      
+  this.getProductById(id);
 }
+categoriesList: any[] = ['Ayurveda', 'Health', 'devicesCovid essentials', 'Health',  'Nutrients','Clinical','Homeopathy', 'Personal Care','Home Care'];
+changeCategory(e:any){
+  this.categories.setValue(e.target.value,{
+    onlySelf: true,
+  });
+}
+
+
 
 getProductById(id : any){
     this.ProductService.getProductById(id).subscribe((data)=>{
       this.updateProductForm.setValue({
         title : data['title'],
         description : data['description'],
-        img : data['img'],
+        image : data['image'],
         categories : data['categories'],
         price : data['price'],
 
@@ -59,7 +69,7 @@ getProductById(id : any){
     
     this.formSubmitted = true;
     if(window.confirm("are you sure?")){
-      let proid = this.acRoute.snapshot.paramMap.get('_id');
+      let proid = this.acRoute.snapshot.paramMap.get('id');
       this.ProductService.updateProduct(proid, this.updateProductForm.value).subscribe({
         complete: ()=>{
           this.router.navigateByUrl('/Manage-Products');
@@ -74,6 +84,12 @@ getProductById(id : any){
     }
     
   }
+//   getProductById(){
+//   let proid = this.acRoute.snapshot.paramMap.get('id');
+//   this.ProductService.getProductById(proid).subscribe((data)=>{
+//     this.product = data;
+//   })
+// }
 
 //   ngOnInit(): void {
 //     this.initForm();

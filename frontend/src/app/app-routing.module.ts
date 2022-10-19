@@ -10,19 +10,19 @@ import { SignupComponent } from './signup/signup.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { DiscussionBoardComponent } from './discussion-board/discussion-board.component';
 import { AdminUsersComponent } from './admin-dashboard/admin-users/admin-users.component';
-//import { ViewProductsComponent } from './admin-dashboard/Manage-Products/view-products/view-products.component';
+import { ViewProductsComponent } from './admin-dashboard/Manage-Products/view-products/view-products.component';
 import { AddProductsComponent } from './admin-dashboard/Manage-Products/add-products/add-products.component';
 import { UpdateProductsComponent } from './admin-dashboard/Manage-Products/update-products/update-products.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AuthGuard } from "./auth.guard";
 import { EditUserComponent } from './edit-user/edit-user.component';
-
+import { AdminManageOrdersComponent } from './admin-dashboard/admin-manage-orders/admin-manage-orders.component';
 
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "product-info", component: ProductInfoComponent },
-
+  {path: "Manage-orders", component: AdminManageOrdersComponent},
   { path: "signup", component: SignupComponent },
   { path: "login", component: LoginComponent },
   { path: "cart", component: CartComponent },
@@ -30,14 +30,14 @@ const routes: Routes = [
   { path: "admin", component: AdminDashboardComponent },
   { path: "discussion-board", component: DiscussionBoardComponent },
   {path: "add-products", component: AddProductsComponent},
-  {path: "update-product", component: UpdateProductsComponent},
+  {path: "update-product/:id", component: UpdateProductsComponent},
   { path: "profile", component: UserProfileComponent },
   { path: "cart", component: CartComponent },
   { path: "payment", component: PaymentComponent },
   { path: "admin", component: AdminDashboardComponent },
   { path: "discussion-board", component: DiscussionBoardComponent },
   { path: "manage-users", component: AdminUsersComponent },
-  //{ path: "Manage-Products", component: ViewProductsComponent },
+  { path: "Manage-Products", component: ViewProductsComponent },
   { path: 'profile/:id', component: UserProfileComponent, canActivate: [AuthGuard] },
   { path: 'edit-user', component: EditUserComponent },
   { path: "log-out", component: HomeComponent }
