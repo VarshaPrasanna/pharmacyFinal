@@ -32,6 +32,7 @@ import { ValueArrayPipe } from './pipes/value-array.pipe';
 import { BlogComponent } from './blog/blog.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ManageQueryComponent } from './admin-dashboard/manage-query/manage-query.component';
+import { AdminSidenavComponent } from './admin-dashboard/admin-sidenav/admin-sidenav.component';
 
 
 @NgModule({
@@ -68,6 +69,7 @@ import { ManageQueryComponent } from './admin-dashboard/manage-query/manage-quer
     UserProfileComponent,
     EditUserComponent,
     ValueArrayPipe,
+    AdminSidenavComponent,
 
 
   ],
