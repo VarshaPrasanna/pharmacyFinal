@@ -26,6 +26,9 @@ export class UpdateProductsComponent implements OnInit {
     private acRoute: ActivatedRoute
   ) { }
   ngOnInit(): void {
+
+
+
     this.title = new FormControl('', [Validators.required]);
     this.description = new FormControl('', [Validators.required]);
     this.image = new FormControl('', [Validators.required]);
@@ -39,9 +42,12 @@ export class UpdateProductsComponent implements OnInit {
       'price': this.price
     },
       { updateOn: 'blur' });
+
     let id = this.acRoute.snapshot.paramMap.get('id');
     this.getProductById(id);
   }
+
+
   categoriesList: any[] = ['Ayurveda', 'Health devices', 'Covid essentials', 'Nutrients', 'Clinical', 'Homeopathy', 'Personal Care', 'Home Care'];
   changeCategory(e: any) {
     this.categories.setValue(e.target.value, {
@@ -49,10 +55,16 @@ export class UpdateProductsComponent implements OnInit {
     });
   }
 
+  // Getter to access form control
+  get myForm() {
+    return this.updateProductForm.controls;
+  }
+
 
 
   getProductById(id: any) {
-    this.ProductService.getProductById(id).subscribe((data) => {
+    let proid = this.acRoute.snapshot.paramMap.get('id');
+    this.ProductService.getProductById(proid).subscribe((data) => {
       this.updateProductForm.setValue({
         title: data['title'],
         description: data['description'],
@@ -78,66 +90,7 @@ export class UpdateProductsComponent implements OnInit {
       });
     }
   }
-  //   getProductById(){
-  //   let proid = this.acRoute.snapshot.paramMap.get('id');
-  //   this.ProductService.getProductById(proid).subscribe((data)=>{
-  //     this.product = data;
-  //   })
-  // }
 
-  //   ngOnInit(): void {
-  //     this.initForm();
-  //     this.id = this.route.snapshot.paramMap.get('ProductId');
-
-  //     this.ProductService
-  //     .viewProduct(this.id)
-  //     .subscribe((res)=>{
-  //       this.updateProductForm.patchValue({...res.data});
-  //     });
-  //   }
-
-  //   initForm():void{
-  //     this.updateProductForm=new FormGroup ({
-
-  //       'title' : new FormControl('',[Validators.required]),
-
-  //       'description' : new FormControl('',[Validators.required]),
-
-  //       'img' : new FormControl('',[Validators.required]),
-
-  //       'categories' : new FormControl(),
-
-  //       'price' : new FormControl('',[Validators.required])
-  //       });
-  //   }
-
-  //  onSubmit(): void{
-  //   this.ProductService
-  //   .updateProduct(this.id,this.updateProductForm.value)
-  //   .subscribe((res)=>{
-  //     this.router.navigate([`/product/update/${res.data._id}`]);
-  //   });
-  //  }
-
-  //  get title(): AbstractControl {
-  //   return this.updateProductForm.get('title');
-  // }
-
-  // get description(): AbstractControl {
-  //   return this.updateProductForm.get('description');
-  // }
-
-  // get img(): AbstractControl {
-  //   return this.updateProductForm.get('img');
-  // }
-
-  // get categories(): AbstractControl {
-  //   return this.updateProductForm.get('categories');
-  // }
-
-  // get price(): AbstractControl {
-  //   return this.updateProductForm.get('price');
-  // }
 
 
 }

@@ -1,7 +1,7 @@
 import { ThisReceiver } from "@angular/compiler";
 import { Component, OnInit, NgZone } from "@angular/core";
 import { FormControl, FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl } from "@angular/forms";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Product } from "../models/product";
 
 import { ProductService } from "../product.service";
@@ -66,10 +66,12 @@ export class AddProductsComponent implements OnInit {
     public fb: FormBuilder,
     private router: Router,
     private ngZone: NgZone,
-    private ProductService: ProductService
+    private ProductService: ProductService,
+    private route: ActivatedRoute
   ) { }
   ngOnInit(): void {
     // this.id= new FormControl();
+
     this.title = new FormControl('', [Validators.required]);
     this.description = new FormControl('', [Validators.required]);
     this.image = new FormControl('', [Validators.required]);
