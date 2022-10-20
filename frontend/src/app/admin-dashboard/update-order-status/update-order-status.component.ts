@@ -15,14 +15,14 @@ export class UpdateOrderStatusComponent implements OnInit {
   constructor(private router: Router,
     private orderService: OrderService,
     private acRoute: ActivatedRoute) {  }
-  ordeR! : any;
+  Order! : any;
   ngOnInit(): void {
     this.status = new FormControl('',[Validators.required]);
     this.updateStatusForm = new FormGroup({
       'status' : this.status,
     },{updateOn : 'blur'});
     // let id = this.acRoute.snapshot.paramMap.get('id');    
-    // this.getOrderById(id);
+    this.getOrderById();
   }
   categoriesList: any[] = ['pending','approved', 'cancelled', 'in-transit', 'delivered'];
 changeStatus(e:any){
@@ -59,12 +59,12 @@ changeStatus(e:any){
   //   })
   // }
 
-    // getOrderById(){
-  //   let id = this.acRoute.snapshot.paramMap.get('id');
-  //   this.orderService.getOrderById(id).subscribe((data)=>{
-  //        this.ordeR = data;
-  //        console.log(this.ordeR);
-  //   })
-  // }
+    getOrderById(){
+    let id = this.acRoute.snapshot.paramMap.get('id');
+    this.orderService.getOrderById(id).subscribe((data)=>{
+         this.Order = data;
+         console.log(this.Order);
+    })
+  }
 
 }

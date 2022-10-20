@@ -1,34 +1,80 @@
-<p>update-order-status works!</p>
-<div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-md-4 register-employee">
-         
-          <div class="card-body">
-            <form [formGroup]="updateStatusForm" >
-              
-              <!-- <div class="form-group">
-                <label for="inputName">status</label>
-                <input class="form-control" type="text" formControlName="status" 
-                [ngClass]="{'is-invalid':status.errors && (status.touched || status.dirty),'is-valid' :status.valid}">
-                
-                <div
-                  class="invalid-feedback"
-                  *ngIf = "status.errors?.['required']"
-                >
-                  status is required.
+
+              <div class="container" >
+                <form [formGroup]="updateStatusForm">
+                <section class="h-100 gradient-custom">
+                    <div class="container py-5 h-100">
+                      <div class="row d-flex justify-content-center align-items-center h-100">
+                        <div class="col-lg-10 col-xl-8">
+                          <div class="card" style="border-radius: 10px;">
+                            <div class="card-header px-4 py-5" style="padding-bottom: 0px !important;padding-top: 0px !important;">
+                              <h5 class="text-muted mb-0">Update order status</h5>
+                            </div>
+                            <div class="card-body p-4">
+                              <div class="d-flex justify-content-between align-items-center mb-4">
+                                <p class="lead fw-normal mb-0" style="color: #a8729a;">order</p>
+                                
+                              </div>
+                              <div class="card shadow-0 border mb-4">
+                                <div class="card-body">
+                                  <div class="row">   
+                                  </div>
+                                  <div class="d-flex justify-content-between pt-2">
+                                    <p class="fw-bold mb-0">Order Details</p>
+                                    <p class="text-muted mb-0"><span class="fw-bold me-4">Total:</span> {{Order.orders.amount | currency : 'INR'}}</p>
+                                  </div>
+                      
+                                  <div class="d-flex justify-content-between pt-2">
+                                    <p class="text-muted mb-0">OrderId : {{Order.orders._id}}</p>
+                                  </div>
+                      
+                                  <div class="d-flex justify-content-between">
+                                    <p class="text-muted mb-0">Ordered Date : {{Order.orders.createdAt}}</p>
+                                  </div>
+                      
+                                  <div class="d-flex justify-content-between pt-2">
+                                    <p class="text-muted mb-0">Address: {{Order.orders.address}}</p>
+                                  </div>
+                                  
+                                  <div class="d-flex justify-content-between pt-2" *ngFor="let p of Order.orders.products">                                    
+                                      <p class="text-muted mb-0"> productId: {{p.productId}}</p>
+                                       
+                                                                    
+                                    <p class="text-muted mb-0"> quantity: {{p.quantity}}</p>
+                                  
+                                   </div>
+                                  <hr class="mb-4" style="background-color: #e0e0e0; opacity: 1;">
+                                  <div class="row d-flex align-items-center">
+                                    <div class="col-md-2">
+                                      <p class="text-muted mb-0 small">update</p>
+                                    </div>
+                                    <div class="card-body">
+                                      <!-- <form [formGroup]="updateStatusForm" > -->
+                                        <div class="form-group">
+                                          <label for="Verify3">status</label>
+                                          <div class="d-grid">
+                                            <select class="custom-select mb-3" (change)="changeStatus($event)" formControlName="status">
+                                              <option value="">choose status</option>
+                                              <option *ngFor="let c of categoriesList" [ngValue]="c">{{c}}</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                        </div>
+                                  </div>
+                                </div>
+                              </div> 
+                            </div>
+                            <div class="card-footer border-0 px-4 py-5"
+                              style="background-color: #a8729a; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;padding-top:0px!important;padding-bottom:0px!important">
+                              <h5 class="d-flex align-items-center justify-content-end text-white text-uppercase mb-0">Total
+                                paid: <span class="h2 mb-0 ms-2">{{Order.orders.amount | currency:'INR'}}</span></h5>
+                                <div class="form-group">
+                                <button type="submit" class="btn btn-secondary" style="margin-left:40%" (click)="updateOrderStatus()">update status</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </form>
                 </div>
-              </div> -->
-              <div class="form-group">
-                <label for="Verify3">status</label>
-                <div class="d-grid">
-                  <select class="custom-select mb-3" (change)="changeStatus($event)" formControlName="status">
-                    <option value="">choose status</option>
-                    <option *ngFor="let c of categoriesList" [ngValue]="c">{{c}}</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <button class="btn btn-success btn-lg btn-block" type="submit" (click)="updateOrderStatus()">
-                  update status
-                </button>
-              </div></form></div></div></div></div>
