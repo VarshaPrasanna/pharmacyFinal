@@ -23,10 +23,17 @@ import { AdminManageOrdersComponent } from './admin-dashboard/admin-manage-order
 import { ChatBotComponent } from './chat-bot/chat-bot.component';
 
 import { UpdateOrderStatusComponent } from './admin-dashboard/update-order-status/update-order-status.component';
-
+import { AyurvedaComponent } from './categories/ayurveda/ayurveda.component';
+import { HomeopathyComponent } from './categories/homeopathy/homeopathy.component';
+import { ClinicalComponent } from './categories/clinical/clinical.component';
+import { CovidEssentialsComponent } from './categories/covid-essentials/covid-essentials.component';
+import { HealthDevicesComponent } from './categories/health-devices/health-devices.component';
+import { HomeCareComponent } from './categories/home-care/home-care.component';
+import { NutrientsComponent } from './categories/nutrients/nutrients.component';
+import { PersonalCareComponent } from './categories/personal-care/personal-care.component';
 const routes: Routes = [
   { path: "", component: HomeComponent },
-  { path: "product-info", component: ProductInfoComponent },
+  { path: "product-info/:id", component: ProductInfoComponent },
   { path: "Manage-orders", component: AdminManageOrdersComponent },
   { path: 'update-status/:id', component: UpdateOrderStatusComponent },
   { path: "signup", component: SignupComponent },
@@ -44,6 +51,14 @@ const routes: Routes = [
   { path: 'edit-user', component: EditUserComponent },
   { path: "log-out", component: HomeComponent },
   { path: "product-list", component: ProductListComponent },
+  {path: "Ayurveda", component: AyurvedaComponent},
+  {path: "Homeopathy", component: HomeopathyComponent},
+  {path: "Clinical", component: ClinicalComponent},
+  {path: "covid-essential", component: CovidEssentialsComponent},
+  {path: "health-device", component: HealthDevicesComponent},
+  {path: "home-care", component: HomeCareComponent},
+  {path: "Nutrients", component: NutrientsComponent},
+  {path: "personal-care", component: PersonalCareComponent},
   { path: "messageList", component: ManageQueryComponent },
   { path: "chat-bot", component: ChatBotComponent }
 ];

@@ -24,23 +24,13 @@ export class UpdateOrderStatusComponent implements OnInit {
     // let id = this.acRoute.snapshot.paramMap.get('id');    
     // this.getOrderById(id);
   }
+  categoriesList: any[] = ['pending','approved', 'cancelled', 'in-transit', 'delivered'];
+changeStatus(e:any){
+  this.status.setValue(e.target.value,{
+    onlySelf: true,
+  });
+}
 
-  // getOrderById(){
-  //   let id = this.acRoute.snapshot.paramMap.get('id');
-  //   this.orderService.getOrderById(id).subscribe((data)=>{
-  //        this.ordeR = data;
-  //        console.log(this.ordeR);
-  //   })
-  // }
-
-
-  // getOrderById(id:any){
-  //   this.orderService.getOrderById(id).subscribe((data)=>{
-  //     this.updateStatusForm.setValue({
-  //     status : data['status']
-  //     });
-  //   })
-  // }
   updateOrderStatus(){
     
     this.formSubmitted = true;
@@ -60,5 +50,21 @@ export class UpdateOrderStatusComponent implements OnInit {
     }
     
   }
+
+    // getOrderById(id:any){
+  //   this.orderService.getOrderById(id).subscribe((data)=>{
+  //     this.updateStatusForm.setValue({
+  //     status : data['status']
+  //     });
+  //   })
+  // }
+
+    // getOrderById(){
+  //   let id = this.acRoute.snapshot.paramMap.get('id');
+  //   this.orderService.getOrderById(id).subscribe((data)=>{
+  //        this.ordeR = data;
+  //        console.log(this.ordeR);
+  //   })
+  // }
 
 }
