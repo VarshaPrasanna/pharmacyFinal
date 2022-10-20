@@ -6,53 +6,60 @@
                 <h3 class="mb-0">Edit Your details</h3>
             </div>
             <div class="card-body">
-                <form>
-                    <form [formGroup]="editForm">
-                        <!-- [formGroup]="editForm" (ngSubmit)="onSubmit()"> -->
-                        <div class="form-group">
-                            <label for="inputVerify3">First Name</label>
-                            <input class="form-control" type="text" formControlName="firstName" />
-                            <!-- error -->
-
-
+                <form [formGroup]="editForm">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Enter firstName"
+                            formControlName="firstName"
+                            [ngClass]="{'is-invalid':firstName.errors && (firstName.touched || firstName.dirty),'is-valid' :firstName.valid}">
+                        <div class="invalid-feedback">
+                            <strong *ngIf="firstName.errors?.['required']">firstName is required </strong>
                         </div>
-                        <div class="form-group">
-                            <label for="inputVerify3">Last Name</label>
-                            <input class="form-control" type="text" formControlName="lastName" />
-                            <!-- error -->
-
-
+                    </div>
+                    <div class="form-group">
+                        <label for="inputVerify3">Last Name</label>
+                        <input type="text" class="form-control" placeholder="Enter lastName" formControlName="lastName"
+                            [ngClass]="{'is-invalid':lastName.errors && (lastName.touched || lastName.dirty),'is-valid' :lastName.valid}">
+                        <div class="invalid-feedback">
+                            <strong *ngIf="lastName.errors?.['required']">lastName is required </strong>
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <label for="inputVerify3">Username </label>
-                            <input class="form-control" type="text" formControlName="username" />
-                            <!-- error -->
-
-
+                    <div class="form-group">
+                        <label for="username">Enter username</label>
+                        <input type="text" class="form-control" placeholder="Enter username" formControlName="username"
+                            [ngClass]="{'is-invalid':username.errors && (username.touched || username.dirty),'is-valid' :username.valid}">
+                        <div class="invalid-feedback">
+                            <strong *ngIf="username.errors?.['required']">userName is required </strong>
+                            <strong *ngIf="username.errors?.['pattern']">invalid username(contain atleast one alphabet
+                                and one number) </strong>
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <label for="inputVerify3">Email </label>
-                            <input class="form-control" type="text" formControlName="email" />
-                            <!-- error -->
-
-
+                    <div class="form-group">
+                        <label for="inputVerify3">Email </label>
+                        <input type="text" class="form-control" placeholder="Enter emailid" formControlName="email"
+                            [ngClass]="{'is-invalid':email.errors && (email.touched || email.dirty),'is-valid' :email.valid}">
+                        <div class="invalid-feedback">
+                            <strong *ngIf="email.errors?.['required']">emailid is required </strong>
+                            <strong *ngIf="email.errors?.['pattern']">invalid emailid </strong>
                         </div>
-                        <div class="form-group">
-                            <label for="inputVerify3">Gender </label>
-                            <input class="form-control" type="text" formControlName="gender" />
-                            <!-- error -->
+                    </div>
+                    <!-- <div class="form-group">
+                <label for="gender">Enter your gender</label>
+              <div  (change)="changeGender($event)" formControlName="gender">
+               <input type="radio"  value='Male' name="gender">Male
+               <input type="radio" value='Female' name="gender">Female
+              </div>
+              <div class="invalid-feedback" *ngIf="gender.errors?.['required']">
+                <p>Please select either value</p>
+              </div>
+                    </div> -->
 
-
-                        </div>
-
-                        <div class="form-group">
-                            <button class="btn btn-success btn-lg btn-block" type="submit" (click)="onSubmit()">
-                                Update
-                            </button>
-                        </div>
-                    </form>
+                    <div class="form-group">
+                        <button class="btn btn-success btn-lg btn-block" type="submit" (click)="onSubmit()">
+                            update
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>

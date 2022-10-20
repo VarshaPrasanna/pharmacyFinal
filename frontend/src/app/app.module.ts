@@ -15,6 +15,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { DiscussionBoardComponent } from './discussion-board/discussion-board.component';
 import { AdminUsersComponent } from './admin-dashboard/admin-users/admin-users.component';
+import { AdminManageOrdersComponent } from './admin-dashboard/admin-manage-orders/admin-manage-orders.component';
 import { ManageProductsComponent } from './admin-dashboard/Manage-Products/manage-products/manage-products.component';
 //import { AddProductsComponent } from './admin-dashboard/Manage-Products/add-products/add-products.component';
 //import { UpdateProductsComponent } from './admin-dashboard/Manage-Products/update-products/update-products.component';
@@ -35,8 +36,9 @@ import { ManageQueryComponent } from './admin-dashboard/manage-query/manage-quer
 import { ChatBotComponent } from './chat-bot/chat-bot.component';
 import { ChatService } from './chat.service';
 import { GenderImagePipe } from './pipes/gender-image.pipe';
+import { AdminSidenavComponent } from './admin-dashboard/admin-sidenav/admin-sidenav.component';
 
-
+import { UpdateOrderStatusComponent } from './admin-dashboard/update-order-status/update-order-status.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +51,7 @@ import { GenderImagePipe } from './pipes/gender-image.pipe';
     CartComponent,
     PaymentComponent,
     AdminDashboardComponent,
+    AdminManageOrdersComponent,
     DiscussionBoardComponent,
     AdminUsersComponent,
     ManageProductsComponent,
@@ -73,6 +76,8 @@ import { GenderImagePipe } from './pipes/gender-image.pipe';
     ValueArrayPipe,
     ChatBotComponent,
     GenderImagePipe,
+    UpdateOrderStatusComponent,
+    AdminSidenavComponent,
 
 
   ],
