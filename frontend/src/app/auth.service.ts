@@ -39,6 +39,8 @@ export class AuthService {
       .subscribe((res: any) => {
         localStorage.setItem('accessToken', res.accessToken)
         localStorage.setItem('userId', res._id)
+        localStorage.setItem('userName', res.firstName + '  ' + res.lastName)
+
         //localStorage.setItem('isAdmin', res.isAdmin)
         //this.currentUserSubject.next(res.user); // <-- pump the value in here
         console.log(res.isAdmin)
@@ -75,28 +77,7 @@ export class AuthService {
     }
   }
 
-  // getUserProfile(id: any): Observable<any> {
 
-
-
-  //   return this.httpClient.get(`${this.API_URL}/users/`, { headers: this.headers }).pipe(catchError(this.errorMgmt));
-
-  // }
-  // // getmyinfo(id: any): Observable<any> {
-  // //   console.log(User)
-  // //   return this.httpClient.get(`${this.API_URL}/users/myinfo/634ab165694d97064f69f010`, { headers: this.headers }).pipe(catchError(this.errorMgmt));
-
-  // // }
-  // // Get employee
-  // getmyinfo(id: any): Observable<any> {
-  //   let url = `${this.API_URL}/users/myinfo/${id}`;
-  //   return this.http.get(url, { headers: this.headers }).pipe(
-  //     map((res: Response) => {
-  //       return res || {};
-  //     }),
-  //     catchError(this.errorMgmt)
-  //   );
-  // }
 
 
   //error handling

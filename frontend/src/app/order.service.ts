@@ -1,34 +1,48 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { AuthService } from './auth.service';
+import { Observable, throwError} from "rxjs";
+import {
+  HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
+import { Pipe, PipeTransform } from '@angular/core';
+import { catchError, map } from 'rxjs/operators';
+import { AuthService } from "src/app/auth.service";
+//import { ServerResponse } from "./models/ServerResponse";
+import { Order } from './models/order';
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
 
-  API_URL: string = 'http://localhost:3000/orders';
-  headers = new HttpHeaders().set('Content-Type', 'application/json');
+  API_URL: string = 'http://localhost:3000';
 
-  constructor(private auth: AuthService, private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, public router: Router, private auth: AuthService) { }
 
-  getAccessToken() {
-    return localStorage.getItem('token');
+  getOrders() {
+    return this.httpClient.get(`${this.API_URL}/orders`)
   }
-
-  getAuthHeader(): HttpHeaders {
-    const headers = new HttpHeaders(
-      {
-        Authorization: ''+this.auth.getAccessToken()
-      }
-    );
-    return headers;
+  getOrderById(id: any):Observable<any>{
+    return this.httpClient.get(`${this.API_URL}/orders/${id}`).pipe(catchError(this.errorMgmt));
   }
-
-  updateOrder(id: any, data: any): Observable<any> {
-    let url = `${this.API_URL}/update/${id}`;
-    return this.httpClient.put(url, data, { headers: this.getAuthHeader() })
+updateOrderStatus(id: any, product: any) :Observable<any>{
+let url = `${this.API_URL}/orders/${id}`;
+return this.httpClient.put(url,product).pipe(catchError(this.errorMgmt));
+}
+errorMgmt(error: HttpErrorResponse) {
+  let errorMessage = '';
+  if (error.error instanceof ErrorEvent) {
+   
+    errorMessage = error.error.message;
+  } else {
+    
+    errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
   }
+  console.log(errorMessage);
+  return throwError(() => {
+    return errorMessage;
+  });
+}
+
 
 }

@@ -1,7 +1,8 @@
 export class Message {
-    userId!: string;
-    id!: string;
+    userId!: string
+    firstName!: string;
+    _id!: string;
     message!: string;
     replies!: string;
-    timestamps!: string;
+    updatedAt!: string;
 }

@@ -20,12 +20,15 @@ import { ManageQueryComponent } from './admin-dashboard/manage-query/manage-quer
 import { AddProductsComponent } from './admin-dashboard/Manage-Products/add-products/add-products.component';
 import { UpdateProductsComponent } from './admin-dashboard/Manage-Products/update-products/update-products.component';
 import { AdminManageOrdersComponent } from './admin-dashboard/admin-manage-orders/admin-manage-orders.component';
+import { ChatBotComponent } from './chat-bot/chat-bot.component';
 
+import { UpdateOrderStatusComponent } from './admin-dashboard/update-order-status/update-order-status.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "product-info", component: ProductInfoComponent },
   { path: "Manage-orders", component: AdminManageOrdersComponent },
+  { path: 'update-status/:id', component: UpdateOrderStatusComponent },
   { path: "signup", component: SignupComponent },
   { path: "login", component: LoginComponent },
   { path: "cart", component: CartComponent },
@@ -35,13 +38,14 @@ const routes: Routes = [
   { path: "add-products", component: AddProductsComponent },
   { path: "update-product/:id", component: UpdateProductsComponent },
   { path: "profile", component: UserProfileComponent },
-  { path: "manage-users", component: AdminUsersComponent },
-  { path: "Manage-Products", component: ViewProductsComponent },
+  { path: "admin/manage-users", component: AdminUsersComponent },
+  { path: "admin/Manage-Products", component: ViewProductsComponent },
   { path: 'profile/:id', component: UserProfileComponent, canActivate: [AuthGuard] },
   { path: 'edit-user', component: EditUserComponent },
   { path: "log-out", component: HomeComponent },
   { path: "product-list", component: ProductListComponent },
-  { path: "messageList", component: ManageQueryComponent }
+  { path: "messageList", component: ManageQueryComponent },
+  { path: "chat-bot", component: ChatBotComponent }
 ];
 
 @NgModule({

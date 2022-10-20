@@ -1,19 +1,23 @@
+<app-admin-sidenav (onToggleSideNav)="onToggleSideNav($event)"></app-admin-sidenav>
+
+<div style="padding: 4%;">
+
 <div class="card">
     <div class="card-body">
-        <h4 class="card-title">List of users</h4>
+        <h2 style= "padding-left: 13.5%;" class="card-title">List of users</h2>
     </div>
-</div>
-<table class="table table-bordered">
-    <thead>
+</div> 
+<table class="table" style="width:85% ; padding: 1%;" align="Right" >
+    <thead class="thead-dark">
         <tr>
-            <th>User ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Gender</th>
-            <th>username</th>
-            <th>Email</th>
-            <th>isAdmin</th>
-            <th>Delete</th>
+            <th scope="col">User ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Gender</th>
+            <th scope="col">username</th>
+            <th scope="col">Email</th>
+            <th scope="col">isAdmin</th>
+            <th scope="col">Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -30,4 +34,6 @@
             </td>
         </tr>
     </tbody>
-</table>
+</table> 
+
+</div>

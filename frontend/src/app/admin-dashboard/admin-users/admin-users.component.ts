@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../user.service';
 
+interface SideNavToggle {
+  screenWidth: number;
+  collapsed: boolean;
+}
+
 
 @Component({
   selector: 'app-admin-users',
@@ -8,10 +13,20 @@ import { UserService } from '../../user.service';
   styleUrls: ['./admin-users.component.css']
 })
 export class AdminUsersComponent implements OnInit {
+  
+  title = 'admin-sidenav';
+  isSideNavCollapsed = false;
+  screenWidth = 0;
+
+  onToggleSideNav(data: SideNavToggle): void {
+    this.screenWidth = data.screenWidth;
+    this.isSideNavCollapsed = data.collapsed;
+  }
 
   users: any;
 
   constructor(private userService: UserService) {
+
     this.getUsers();
     console.log(this.users);
   }
@@ -26,7 +41,7 @@ export class AdminUsersComponent implements OnInit {
   }); 
   }
 
-  getUsers() {
+  getUsers(){
     this.userService.getAllUsers().subscribe((data) => {
       this.users = data;
     })

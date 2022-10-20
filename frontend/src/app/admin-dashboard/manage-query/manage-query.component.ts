@@ -13,19 +13,16 @@ export class ManageQueryComponent implements OnInit {
 
   constructor(private msgService: MessageService) {
     this.getMessages();
-    console.log(this.messages);
+    //console.log(this.messages);
   }
 
   ngOnInit(): void {
   }
 
-  deleteUser(i: any) {
-    //this.userService.deleteUser(i);
-  }
-
   getMessages() {
     this.msgService.getAllMessage().subscribe((data: any) => {
       this.messages = data;
+      console.log(this.messages)
     })
   }
 }

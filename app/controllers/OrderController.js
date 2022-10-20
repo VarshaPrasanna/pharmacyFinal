@@ -69,7 +69,7 @@ const OrderController = {
     /* update order */
     async update_order(req, res) {
         try {
-            const updatedOrder = await Cart.findByIdAndUpdate(req.params.id, {
+            const updatedOrder = await Order.findByIdAndUpdate(req.params.id, {
 
                 $set: req.body
             }, { new: true });
