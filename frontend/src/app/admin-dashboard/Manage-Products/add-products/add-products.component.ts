@@ -86,7 +86,7 @@ export class AddProductsComponent implements OnInit {
     },
       { updateOn: 'blur' });
   }
-  categoriesList: any[] = ['Ayurveda', 'Health', 'Covid essentials', 'Health Devices', 'Nutrients', 'Clinical', 'Homeopathy', 'Personal Care', 'Home Care'];
+  categoriesList: any[] = ['Ayurveda', 'Health devices', 'Covid essentials', 'Nutrients', 'Clinical', 'Homeopathy', 'Personal Care', 'Home Care'];
   changeCategory(e: any) {
     this.categories.setValue(e.target.value, {
       onlySelf: true,
