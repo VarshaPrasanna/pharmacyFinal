@@ -19,6 +19,7 @@ export class EditUserComponent implements OnInit {
   username!: FormControl;
   email!: FormControl;
  // password!: FormControl;
+  user! : any;
 
   constructor(public fb: FormBuilder,
     private actRoute: ActivatedRoute,
@@ -45,6 +46,7 @@ export class EditUserComponent implements OnInit {
     // 'password': this.password,
 
     });
+    this.getUserById();
   }
   // changeGender(e:any){
   //   this.gender.setValue(e.target.value,{
@@ -56,7 +58,14 @@ export class EditUserComponent implements OnInit {
   // get myForm() {
   //   return this.editForm.controls;
   // }
-
+  getUserById(){
+    let proid = this.actRoute.snapshot.paramMap.get('id');
+    this.userService.getUser(proid).subscribe((data) => {
+      this.user = data;
+      console.log(this.user);
+      
+    })
+  }
 
 
 

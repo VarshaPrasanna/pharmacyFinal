@@ -18,7 +18,7 @@ export class UpdateProductsComponent implements OnInit {
   image!: FormControl;
   categories!: FormControl;
   price!: FormControl;
-  // product! : any;
+  Product! : any;
 
   constructor(
     private router: Router,
@@ -43,8 +43,8 @@ export class UpdateProductsComponent implements OnInit {
     },
       { updateOn: 'blur' });
 
-    let id = this.acRoute.snapshot.paramMap.get('id');
-    this.getProductById(id);
+    // let id = this.acRoute.snapshot.paramMap.get('id');
+    this.getProductById();
   }
 
 
@@ -62,17 +62,25 @@ export class UpdateProductsComponent implements OnInit {
 
 
 
-  getProductById(id: any) {
+  // getProductById(id: any) {
+  //   let proid = this.acRoute.snapshot.paramMap.get('id');
+  //   this.ProductService.getProductById(proid).subscribe((data) => {
+  //     this.updateProductForm.setValue({
+  //       title: data['title'],
+  //       description: data['description'],
+  //       image: data['image'],
+  //       categories: data['categories'],
+  //       price: data['price'],
+  //     });
+  //   });
+  // }
+  getProductById(){
     let proid = this.acRoute.snapshot.paramMap.get('id');
     this.ProductService.getProductById(proid).subscribe((data) => {
-      this.updateProductForm.setValue({
-        title: data['title'],
-        description: data['description'],
-        image: data['image'],
-        categories: data['categories'],
-        price: data['price'],
-      });
-    });
+      this.Product = data;
+      console.log(this.Product);
+      
+    })
   }
 
   editProduct() {
