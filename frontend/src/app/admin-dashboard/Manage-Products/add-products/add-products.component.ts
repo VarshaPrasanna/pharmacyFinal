@@ -99,7 +99,7 @@ export class AddProductsComponent implements OnInit {
       this.formSubmitted = true;
       this.ProductService.addProduct(this.addProductForm.value).subscribe({
         complete : ()=>{
-          this.router.navigateByUrl('/Manage-Products');
+          this.router.navigateByUrl('/admin/Manage-Products');
           console.log('product added successfully');
           
         },
