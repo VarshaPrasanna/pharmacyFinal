@@ -42,7 +42,7 @@ ngOnInit(): void {
    let id = this.acRoute.snapshot.paramMap.get('id');     
   this.getProductById(id);
 }
-categoriesList: any[] = ['Ayurveda', 'Health', 'devicesCovid essentials', 'Health',  'Nutrients','Clinical','Homeopathy', 'Personal Care','Home Care'];
+categoriesList: any[] = ['Ayurveda', 'Health devices','Covid essentials', 'Nutrients','Clinical','Homeopathy', 'Personal Care','Home Care'];
 changeCategory(e:any){
   this.categories.setValue(e.target.value,{
     onlySelf: true,

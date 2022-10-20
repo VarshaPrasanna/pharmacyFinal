@@ -39,6 +39,14 @@ import { GenderImagePipe } from './pipes/gender-image.pipe';
 import { AdminSidenavComponent } from './admin-dashboard/admin-sidenav/admin-sidenav.component';
 
 import { UpdateOrderStatusComponent } from './admin-dashboard/update-order-status/update-order-status.component';
+import { AyurvedaComponent } from './categories/ayurveda/ayurveda.component';
+import { HomeopathyComponent } from './categories/homeopathy/homeopathy.component';
+import { HealthDevicesComponent } from './categories/health-devices/health-devices.component';
+import { CovidEssentialsComponent } from './categories/covid-essentials/covid-essentials.component';
+import { NutrientsComponent } from './categories/nutrients/nutrients.component';
+import { ClinicalComponent } from './categories/clinical/clinical.component';
+import { PersonalCareComponent } from './categories/personal-care/personal-care.component';
+import { HomeCareComponent } from './categories/home-care/home-care.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,6 +86,14 @@ import { UpdateOrderStatusComponent } from './admin-dashboard/update-order-statu
     GenderImagePipe,
     UpdateOrderStatusComponent,
     AdminSidenavComponent,
+    AyurvedaComponent,
+    HomeopathyComponent,
+    HealthDevicesComponent,
+    CovidEssentialsComponent,
+    NutrientsComponent,
+    ClinicalComponent,
+    PersonalCareComponent,
+    HomeCareComponent,
 
 
   ],
