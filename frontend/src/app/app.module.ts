@@ -32,6 +32,9 @@ import { ValueArrayPipe } from './pipes/value-array.pipe';
 import { BlogComponent } from './blog/blog.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ManageQueryComponent } from './admin-dashboard/manage-query/manage-query.component';
+import { ChatBotComponent } from './chat-bot/chat-bot.component';
+import { ChatService } from './chat.service';
+import { GenderImagePipe } from './pipes/gender-image.pipe';
 
 
 @NgModule({
@@ -68,6 +71,8 @@ import { ManageQueryComponent } from './admin-dashboard/manage-query/manage-quer
     UserProfileComponent,
     EditUserComponent,
     ValueArrayPipe,
+    ChatBotComponent,
+    GenderImagePipe,
 
 
   ],
@@ -86,10 +91,12 @@ import { ManageQueryComponent } from './admin-dashboard/manage-query/manage-quer
     FooterComponent,
   ],
   providers: [
+    ChatService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
-      multi: true
+      multi: true,
+
     }
   ],
   bootstrap: [AppComponent]

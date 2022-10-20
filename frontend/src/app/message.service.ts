@@ -17,9 +17,13 @@ export class MessageService {
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
 
-  messages: Message[] = [];
-  currentUserId!: any;
-  id!: number;
+
+  message = Message;
+  http: any;
+
+
+
+
 
 
 
@@ -32,7 +36,7 @@ export class MessageService {
 
 
 
-    console.log(this.currentUserId);
+
   }
 
 
@@ -56,4 +60,26 @@ export class MessageService {
     //console.log(localStorage.getItem('token'));
     return this.httpClient.get(url, { headers: this.getAuthHeader() });
   }
+
+  // Create
+  addMessage(message: any): Observable<any> {
+    let url = `${this.API_URL}/message/`;
+    return this.httpClient.post(url, message);
+
+  }
+
+
+  // addMessage(msg: Message) {
+  //   return this.httpClient.post<any>(`${this.API_URL}/message`, msg)
+  //     .subscribe((res: any) => {
+  //       // localStorage.setItem('token', res.accessToken)
+  //       localStorage.setItem('messageId', res._id)
+
+  //       // console.log(res.message)
+
+
+  //       return res.message;
+  //     })
+  // }
+
 }

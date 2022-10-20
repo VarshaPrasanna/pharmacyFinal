@@ -20,6 +20,7 @@ import { ManageQueryComponent } from './admin-dashboard/manage-query/manage-quer
 import { AddProductsComponent } from './admin-dashboard/Manage-Products/add-products/add-products.component';
 import { UpdateProductsComponent } from './admin-dashboard/Manage-Products/update-products/update-products.component';
 import { AdminManageOrdersComponent } from './admin-dashboard/admin-manage-orders/admin-manage-orders.component';
+import { ChatBotComponent } from './chat-bot/chat-bot.component';
 
 
 const routes: Routes = [
@@ -41,7 +42,8 @@ const routes: Routes = [
   { path: 'edit-user', component: EditUserComponent },
   { path: "log-out", component: HomeComponent },
   { path: "product-list", component: ProductListComponent },
-  { path: "messageList", component: ManageQueryComponent }
+  { path: "messageList", component: ManageQueryComponent },
+  { path: "chat-bot", component: ChatBotComponent }
 ];
 
 @NgModule({

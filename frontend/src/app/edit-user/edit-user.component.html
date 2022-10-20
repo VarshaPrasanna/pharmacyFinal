@@ -7,53 +7,54 @@
             </div>
             <div class="card-body">
                 <form>
-                    <!-- [formGroup]="editForm" (ngSubmit)="onSubmit()"> -->
-                    <div class="form-group">
-                        <label for="inputVerify3">First Name</label>
-                        <input class="form-control" type="text" formControlName="firstName" />
-                        <!-- error -->
+                    <form [formGroup]="editForm">
+                        <!-- [formGroup]="editForm" (ngSubmit)="onSubmit()"> -->
+                        <div class="form-group">
+                            <label for="inputVerify3">First Name</label>
+                            <input class="form-control" type="text" formControlName="firstName" />
+                            <!-- error -->
 
 
-                    </div>
-                    <div class="form-group">
-                        <label for="inputVerify3">Last Name</label>
-                        <input class="form-control" type="text" formControlName="lastName" />
-                        <!-- error -->
+                        </div>
+                        <div class="form-group">
+                            <label for="inputVerify3">Last Name</label>
+                            <input class="form-control" type="text" formControlName="lastName" />
+                            <!-- error -->
 
 
-                    </div>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="inputVerify3">Username </label>
-                        <input class="form-control" type="text" formControlName="username" />
-                        <!-- error -->
-
-
-                    </div>
-
-                    <div class="form-group">
-                        <label for="inputVerify3">Email </label>
-                        <input class="form-control" type="text" formControlName="email" />
-                        <!-- error -->
+                        <div class="form-group">
+                            <label for="inputVerify3">Username </label>
+                            <input class="form-control" type="text" formControlName="username" />
+                            <!-- error -->
 
 
-                    </div>
-                    <div class="form-group">
-                        <label for="inputVerify3">Gender </label>
-                        <input class="form-control" type="text" formControlName="gender" />
-                        <!-- error -->
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputVerify3">Email </label>
+                            <input class="form-control" type="text" formControlName="email" />
+                            <!-- error -->
 
 
-                    </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputVerify3">Gender </label>
+                            <input class="form-control" type="text" formControlName="gender" />
+                            <!-- error -->
 
-                    <div class="form-group">
-                        <button class="btn btn-success btn-lg btn-block" type="submit">
-                            Update
-                        </button>
-                    </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-success btn-lg btn-block" type="submit" (click)="onSubmit()">
+                                Update
+                            </button>
+                        </div>
+                    </form>
                 </form>
             </div>
         </div>
-        <!-- form  -->
     </div>
 </div>
