@@ -19,8 +19,9 @@
     <div>
 
         <div class="col-md-3 col-sm-6" class="column">
-            <a href="/">
+            
                 <div class="our-team">
+                    <a href="/">
                     <div class="pic">
                         <img src="{{product.image}}">
                     </div>
@@ -35,12 +36,13 @@
                                 <p class="text-right"> <small> {{product.price | currency: 'INR'}} </small> </p>
                             </div>
                         </div>
-                        <button class="btn btn-sm btn-primary">Add to Cart</button>
+                    
+                        
                     </div>
-
-
+                </a>
+                <button type='button' class="btn btn-sm btn-primary" (click)="addProductToCart(product._id)">Add to Cart</button>
                 </div>
-            </a>
+            
         </div>
     </div>
 

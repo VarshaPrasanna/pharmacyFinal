@@ -12,8 +12,6 @@ import { AuthService } from '../auth.service';
 export class ProductService {
   API_URL: string = 'http://localhost:3000';
 
-
-
   constructor(private httpClient: HttpClient, public router: Router, private auth: AuthService) { }
   getAuthHeader(): HttpHeaders {
     const headers = new HttpHeaders(
@@ -24,15 +22,14 @@ export class ProductService {
     return headers;
   }
 
-
-
-  getProduct(id: number) {
-    const prodId = localStorage.getItem('prodId')
-    return this.httpClient.get(`${this.API_URL}/products/${prodId}`, {
+  getProduct(id: any):Observable<any> {
+    //const prodId = localStorage.getItem('prodId')
+    console.log("get product");
+    return this.httpClient.get(`${this.API_URL}/products/${id}`, {
       headers: this.getAuthHeader()
-
     });
   }
+
   getProducts() {
 
     return this.httpClient.get(`${this.API_URL}/products`, {

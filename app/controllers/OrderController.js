@@ -75,7 +75,7 @@ const OrderController = {
             }, { new: true });
             res.status(200).json({
                 type: "success",
-                message: "Cart updated successfully",
+                message: "Order updated successfully",
                 updatedOrder
             })
         } catch (err) {
