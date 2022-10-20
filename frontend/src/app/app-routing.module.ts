@@ -26,7 +26,7 @@ import { UpdateOrderStatusComponent } from './admin-dashboard/update-order-statu
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
-  { path: "product-info", component: ProductInfoComponent },
+  { path: "product-info/:id", component: ProductInfoComponent },
   { path: "Manage-orders", component: AdminManageOrdersComponent },
   { path: 'update-status/:id', component: UpdateOrderStatusComponent },
   { path: "signup", component: SignupComponent },
