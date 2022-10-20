@@ -28,7 +28,7 @@
                                   </div>
                                     <div class="d-flex justify-content-between pt-2" > 
                                     <p class="text-muted mb-0"> city: {{Order.orders.address.city}} </p>
-                                    <p class="text-muted mb-0">Ordered Date : {{Order.orders.createdAt}}</p>
+                                    <p class="text-muted mb-0">Ordered Date : {{Order.orders.createdAt | date :'yyyy-MM-dd'}}</p>
                                     </div>
                                     <div class="d-flex justify-content-between pt-2" > 
                                     <p class="text-muted mb-0"> pincode: {{Order.orders.address.pincode}} </p>
