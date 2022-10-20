@@ -69,7 +69,7 @@ getProductById(id : any){
       let proid = this.acRoute.snapshot.paramMap.get('id');
       this.ProductService.updateProduct(proid, this.updateProductForm.value).subscribe({
         complete: ()=>{
-          this.router.navigateByUrl('/Manage-Products');
+          this.router.navigateByUrl('/admin/Manage-Products');
           console.log('product updated successfully');          
         },
         error:(e)=>{
