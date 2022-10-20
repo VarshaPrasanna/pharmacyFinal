@@ -23,13 +23,20 @@ export class OrderService {
   getOrders() {
     return this.httpClient.get(`${this.API_URL}/orders`)
   }
+
   getOrderById(id: any): Observable<any> {
     return this.httpClient.get(`${this.API_URL}/orders/${id}`).pipe(catchError(this.errorMgmt));
   }
+
   updateOrderStatus(id: any, product: any): Observable<any> {
     let url = `${this.API_URL}/orders/${id}`;
     return this.httpClient.put(url, product).pipe(catchError(this.errorMgmt));
   }
+
+  createOrder(order: any): Observable<any>{
+    return this.httpClient.post(`${this.API_URL}/orders`, order).pipe(catchError(this.errorMgmt));
+  }
+
   errorMgmt(error: HttpErrorResponse) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {

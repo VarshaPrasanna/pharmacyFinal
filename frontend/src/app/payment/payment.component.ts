@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CartService } from '../cart/cart.service';
+import { OrderService } from '../order.service';
 
 @Component({
   selector: 'app-payment',
@@ -8,44 +10,75 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class PaymentComponent implements OnInit {
   submitted = false;
-  addressForm! : FormGroup;
-  paymentForm! : FormGroup;
+  addressForm!: FormGroup;
+  paymentForm!: FormGroup;
 
-  constructor(private fb: FormBuilder,) { 
-                this.mainForm();
-              }
+  constructor(private fb: FormBuilder,
+              private orderService: OrderService,
+              private cartService: CartService) {
+    this.mainForm();
+  }
 
-  ngOnInit(): void {} 
-  
-  mainForm(){
+  ngOnInit(): void { }
+
+  mainForm() {
     this.addressForm = this.fb.group({
-      fullName: ["", [Validators.required, Validators.minLength(3)]],
-      address: ["", Validators.required],
-      city: ['', [Validators.required]],
-      pincode:['',[Validators.required, Validators.pattern("^[0-9]*$")]],
-      state: ['', Validators.required]
+      //fullName: ["", [Validators.required, Validators.minLength(3)]],
+        streetAddress: ["", Validators.required],
+        city: ['', [Validators.required]],
+        pincode: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
+        state: ['', Validators.required]
     });
 
     this.paymentForm = this.fb.group({
       cardName: ["", [Validators.required, Validators.minLength(3)]],
       cardNumber: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
       expDate: ["", Validators.required],
-      cvv : ['', [Validators.required, Validators.pattern('^[0-9]+$'), Validators.minLength(3), Validators.maxLength(4)]]
+      cvv: ['', [Validators.required, Validators.pattern('^[0-9]+$'), Validators.minLength(3), Validators.maxLength(4)]]
     });
   }
 
 
   //Getter to access form control
 
-  get AddressForm(){
+  get AddressForm() {
     return this.addressForm.controls;
   }
 
-  get PaymentForm(){
+  get PaymentForm() {
     return this.paymentForm.controls;
   }
 
-  onSubmit(){
+  onSubmit() {
     this.submitted = true;
+    console.log(this.addressForm.value);
+
+    let cart: any = this.cartService.loadCart();
+    let products: any[] = [];
+
+    for(let i=0; i < Object.keys(cart).length; i++){
+      products.push({
+        productId: Object.keys(cart)[i],
+        quantity: Object.values(cart)[i]
+      })
+    }
+
+    console.log({
+      userId: localStorage.getItem('userId'), 
+      products: products,
+      amount: localStorage.getItem('totalAmount'),
+      address: this.addressForm.value,
+      status: 'Pending'
+    })
+
+    this.orderService.createOrder({
+      userId: localStorage.getItem('userId'), 
+      products: products,
+      amount: localStorage.getItem('totalAmount'),
+      address: this.addressForm.value,
+      status: 'Pending'
+    }).subscribe((data) => {
+      console.log(data);
+    })
   }
 }
