@@ -15,11 +15,11 @@
 <div class="d-flex row justify-content-around flex-row">
     
     <div class="col flex-column col-md-7">
-        <div class="card" style="margin: 10px" *ngFor="let product of cartProducts; let i = index">
+        <div class="card" style="margin: 10px" *ngFor="let product of cartProducts;">
             <div class="card-body border rounded">
                 <div class="row align-items-center">
                     <div class="col-sm-2">
-                        <img src=product.img style="width: 100px;" />
+                        <img src={{product.img}} style="width: 100px;" />
                     </div>
                     <div class="col-sm-8">
                         <h5 class="card-title">{{product.title}}</h5>
@@ -59,7 +59,7 @@
                 <table class="table table-borderless">
                     <tr>
                         <td scope="row">Total Amount</td>
-                        <td>{{this.totalAmount | currency : 'INR'}}</td>
+                        <td>{{this.sum + this.shippingCharges | currency : 'INR'}}</td>
                     </tr>
                 </table>
             </div>

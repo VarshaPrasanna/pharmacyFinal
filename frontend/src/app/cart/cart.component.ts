@@ -12,13 +12,10 @@ export class CartComponent implements OnInit {
   cartProducts: any[] = [];
   sum: number = 0;
   shippingCharges: number = 50;
-  totalAmount: number = 0;
+  //totalAmount: number = 0;
 
   constructor(private cartService: CartService, 
     private productService: ProductService) { 
-   /*  this.getCart();
-    this.getSum();
-    this.getTotalAmount(); */
     this.getCartProducts();
   }
 
@@ -27,20 +24,22 @@ export class CartComponent implements OnInit {
 
   getCartProducts(){
     let cart = this.cartService.loadCart();
-    console.log(cart);
-    console.log(Object.keys(cart).length)
+    //console.log(cart);
+    //console.log(Object.keys(cart).length)
+    this.sum = 0;
     for(let i=0;i<Object.keys(cart).length; i++){
-      ;
       this.productService.getProduct(Object.keys(cart)[i]).subscribe((data) => {
+        let q = Number(Object.values(cart)[i]);
         this.cartProducts.push({
           productId: Object.keys(cart)[i],
           img: data['product'].img,
           title: data['product'].title,
           price: data['product'].price,
-          quantity: Object.values(cart)[i]
+          quantity: q
         })
+        this.sum += (data['product'].price * q);
+        console.log("sum", this.sum)
       })
-
     }
     console.log("cartdata",this.cartProducts);
   }
