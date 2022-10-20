@@ -32,7 +32,7 @@ export class CartComponent implements OnInit {
         let q = Number(Object.values(cart)[i]);
         this.cartProducts.push({
           productId: Object.keys(cart)[i],
-          img: data['product'].img,
+          img: data['product'].image,
           title: data['product'].title,
           price: data['product'].price,
           quantity: q

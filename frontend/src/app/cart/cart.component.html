@@ -19,7 +19,7 @@
             <div class="card-body border rounded">
                 <div class="row align-items-center">
                     <div class="col-sm-2">
-                        <img src={{product.img}} style="width: 100px;" />
+                        <img src="{{product.img}}"  style="width: 80px;" class="mr-1"/>
                     </div>
                     <div class="col-sm-8">
                         <h5 class="card-title">{{product.title}}</h5>
@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <div class="col-sm-1">
-                        <button type="button" class="btn btn-outline-ddanger" (click)="changeQty(product.productId, -product.quantity)">Delete</button>
+                        <button type="button" class="btn btn-outline-danger mr-1" (click)="changeQty(product.productId, -product.quantity)">Delete</button>
                     </div>
                 </div>
             </div>
@@ -65,7 +65,7 @@
             </div>
         </div>
 
-        <a class="btn btn-dark btn-lg btn-block flex-row mb-2" routerLink="/payment">Proceed to Checkout</a>
+        <a class="btn btn-dark btn-lg flex-row mb-2" routerLink="/payment">Proceed to Checkout</a>
     
     </div>
 </div>
