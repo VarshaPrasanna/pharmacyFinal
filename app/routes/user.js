@@ -5,7 +5,7 @@ const { accessLevelVerifier, isAdminVerifier } = require('../middlewares/verifyT
 const { UserController } = require('../controllers');
 
 router.get('/', UserController.get_users);
-router.get('/:id', isAdminVerifier, UserController.get_user);
+router.get('/:id', UserController.get_user);
 router.get('/myinfo/:_id', UserController.get_myinfo);
 router.put('/update/:id', UserController.update_user);
 router.delete('/:id', UserController.delete_user);

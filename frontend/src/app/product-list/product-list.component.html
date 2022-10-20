@@ -10,39 +10,36 @@
     </div>
 </div>
 
-
-
-
-
 <section class="container2" *ngFor="let product of Product.products;let i = index">
 
     <div>
 
         <div class="col-md-3 col-sm-6" class="column">
-            
+            <a [routerLink]="['/product-info',product._id]">
                 <div class="our-team">
                     <a href="/">
-                    <div class="pic">
-                        <img src="{{product.image}}">
-                    </div>
-
-                    <div class="card-body">
-                        <h6 class="card-title font-weight-bold">{{product.title}}</h6>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <p class="card-text"> <small> {{product.description}} </small></p>
-                            </div>
-                            <div class="col-md-6">
-                                <p class="text-right"> <small> {{product.price | currency: 'INR'}} </small> </p>
-                            </div>
+                        <div class="pic">
+                            <a><img src="{{product.image}}" /></a>
+                            <!-- <img src="{{product.image}}"> -->
                         </div>
-                    
-                        
-                    </div>
-                </a>
-                <button type='button' class="btn btn-sm btn-primary" (click)="addProductToCart(product._id)">Add to Cart</button>
+                        <div class="card-body">
+                            <h6 class="card-title font-weight-bold">{{product.title}}</h6>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p class="card-text"> <small> {{product.description}} </small></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="text-right"> <small> {{product.price | currency: 'INR'}} </small> </p>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </a>
+                    <button type='button' class="btn btn-sm btn-primary" (click)="addProductToCart(product._id)">Add to
+                        Cart</button>
                 </div>
-            
+            </a>
         </div>
     </div>
 

@@ -1,7 +1,7 @@
 import { ThisReceiver } from "@angular/compiler";
-import { Component,OnInit,NgZone } from "@angular/core";
-import { FormControl,FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl } from "@angular/forms";
-import { Router } from "@angular/router";
+import { Component, OnInit, NgZone } from "@angular/core";
+import { FormControl, FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl } from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Product } from "../models/product";
 
 import { ProductService } from "../product.service";
@@ -17,7 +17,7 @@ export class AddProductsComponent implements OnInit {
   // addProductForm!: FormGroup;
   // product!: Product;
   // imageData!: string;
-   
+
   // constructor( private productService: ProductService){}
 
   // ngOnInit(): void {
@@ -54,73 +54,75 @@ export class AddProductsComponent implements OnInit {
 
   formSubmitted = false;
   addProductForm!: FormGroup;
-  
+
   title!: FormControl;
   description!: FormControl;
   image!: FormControl;
   categories!: FormControl;
-  price!:FormControl;
-  
-  
+  price!: FormControl;
+
+
   constructor(
     public fb: FormBuilder,
     private router: Router,
     private ngZone: NgZone,
-    private ProductService: ProductService
+    private ProductService: ProductService,
+    private route: ActivatedRoute
   ) { }
   ngOnInit(): void {
     // this.id= new FormControl();
-    this.title = new FormControl('',[Validators.required]);
-    this.description = new FormControl('',[Validators.required]);
+
+    this.title = new FormControl('', [Validators.required]);
+    this.description = new FormControl('', [Validators.required]);
     this.image = new FormControl('', [Validators.required]);
     this.categories = new FormControl('');
-    this.price = new FormControl('',[Validators.required]);
+    this.price = new FormControl('', [Validators.required]);
 
     this.addProductForm = new FormGroup({
       // 'id' : this.id,
-      'title' : this.title,
+      'title': this.title,
       'description': this.description,
-      'image' : this.image,
+      'image': this.image,
       'categories': this.categories,
-      'price' : this.price
+      'price': this.price
     },
-    {updateOn : 'blur'});
+      { updateOn: 'blur' });
   }
-     categoriesList: any[] = ['Ayurveda', 'Health devices','Covid essentials', 'Nutrients','Clinical','Homeopathy', 'Personal Care','Home Care'];
-  changeCategory(e:any){
-    this.categories.setValue(e.target.value,{
+  categoriesList: any[] = ['Ayurveda', 'Health devices', 'Covid essentials', 'Nutrients', 'Clinical', 'Homeopathy', 'Personal Care', 'Home Care'];
+  changeCategory(e: any) {
+    this.categories.setValue(e.target.value, {
       onlySelf: true,
     });
   }
-  
-  
-  
-     addProduct(){
-      this.formSubmitted = true;
-      this.ProductService.addProduct(this.addProductForm.value).subscribe({
-        complete : ()=>{
-          this.router.navigateByUrl('/admin/Manage-Products');
-          console.log('product added successfully');
-          
-        },
-        error : (e:any) =>{
-          console.log(e);
-          
-        }
-      })
-    }
-    // onChange(event: any) {
-    //   const file = event.target.files[0];
-    //   this.ProductService.upload(file);
-      // const reader = new FileReader();
-      // reader.onload =() => {
-      //   this.img = reader.result as string;
-      // };
-      // reader.readAsDataURL(file);
+
+
+
+  addProduct() {
+    this.formSubmitted = true;
+    this.ProductService.addProduct(this.addProductForm.value).subscribe({
+      complete: () => {
+        this.router.navigateByUrl('/admin/Manage-Products');
+        console.log('product added successfully');
+
+      },
+      error: (e: any) => {
+        console.log(e);
+
+      }
+    })
+  }
+  // onChange(event: any) {
+  //   const file = event.target.files[0];
+  //   this.ProductService.upload(file);
+  // const reader = new FileReader();
+  // reader.onload =() => {
+  //   this.img = reader.result as string;
+  // };
+  // reader.readAsDataURL(file);
   // }
 
 
-  
+
   // ngOnInit(): void {
   //   this.addProductForm=new FormGroup ({
 
@@ -135,7 +137,7 @@ export class AddProductsComponent implements OnInit {
   //   'price' : new FormControl('',[Validators.required])
   //   });
   // }
-  
+
   // onSubmit(): void {
   //   this.ProductService
   //     .addProduct(this.addProductForm.value)
@@ -147,7 +149,7 @@ export class AddProductsComponent implements OnInit {
   // get title(): AbstractControl {
   //   return this.addProductForm.get('title');
   // }
- 
+
   // get description(): AbstractControl {
   //   return this.addProductForm.get('description');
   // }
@@ -166,4 +168,3 @@ export class AddProductsComponent implements OnInit {
 
 }
 
-   

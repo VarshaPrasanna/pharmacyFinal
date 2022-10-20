@@ -33,7 +33,7 @@ import { NutrientsComponent } from './categories/nutrients/nutrients.component';
 import { PersonalCareComponent } from './categories/personal-care/personal-care.component';
 const routes: Routes = [
   { path: "", component: HomeComponent },
-  { path: "product-info", component: ProductInfoComponent },
+  { path: "product-info/:id", component: ProductInfoComponent },
   { path: "Manage-orders", component: AdminManageOrdersComponent },
   { path: 'update-status/:id', component: UpdateOrderStatusComponent },
   { path: "signup", component: SignupComponent },
