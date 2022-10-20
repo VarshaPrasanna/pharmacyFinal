@@ -31,7 +31,6 @@ ngOnInit(): void {
   this.image = new FormControl('',[Validators.required]);
   this.categories = new FormControl('',[Validators.required]);
   this.price = new FormControl('',[Validators.required]);
-
   this.updateProductForm = new FormGroup({
     'title' : this.title,
     'description': this.description,
@@ -40,8 +39,7 @@ ngOnInit(): void {
     'price' : this.price
   },
   {updateOn : 'blur'});
-   let id = this.acRoute.snapshot.paramMap.get('id');
-      
+   let id = this.acRoute.snapshot.paramMap.get('id');     
   this.getProductById(id);
 }
 categoriesList: any[] = ['Ayurveda', 'Health', 'devicesCovid essentials', 'Health',  'Nutrients','Clinical','Homeopathy', 'Personal Care','Home Care'];
@@ -61,28 +59,24 @@ getProductById(id : any){
         image : data['image'],
         categories : data['categories'],
         price : data['price'],
-
       });
     });
   }
+
   editProduct(){
-    
     this.formSubmitted = true;
     if(window.confirm("are you sure?")){
       let proid = this.acRoute.snapshot.paramMap.get('id');
       this.ProductService.updateProduct(proid, this.updateProductForm.value).subscribe({
         complete: ()=>{
           this.router.navigateByUrl('/Manage-Products');
-          console.log('product updated successfully');
-          
+          console.log('product updated successfully');          
         },
         error:(e)=>{
-          console.log(e);
-          
+          console.log(e);         
         }
       });
-    }
-    
+    }   
   }
 //   getProductById(){
 //   let proid = this.acRoute.snapshot.paramMap.get('id');
