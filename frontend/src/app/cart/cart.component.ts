@@ -12,7 +12,6 @@ export class CartComponent implements OnInit {
   cartProducts: any[] = [];
   sum: number = 0;
   shippingCharges: number = 50;
-  //totalAmount: number = 0;
 
   constructor(private cartService: CartService, 
     private productService: ProductService) { 
@@ -23,10 +22,10 @@ export class CartComponent implements OnInit {
   }
 
   getCartProducts(){
+
     let cart = this.cartService.loadCart();
-    //console.log(cart);
-    //console.log(Object.keys(cart).length)
     this.sum = 0;
+
     for(let i=0;i<Object.keys(cart).length; i++){
       this.productService.getProduct(Object.keys(cart)[i]).subscribe((data) => {
         let q = Number(Object.values(cart)[i]);
@@ -41,6 +40,7 @@ export class CartComponent implements OnInit {
         console.log("sum", this.sum)
       })
     }
+
     console.log("cartdata",this.cartProducts);
   }
 
@@ -55,5 +55,9 @@ export class CartComponent implements OnInit {
       this.cartProducts = [];
       this.cartService.emptyCart();
     }
+  }
+
+  saveTotalAmount(){
+    localStorage.setItem('totalAmount', JSON.stringify(this.sum + this.shippingCharges));
   }
 }
