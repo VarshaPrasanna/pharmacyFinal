@@ -31,7 +31,6 @@ export class UpdateProductsComponent implements OnInit {
     this.image = new FormControl('', [Validators.required]);
     this.categories = new FormControl('', [Validators.required]);
     this.price = new FormControl('', [Validators.required]);
-
     this.updateProductForm = new FormGroup({
       'title': this.title,
       'description': this.description,
@@ -41,7 +40,6 @@ export class UpdateProductsComponent implements OnInit {
     },
       { updateOn: 'blur' });
     let id = this.acRoute.snapshot.paramMap.get('id');
-
     this.getProductById(id);
   }
   categoriesList: any[] = ['Ayurveda', 'Health', 'Covid essentials', 'Health Devices', 'Nutrients', 'Clinical', 'Homeopathy', 'Personal Care', 'Home Care'];
@@ -61,12 +59,11 @@ export class UpdateProductsComponent implements OnInit {
         image: data['image'],
         categories: data['categories'],
         price: data['price'],
-
       });
     });
   }
-  editProduct() {
 
+  editProduct() {
     this.formSubmitted = true;
     if (window.confirm("are you sure?")) {
       let proid = this.acRoute.snapshot.paramMap.get('id');
@@ -74,15 +71,12 @@ export class UpdateProductsComponent implements OnInit {
         complete: () => {
           this.router.navigateByUrl('/admin/Manage-Products');
           console.log('product updated successfully');
-
         },
         error: (e) => {
           console.log(e);
-
         }
       });
     }
-
   }
   //   getProductById(){
   //   let proid = this.acRoute.snapshot.paramMap.get('id');

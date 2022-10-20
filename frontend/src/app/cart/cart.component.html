@@ -5,27 +5,61 @@
     </div>
 </div>
 
-<div class="d-flex row justify-content-around flex-row-reverse">
+<div class="card" *ngIf="this.cartProducts.length <= 0">
+    <div class="card-body">
+        <h2 class="card-title text-warning text-center">Your Cart is empty!</h2>
+        <p class="card-text text-warning text-center">Add products to the cart before proceeding to checkout</p>
+    </div>
+</div>
 
-    <div class="col-md-4 d-flex flex-column justify-content-between" style="margin-top: 10px;">
+<div class="d-flex row justify-content-around flex-row">
+    
+    <div class="col flex-column col-md-7">
+        <div class="card" style="margin: 10px" *ngFor="let product of cartProducts; let i = index">
+            <div class="card-body border rounded">
+                <div class="row align-items-center">
+                    <div class="col-sm-2">
+                        <img src=product.img style="width: 100px;" />
+                    </div>
+                    <div class="col-sm-8">
+                        <h5 class="card-title">{{product.title}}</h5>
+                        <p>  {{product.price * product.quantity | currency : 'INR'}}</p>
+                        <div style="margin: 10px">
+                            <button class="btn btn-dark btn-sm" style="width:20px; height: 30px; text-align: center;"
+                            (click)="changeQty(product.productId, 1)">+</button>
+                            {{ product.quantity }}
+                            <button class="btn btn-dark btn-sm" style="width:20px; height: 30px; text-align: center;"
+                            (click)="changeQty(product.productId, -1)">-</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-1">
+                        <button type="button" class="btn btn-outline-ddanger" (click)="changeQty(product.productId, -product.quantity)">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-outline-warning ml-1" *ngIf="this.cartProducts.length > 0" (click)="deleteCart()">Clear Cart</button>
+    </div> 
+
+    <div class="col-md-4 d-flex flex-column justify-content-between" *ngIf="this.cartProducts.length > 0" style="margin-top: 10px;">
         <div class="card border rounded flex-row">
             <div class="card-body">
                 <h4 class="card-title">Order Summary</h4>
                 <table class="table table-borderless">
                     <tr>
                         <td scope="row">Total sum</td>
-                        <td>{{600 | currency : 'INR'}}</td>
+                        <td>{{this.sum | currency : 'INR'}}</td>
                     </tr>
                     <tr>
                         <td scope="row">Shipping charges</td>
-                        <td>{{50 | currency : 'INR'}}</td>
+                        <td>{{this.shippingCharges | currency : 'INR'}}</td>
                     </tr>
                 </table>
                 <hr>
                 <table class="table table-borderless">
                     <tr>
                         <td scope="row">Total Amount</td>
-                        <td>{{650 | currency : 'INR'}}</td>
+                        <td>{{this.totalAmount | currency : 'INR'}}</td>
                     </tr>
                 </table>
             </div>
@@ -34,31 +68,4 @@
         <a class="btn btn-dark btn-lg btn-block flex-row mb-2" routerLink="/payment">Proceed to Checkout</a>
     
     </div>
-
-    <div class="col flex-column col-md-7">
-        <div class="card" style="margin: 10px" *ngFor="let product of products; let i = index">
-            <div class="card-body border rounded">
-                <div class="row align-items-center">
-                    <div class="col-sm-2">
-                        <img src="../../assets/images/111.jpg" style="width: 100px;" />
-                    </div>
-                    <div class="col-sm-8">
-                        <h5 class="card-title">{{product.productName}}</h5>
-                        <p>  {{product.productPrice | currency : 'INR'}}</p>
-                        <div style="margin: 10px">
-                            <button class="btn btn-dark btn-sm" style="width:20px; height: 30px; text-align: center;"
-                                (click)="increaseQty(i)">+</button>
-                            {{ product.productQty }}
-                            <button class="btn btn-dark btn-sm" style="width:20px; height: 30px; text-align: center;"
-                                (click)="decreaseQty(i)">-</button>
-                        </div>
-                    </div>
-                    <div class="col-sm-1">
-                        <button type="button" class="btn btn-outline-danger">Delete</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </div>

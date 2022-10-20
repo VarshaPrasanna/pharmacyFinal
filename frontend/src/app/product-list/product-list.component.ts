@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { CartService } from '../cart/cart.service';
 import { Product } from '../models/product';
 import { ProductService } from './product.service';
 
@@ -17,7 +18,7 @@ export class ProductListComponent implements OnInit {
 
 
   Product!: any;
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private cartService: CartService) {
 
     this.readProducts();
 
@@ -40,8 +41,8 @@ export class ProductListComponent implements OnInit {
     }, 10)
   }
 
-
-
-
-
+  addProductToCart(id: string){
+    this.cartService.addToCart(id, 1);
+    window.alert("Product Added to cart");
+  }
 }

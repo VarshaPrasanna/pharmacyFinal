@@ -37,7 +37,7 @@ export class AuthService {
   login(user: User) {
     return this.httpClient.post<any>(`${this.API_URL}/auth/login/`, user)
       .subscribe((res: any) => {
-        localStorage.setItem('token', res.accessToken)
+        localStorage.setItem('accessToken', res.accessToken)
         localStorage.setItem('userId', res._id)
         localStorage.setItem('userName', res.firstName + '  ' + res.lastName)
 
@@ -59,7 +59,7 @@ export class AuthService {
     return localStorage.getItem('accessToken');
   }
   getUserId() {
-    return localStorage.getItem('id');
+    return localStorage.getItem('userId');
   }
 
   get isLoggedIn(): boolean {

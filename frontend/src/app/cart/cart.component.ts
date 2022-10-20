@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../product-list/product.service';
+import { CartService } from './cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -7,37 +9,52 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  products: any = [
-    {
-        'productId' : 101,
-        'productName' : 'Vitamins',
-        'productPrice' : 100,
-        'productQty' : 5,
-    },
-    {
-        'productId' : 103,
-        'productName' : 'Pain Killers',
-        'productPrice' : 160,
-        'productQty' : 3,
-    },
-    {
-        'productId' : 108,
-        'productName' : 'Cough Syrup',
-        'productPrice' : 180,
-        'productQty' : 2,
-    }
-];
+  cartProducts: any[] = [];
+  sum: number = 0;
+  shippingCharges: number = 50;
+  totalAmount: number = 0;
 
-  constructor() { }
+  constructor(private cartService: CartService, 
+    private productService: ProductService) { 
+   /*  this.getCart();
+    this.getSum();
+    this.getTotalAmount(); */
+    this.getCartProducts();
+  }
 
   ngOnInit(): void {
   }
 
-  increaseQty(i: number){
-    this.products[i].productQty += 1;
+  getCartProducts(){
+    let cart = this.cartService.loadCart();
+    console.log(cart);
+    console.log(Object.keys(cart).length)
+    for(let i=0;i<Object.keys(cart).length; i++){
+      ;
+      this.productService.getProduct(Object.keys(cart)[i]).subscribe((data) => {
+        this.cartProducts.push({
+          productId: Object.keys(cart)[i],
+          img: data['product'].img,
+          title: data['product'].title,
+          price: data['product'].price,
+          quantity: Object.values(cart)[i]
+        })
+      })
+
+    }
+    console.log("cartdata",this.cartProducts);
   }
 
-  decreaseQty(i: number){
-    this.products[i].productQty -= 1;
+  changeQty(id: any, qty:number){
+    this.cartService.addToCart(id,qty);
+    this.cartProducts = [];
+    this.getCartProducts();
+  }
+
+  deleteCart(){
+    if(window.confirm("Are you sure you want to clear the cart?")){
+      this.cartProducts = [];
+      this.cartService.emptyCart();
+    }
   }
 }
