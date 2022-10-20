@@ -45,7 +45,7 @@ const DiscussionBoardController = {
             const msg = await Message.find();
             res.status(200).json({
                 type: "success",
-                carts
+                msg
             })
         } catch (err) {
             res.status(500).json({
@@ -68,7 +68,7 @@ const DiscussionBoardController = {
             } else {
                 res.status(200).json({
                     type: "success",
-                    cart
+                    msg
                 })
             }
         } catch (err) {
@@ -79,6 +79,25 @@ const DiscussionBoardController = {
             })
         }
     },
+
+
+
+    //Delete all messages
+    async delete_messages(req, res) {
+        try {
+            await Message.deleteMany();
+            res.status(200).json({
+                type: "success",
+                message: "Messages has been deleted successfully"
+            });
+        } catch (err) {
+            res.status(500).json({
+                type: "error",
+                message: "Something went wrong please try again",
+                err
+            })
+        }
+    }
 
 
 

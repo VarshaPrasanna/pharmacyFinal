@@ -33,6 +33,9 @@ import { ValueArrayPipe } from './pipes/value-array.pipe';
 import { BlogComponent } from './blog/blog.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ManageQueryComponent } from './admin-dashboard/manage-query/manage-query.component';
+import { ChatBotComponent } from './chat-bot/chat-bot.component';
+import { ChatService } from './chat.service';
+import { GenderImagePipe } from './pipes/gender-image.pipe';
 import { AdminSidenavComponent } from './admin-dashboard/admin-sidenav/admin-sidenav.component';
 
 import { UpdateOrderStatusComponent } from './admin-dashboard/update-order-status/update-order-status.component';
@@ -71,6 +74,8 @@ import { UpdateOrderStatusComponent } from './admin-dashboard/update-order-statu
     UserProfileComponent,
     EditUserComponent,
     ValueArrayPipe,
+    ChatBotComponent,
+    GenderImagePipe,
     UpdateOrderStatusComponent,
     AdminSidenavComponent,
 
@@ -91,10 +96,12 @@ import { UpdateOrderStatusComponent } from './admin-dashboard/update-order-statu
     FooterComponent,
   ],
   providers: [
+    ChatService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
-      multi: true
+      multi: true,
+
     }
   ],
   bootstrap: [AppComponent]

@@ -10,9 +10,30 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class AdminManageOrdersComponent implements OnInit {
 
-   order!:any;
+  // orders : Order[] = [{
+  //   userId : '1234',
+  //   products : [{productId: 123, quantity: 3}],
+  //   amount: 240,
+  //   address: '1234 NW Bobcat Lane, St. Robert, MO 65584-5678.',
+  //   status: 'Pending'
+  // },
+  // {
+  //   userId : '123',
+  //   products : [{productId: 34, quantity: 3}, {productId: 344, quantity: 1}],
+  //   amount: 300,
+  //   address: '1234 NW Bobcat Lane, St. Robert, MO 65584-5678.',
+  //   status: 'Delivered'
+  // },
+  // {
+  //   userId : '1221',
+  //   products : [{productId: 12, quantity: 2}, {productId: 124, quantity: 1}, {productId: 412, quantity: 1}],
+  //   amount: 240,
+  //   address: '1234 NW Bobcat Lane, St. Robert, MO 65584-5678.',
+  //   status: 'in transit'
+  // }];
+  order!: any;
 
-  constructor(private router: Router,private orderService : OrderService) { 
+  constructor(private router: Router, private orderService: OrderService) {
     this.getOrders();
   }
 
@@ -23,7 +44,7 @@ export class AdminManageOrdersComponent implements OnInit {
       this.order = data;
     });
   }
- // orders : Order[] = [{
+  // orders : Order[] = [{
   //   userId : '1234',
   //   products : [{productId: 123, quantity: 3}],
   //   amount: 240,

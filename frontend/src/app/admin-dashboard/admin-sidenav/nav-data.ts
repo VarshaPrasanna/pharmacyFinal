@@ -1,10 +1,5 @@
 export const navbarData = [
     {
-        routeLink: '',
-        icon: 'fal fa-home',
-        label: 'Dashboard'
-    },
-    {
         routeLink:''+'Manage-Products',
         icon: 'fal fa-box-open',
         label: 'Manage-Products'
@@ -23,6 +18,11 @@ export const navbarData = [
         routeLink: 'Messages',
         icon:"fal fa-envelope",
         label: 'Messages'
+    },
+    {
+        routeLink: '',
+        icon: 'fal fa-home',
+        label: 'Home'
     },
    
 ];
