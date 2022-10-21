@@ -44,6 +44,10 @@
 <div id="bg"></div>
 
 <form novalidate [formGroup]="loginForm" (ngSubmit)="loginUser()">
+  <div class="text-center heading">
+    <h2 class="mb-2">Login</h2>
+    <p class="lead">Don't have an account? <a routerLink="/signup">Register</a></p>
+  </div>
   <div class="form-field">
     <input type="text"   formControlName="username" placeholder="Enter Username" 
     [ngClass]="{'is-invalid':username.errors && (username.touched || username.dirty),'is-valid' :username.valid}">
