@@ -53,13 +53,36 @@
                                     </div>
                                     <div class="card-body">
                                       <!-- <form [formGroup]="updateStatusForm" > -->
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                           <label for="Verify3">status</label>
                                           <div class="d-grid">
                                             <select class="custom-select mb-3" (change)="changeStatus($event)" formControlName="status">
                                               <option value="">choose status</option>
                                               <option *ngFor="let c of categoriesList" [ngValue]="c">{{c}}</option>
                                             </select>
+                                          </div>
+                                        </div> -->
+                                        <div class="form-group">
+                                          <label for="inputPassword3">Designation</label>
+                                          <select
+                                            class="custom-select form-control"
+                                            (change)="changeStatus($event)"
+                                            formControlName="status"
+                                          >
+                                            <option value="">Choose...</option>
+                                            <option
+                                              *ngFor="let category of categoriesList"
+                                              value="{{ category }}"
+                                            >
+                                              {{ category }}
+                                            </option>
+                                          </select>
+                                          <!-- error -->
+                                          <div
+                                            class="invalid-feedback"
+                                            *ngIf="formSubmitted && myForm['status'].errors?.['required']"
+                                          >
+                                            Choose category.
                                           </div>
                                         </div>
                                         </div>

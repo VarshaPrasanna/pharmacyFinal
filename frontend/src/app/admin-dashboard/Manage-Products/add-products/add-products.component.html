@@ -45,41 +45,27 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="inputVerify3">category</label>
-                <div class="d-grid">
-                  <select class="custom-select mb-3" (change)="changeCategory($event)" formControlName="categories">
-                    <option value="">choose category</option>
-                    <option *ngFor="let c of categoriesList" [ngValue]="c">{{c}}</option>
-                  </select>
-                </div>
-                <!-- <input
-                  class="form-control"
-                  type="text"
-                  formControlName="categories" [ngClass]="{'is-invalid':categories.errors && (categories.touched || categories.dirty),'is-valid' :categories.valid}">
-                
+                <label for="inputPassword3">category</label>
+                <select
+                  class="custom-select form-control"
+                  (change)="changeCategory($event)"
+                  formControlName="categories"
+                >
+                  <option value="">Choose...</option>
+                  <option
+                    *ngFor="let category of categoriesList"
+                    value="{{ category }}"
+                  >
+                    {{ category }}
+                  </option>
+                </select>
                 <div
                   class="invalid-feedback"
-                  *ngIf = "categories.errors?.['required']"
+                  *ngIf="categories.errors?.['required']"
                 >
-                  Enter category.
-                </div> -->
-                <!-- <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
-                      aria-expanded="false" >
-                        Dropdown
-                      </button>
-                  <div class="dropdown-menu" aria-labelledby="triggerId">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item disabled" href="#">Disabled action</a>
-                    <h6 class="dropdown-header">Section header</h6>
-                    <a class="dropdown-item" href="#">Action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">After divider action</a>
-                  </div>
-                </div> -->
-                
-              </div>
-      
+                  Choose category.
+                </div>
+              </div>     
               <div class="form-group">
                 <label for="inputVerify3">price</label>
                 <input

@@ -21,7 +21,7 @@ export class PersonalCareComponent implements OnInit {
   readProducts() {
     this.productService.getProducts().subscribe((data) => {
       this.Product = data;
-      this.product =  this.Product.products.filter((p: any)=> p.categories === "7: Personal Care");
+      this.product =  this.Product.products.filter((p: any)=> p.categories === "Personal Care");
     // console.log(this.Product);
     //   console.log(this.product.products)
     });

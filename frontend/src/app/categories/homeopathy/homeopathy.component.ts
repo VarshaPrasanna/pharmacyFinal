@@ -20,7 +20,7 @@ export class HomeopathyComponent implements OnInit {
   readProducts() {
     this.productService.getProducts().subscribe((data) => {
       this.Product = data;
-      this.product =  this.Product.products.filter((p: any)=> p.categories === "6: Homeopathy");
+      this.product =  this.Product.products.filter((p: any)=> p.categories === "Homeopathy");
     // console.log(this.Product);
     //   console.log(this.product.products)
     });
