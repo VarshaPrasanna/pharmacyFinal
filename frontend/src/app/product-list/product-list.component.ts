@@ -45,4 +45,40 @@ export class ProductListComponent implements OnInit {
     this.cartService.addToCart(id, 1);
     window.alert("Product Added to cart");
   }
+
+
+  /* product: any
+  sortPricel2h(){
+     if (this.product){
+       let newarr = this.Product.sort((a:{price:number;},b:{price:number})=> a.price-b.price)
+       this.Productdata=newarr;
+     }
+     else{
+       let newarr = this.Product.products.sort((b:any,a:any)=> a.price-b.price)
+       this.Productdata=newarr;
+     }
+     this.product=!this.product 
+   }
+
+   sortProductName(property: string | number){
+
+    this['isDesc'] =!this['isDesc'];
+
+    let direction =this['isDesc'] ?1:-1;
+    this['showData'].sort(function(a: { [x: string]: number; },b: { [x: string]: number; }){
+      if (a[property]<b[property]){
+       return -1*direction;
+      }
+      else if(a[property]>b[property]){
+        return 1*direction;
+      }
+      else {
+        return 0;
+      }
+    });
+    
+  }
+ 
+*/
+
 }

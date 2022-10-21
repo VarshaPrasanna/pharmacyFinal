@@ -63,7 +63,7 @@ export class UserService {
     }
   }
 
-  getUser(id: number) {
+  getUser(id: any) {
     const userId = localStorage.getItem('userId')
     return this.httpClient.get(`${this.API_URL}/users/myinfo/${userId}`, {
       headers: this.getAuthHeader()
