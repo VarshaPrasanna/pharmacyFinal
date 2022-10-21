@@ -36,14 +36,6 @@ export class ProductService {
     }).pipe(catchError(this.errorMgmt));
   }
 
-  getProduct(id: any): Observable<any> {
-    //const prodId = localStorage.getItem('prodId')
-    console.log("get product");
-    return this.httpClient.get(`${this.API_URL}/products/${id}`, {
-      headers: this.getAuthHeader()
-    });
-  }
-
   getProducts() {
 
     return this.httpClient.get(`${this.API_URL}/products`, {

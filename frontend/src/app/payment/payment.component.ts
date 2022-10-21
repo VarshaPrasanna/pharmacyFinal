@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CartService } from '../cart/cart.service';
 import { OrderService } from '../order.service';
+import { ProductService } from '../product-list/product.service';
 
 @Component({
   selector: 'app-payment',
@@ -14,8 +15,9 @@ export class PaymentComponent implements OnInit {
   paymentForm!: FormGroup;
 
   constructor(private fb: FormBuilder,
-              private orderService: OrderService,
-              private cartService: CartService) {
+    private orderService: OrderService,
+    private cartService: CartService,
+    private productService: ProductService) {
     this.mainForm();
   }
 
@@ -24,10 +26,10 @@ export class PaymentComponent implements OnInit {
   mainForm() {
     this.addressForm = this.fb.group({
       //fullName: ["", [Validators.required, Validators.minLength(3)]],
-        streetAddress: ["", Validators.required],
-        city: ['', [Validators.required]],
-        pincode: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
-        state: ['', Validators.required]
+      streetAddress: ["", Validators.required],
+      city: ['', [Validators.required]],
+      pincode: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
+      state: ['', Validators.required]
     });
 
     this.paymentForm = this.fb.group({
@@ -56,15 +58,19 @@ export class PaymentComponent implements OnInit {
     let cart: any = this.cartService.loadCart();
     let products: any[] = [];
 
-    for(let i=0; i < Object.keys(cart).length; i++){
-      products.push({
-        productId: Object.keys(cart)[i],
-        quantity: Object.values(cart)[i]
+    for (let i = 0; i < Object.keys(cart).length; i++) {
+      this.productService.getProductById(Object.keys(cart)[i]).subscribe((data) => {
+        products.push({
+          productId: Object.keys(cart)[i],
+          img: data['product'].image,
+          title: data['product'].title,
+          quantity: Object.values(cart)[i]
+        })
       })
     }
 
     console.log({
-      userId: localStorage.getItem('userId'), 
+      userId: localStorage.getItem('userId'),
       products: products,
       amount: localStorage.getItem('totalAmount'),
       address: this.addressForm.value,
@@ -72,7 +78,7 @@ export class PaymentComponent implements OnInit {
     })
 
     this.orderService.createOrder({
-      userId: localStorage.getItem('userId'), 
+      userId: localStorage.getItem('userId'),
       products: products,
       amount: localStorage.getItem('totalAmount'),
       address: this.addressForm.value,
