@@ -22,7 +22,7 @@
                         <!-- MESSAGE -->
 
                         <div class="modal-body">
-                            <form #formDir="ngForm" [formGroup]="msgForm" (ngSubmit)="onSubmit()">
+                            <form #formDir="ngForm" [formGroup]="msgForm" (ngSubmit)="addMessage()">
                                 <div class="form-group">
 
                                     <textarea class="form-control" name="message" cols="30" rows="10"
@@ -58,13 +58,33 @@
         </div>
     </div><!-- End -->
 
+    <div class="w-75 mb-3" *ngFor="let msg of messages">
 
-    <div class="container py-5">
+        <div class="card border-secondary">
+            <div class="list-group-item">
+                {{msg.firstName}}<div style="text-align: right; font-size: 10px; font-weight: lighter;">{{msg.date |
+                    date }}</div>
+            </div>
+            <div class="card-body">
+                <!-- <h4 class="card-title">Title</h4> -->
+                <p class="card-text">{{msg.message}}</p>
+            </div>
+            <div *ngIf="msg.replies">
+                <p class="card-header text-secondary mb-2">Replies</p>
+                <div class="card ml-5 mr-2 mb-3">
+                    <div class="card-body">
+                        <p class="card-text">{{msg.replies}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--   <div class="container py-5">
         <div class="row">
-            <div class="col-lg-7 mx-auto bg-white rounded shadow">
+            <div class="col-lg-7 mx-auto bg-white rounded shadow"> -->
 
-                <!-- Fixed header table-->
-                <div class="table-responsive">
+        <!-- Fixed header table-->
+        <!--  <div class="table-responsive">
                     <table class="table table-fixed">
                         <thead>
                             <tr>
@@ -87,4 +107,4 @@
             </div>
         </div>
     </div>
-</body>
+</body> -->

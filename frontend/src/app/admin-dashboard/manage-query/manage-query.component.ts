@@ -20,7 +20,7 @@ export class ManageQueryComponent implements OnInit {
   }
 
   getMessages() {
-    this.msgService.getAllMessage().subscribe((data: any) => {
+    this.msgService.getAllMessages().subscribe((data: any) => {
       this.messages = data;
       console.log(this.messages)
     })

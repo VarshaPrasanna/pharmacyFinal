@@ -12,32 +12,17 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class MessageService {
+
   isUserLogged = new Subject<boolean>();
   API_URL: string = 'http://localhost:3000';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-
-
   message = Message;
   http: any;
 
+  constructor(private httpClient: HttpClient, public router: Router, private auth: AuthService) {  }
 
-
-
-
-
-
-  constructor(private httpClient: HttpClient, public router: Router, private auth: AuthService) {
-
-  }
-
-
-  ngOnInit(): void {
-
-
-
-
-  }
+  ngOnInit(): void {}
 
 
   getAccessToken() {
@@ -52,10 +37,7 @@ export class MessageService {
     return headers;
   }
 
-
-
-
-  getAllMessage(): Observable<any> {
+  getAllMessages(): Observable<any> {
     let url = `${this.API_URL}/message`;
     //console.log(localStorage.getItem('token'));
     return this.httpClient.get(url, { headers: this.getAuthHeader() });
@@ -63,9 +45,9 @@ export class MessageService {
 
   // Create
   addMessage(message: any): Observable<any> {
+    console.log("create msg service", message)
     let url = `${this.API_URL}/message/`;
-    return this.httpClient.post(url, message);
-
+    return this.httpClient.post(url, message, { headers: this.getAuthHeader() });
   }
 
 
