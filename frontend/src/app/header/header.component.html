@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white w-100 navigation" id="navbar">
+<nav class="navbar navbar-expand-lg navbar-light w-100 navigation" id="navbar" style="background-color: lightblue;">
   <div class="container">
 
     <a class="navbar-brand font-weight-bold" roterLink="/">2 MG</a>
@@ -66,6 +66,7 @@
 
         <!-- <button style='font-size:12px' size="10px" type="button" class="btn btn-outline-primary"
           routerLink="/discussion-board">Dicussion Board<i class='tf-ion-ios-chatboxes'></i></button> -->
+
       </ul>
     </div>
 
@@ -84,7 +85,7 @@
         <a name="login" id="login" class="btn btn-outline-primary m-1" routerLink="/login" role="button" color>Login</a>
       </ng-template>
 
-      <!-- LOGOUT -->
+      <!--  LOGOUT -->
 
       <ng-template [ngIf]="isUserLogged()">
         <button size="10px" type="button" routerLink="/profile" class="btn btn-outline-primary m-1">Welcome,
@@ -98,14 +99,14 @@
 
         <a name="logout" id="logout" class="btn btn-outline-primary m-1" routerLink="/" role="button" (click)="logout()"
           color>Logout</a>
-
-        <li class="dropdown cart-nav dropdown-slide list-inline-item">
-          <a href="#" class="dropdown-toggle cart-icon m-1" data-toggle="dropdown" data-hover="dropdown">
-            <i class="tf-ion-android-cart"></i>
+        <li class="cart-nav list-inline-item ml-2 border border-dark rounded-circle cart-btn">
+          <a routerLink="/cart"> <!-- class="dropdown-toggle cart-icon m-1" data-toggle="dropdown" data-hover="dropdown"> -->
+            <i class="tf-ion-android-cart cart-icon"></i>
           </a>
-          <div class="dropdown-menu cart-dropdown">
+          </li>
+          <!-- <div class="dropdown-menu cart-dropdown"> -->
             <!-- Cart Item -->
-            <div class="media">
+           <!--  <div class="media">
 
               <a routerLink="/product-info">
                 <img class="media-object img- mr-3" src="assets/images/cart-1.jpg" alt="image" />
@@ -118,10 +119,10 @@
                 </div>
               </div>
               <a href="#" class="remove"><i class="tf-ion-close"></i></a>
-            </div><!-- / Cart Item -->
+            </div> -->
 
             <!-- Cart Item -->
-            <div class="media">
+           <!--  <div class="media">
               <a routerLink="/product-info">
                 <img class="media-object img-fluid mr-3" src="assets/images/cart-2.jpg" alt="image" />
               </a>
@@ -133,9 +134,8 @@
                 </div>
               </div>
               <a href="#" class="remove"><i class="tf-ion-close"></i></a>
-            </div><!-- / Cart Item -->
-
-            <div class="cart-summary">
+            </div> -->
+           <!--  <div class="cart-summary">
               <span class="h6">Total</span>
               <span class="total-price h6">$1799.00</span>
 
@@ -145,7 +145,7 @@
               </div>
             </div>
           </div>
-        </li>
+        </li>-->
       </ng-template>
 
 

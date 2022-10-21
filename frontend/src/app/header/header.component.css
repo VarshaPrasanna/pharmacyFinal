@@ -1,0 +1,6 @@
+
+.cart-btn :hover{
+    color: blue;
+    border-radius: 50%;
+    background-color: aliceblue;
+}

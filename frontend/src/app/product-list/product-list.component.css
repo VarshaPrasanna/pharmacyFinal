@@ -23,6 +23,7 @@ input{ margin: 5px; }
 .column {
   float: left;
   width: 25%;
+  height: 400px;
   padding: 0 20px;
   padding-bottom: 20px;
 }
@@ -36,13 +37,13 @@ input{ margin: 5px; }
         transition: all 0.5s ease 0s;
       }
       .our-team:hover .pic {
-        background: lightgreen;
+        background: lightblue; /*lightgreen;*/
         border-radius: 50%;
       }
       .pic img {
-        width: 20%;
+        width: 40%;
         height: auto;
-        border-radius: 50%;
+        border-radius: 20%;
       }
       .our-team .title {
         display: block;

@@ -22,7 +22,7 @@
     transition: all 0.5s ease 0s;
   }
   .our-team:hover .pic {
-    background: #E55246;
+    background: lightblue;/* #E55246; */
     border-radius: 50%;
   }
   .pic img {
