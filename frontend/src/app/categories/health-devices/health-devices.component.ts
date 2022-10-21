@@ -21,7 +21,7 @@ export class HealthDevicesComponent implements OnInit {
   readProducts() {
     this.productService.getProducts().subscribe((data) => {
       this.Product = data;
-      this.product =  this.Product.products.filter((p: any)=> p.categories === "2: Health devices");
+      this.product =  this.Product.products.filter((p: any)=> p.categories === "Health devices");
     // console.log(this.Product);
     //   console.log(this.product.products)
     });

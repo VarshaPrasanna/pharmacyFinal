@@ -21,7 +21,7 @@ export class HomeCareComponent implements OnInit {
   readProducts() {
     this.productService.getProducts().subscribe((data) => {
       this.Product = data;
-      this.product =  this.Product.products.filter((p: any)=> p.categories === "8: Home Care");
+      this.product =  this.Product.products.filter((p: any)=> p.categories === "Home Care");
     // console.log(this.Product);
     //   console.log(this.product.products)
     });

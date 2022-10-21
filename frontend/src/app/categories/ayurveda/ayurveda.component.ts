@@ -21,7 +21,7 @@ export class AyurvedaComponent implements OnInit {
   readProducts() {
     this.productService.getProducts().subscribe((data) => {
       this.Product = data;
-      this.product =  this.Product.products.filter((p: any)=> p.categories === "1: Ayurveda");
+      this.product =  this.Product.products.filter((p: any)=> p.categories === "Ayurveda");
     // console.log(this.Product);
     //   console.log(this.product.products)
     });
