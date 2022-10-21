@@ -29,6 +29,12 @@ changeStatus(e:any){
   this.status.setValue(e.target.value,{
     onlySelf: true,
   });
+  // this.updateStatusForm.get('status')?.setValue(e, {
+  //   onlySelf : true,
+  // });
+}
+get myForm() {
+  return this.updateStatusForm.controls;
 }
 
   updateOrderStatus(){
