@@ -15,18 +15,17 @@ import { Message } from '../models/message';
 })
 export class DiscussionBoardComponent implements OnInit {
 
-  commentForm!: FormGroup;
+  //commentForm!: FormGroup;
   message!: FormControl;
-  firstName!: string;
+  //firstName!: string;
   Message!: any
 
-  userId !: any;
+  //userId !: any;
   msgForm!: FormGroup;
 
   messages: any[] = [];
 
-  constructor(public msgService: MessageService, private ngZone: NgZone,
-    public router: Router) { 
+  constructor(public msgService: MessageService) { //, private ngZone: NgZone,public router: Router
       this.getMessages()
     }
 
@@ -48,12 +47,11 @@ export class DiscussionBoardComponent implements OnInit {
     this.msgService.addMessage({
       userId: localStorage.getItem('userId'),
       firstName: 'ramk',
-      message: this.msgForm.value.message,
-      replies: 'Hi user'
+      message: this.msgForm.value.message
     }).subscribe((data)=> {
       console.log(data);
     })
-    this.getMessages();
+    window.location.reload();
   }
 
  /*  onSubmit() {

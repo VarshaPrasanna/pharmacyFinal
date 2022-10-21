@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { catchError, Observable, Subject, throwError } from 'rxjs';
 import { Message } from './models/message';
 import {
   HttpClient,
@@ -40,16 +40,37 @@ export class MessageService {
   getAllMessages(): Observable<any> {
     let url = `${this.API_URL}/message`;
     //console.log(localStorage.getItem('token'));
-    return this.httpClient.get(url, { headers: this.getAuthHeader() });
+    return this.httpClient.get(url, { headers: this.getAuthHeader() }).pipe(catchError(this.errorMgmt));
   }
 
   // Create
   addMessage(message: any): Observable<any> {
     console.log("create msg service", message)
     let url = `${this.API_URL}/message/`;
-    return this.httpClient.post(url, message, { headers: this.getAuthHeader() });
+    return this.httpClient.post(url, message, { headers: this.getAuthHeader() }).pipe(catchError(this.errorMgmt));
   }
 
+  //Update message
+  updateMessage(message: any, id:any): Observable<any>{
+    console.log("update msg service", message)
+    let url = `${this.API_URL}/message/reply/${id}`;
+    return this.httpClient.patch(url, message, { headers: this.getAuthHeader() }).pipe(catchError(this.errorMgmt));
+  }
+
+  errorMgmt(error: HttpErrorResponse) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+
+      errorMessage = error.error.message;
+    } else {
+
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    console.log(errorMessage);
+    return throwError(() => {
+      return errorMessage;
+    });
+  }
 
   // addMessage(msg: Message) {
   //   return this.httpClient.post<any>(`${this.API_URL}/message`, msg)

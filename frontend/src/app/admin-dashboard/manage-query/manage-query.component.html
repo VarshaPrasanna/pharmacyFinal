@@ -14,17 +14,21 @@
                                                 <th scope="col">User Name</th>
                                                 <th scope="col">Message ID</th>
                                                 <th scope="col">Message</th>
-                                                <th scope="col">Time</th>
-
+                                                <th scope="col">Replies</th>
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Reply</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr *ngFor="let message of messages.msg; let i = index">
+                                            <tr *ngFor="let message of messages.reverse(); let i = index">
                                                 <th scope="row">{{message.firstName}}</th>
                                                 <td>{{message._id}}</td>
                                                 <td>{{message.message}}</td>
-                                                <td>{{message.updatedAt}}</td>
-
+                                                <td>{{message.replies}}</td>
+                                                <td>{{message.date | date | date:'short'}}</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#form" (click)="getMessageId(message._id)">Reply</button>
+                                                </td>
                                             </tr>
 
 
@@ -37,5 +41,34 @@
                 </div>
             </div>
         </div>
+    
+        <div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                   <!--  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">x</button> -->
+                   <div class="text-right cross" data-dismiss="modal"> <i class="fa fa-times mr-2"></i> </div>
+    
+                    <div class="card-body text-center"> 
+                        <div class="comment-box text-center">
+                            <h4>Post your Reply </h4>
+    
+                            <div class="modal-body">
+                                <form #formDir="ngForm" [formGroup]="replyForm" (ngSubmit)="addReply()">
+                                    <div class="form-group">
+    
+                                        <textarea class="form-control" name="reply" cols="30" rows="5"
+                                            formControlName="reply"></textarea>
+                                        <div class="test">
+                                            <button type="submit" class="btn btn-primary mt-2">SUBMIT</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
     </div>
 </section>
