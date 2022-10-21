@@ -1,4 +1,4 @@
-<div class="account section">
+<!-- <div class="account section">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-6">
@@ -28,7 +28,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
 
-            <!-- <a name="" id="" class="btn btn-primary" type="submit">Admin</a> -->
+            
 
 
           </form>
@@ -36,4 +36,38 @@
       </div>
     </div>
   </div>
+</div> -->
+
+
+<div class="body">
+
+<div id="bg"></div>
+
+<form novalidate [formGroup]="loginForm" (ngSubmit)="loginUser()">
+  <div class="form-field">
+    <input type="text"   formControlName="username" placeholder="Enter Username" 
+    [ngClass]="{'is-invalid':username.errors && (username.touched || username.dirty),'is-valid' :username.valid}">
+    <div class="invalid-feedback" style="color: rgb(63, 15, 2)">
+      <strong *ngIf="username.errors?.['required']" >userName is required </strong>
+    </div>
+  </div>
+  
+  
+  <div class="form-field">
+    <input type="password" formControlName="password"  placeholder="Password" 
+    [ngClass]="{'is-invalid':password.errors && (password.touched || password.dirty),'is-valid' :password.valid}">
+    <div class="invalid-feedback">
+      <strong *ngIf="password.errors?.['required']">password is required </strong>
+    </div> 
+  </div>
+  
+  
+  <div class="form-field">
+    <button class="btn" type="submit">Log in</button>
+  </div>
+</form>
 </div>
+
+  
+
+
