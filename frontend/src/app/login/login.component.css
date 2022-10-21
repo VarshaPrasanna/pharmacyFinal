@@ -51,6 +51,7 @@ form .form-field:nth-child(3)::before {
 form .form-field {
   display: -webkit-box;
   display: -ms-flexbox;
+  flex-direction: column;
   display: flex;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
