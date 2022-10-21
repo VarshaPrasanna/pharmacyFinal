@@ -58,7 +58,7 @@
                 <strong *ngIf="password.errors?.['pattern']">should contain atleast 1 (uppercase,lowercase,number,symbol)</strong>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary">SignUp</button>
+            <button type="submit" class="btn btn-primary"  *ngIf="signUpForm.valid"  >SignUp</button>
           </form>
         </div>
       </div>
