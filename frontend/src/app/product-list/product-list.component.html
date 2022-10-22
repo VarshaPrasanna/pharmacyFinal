@@ -1,4 +1,10 @@
 <app-header></app-header>
+
+<div class="alert alert-success" role="alert" *ngIf="this.cartflag">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    Product Added to cart!
+</div>
+
 <div class="col-md-3">
     <div class=" mb-4 mt-2">
         <select class="form-control" [(ngModel)]="sortOption">
@@ -37,6 +43,7 @@
                     </a>
                     <button type='button' class="btn btn-sm btn-primary mb-1" (click)="addProductToCart(product._id)">Add to
                         Cart</button>
+                        
                 </div>
         </div>
     </div>

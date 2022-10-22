@@ -15,6 +15,7 @@ export class ProductListComponent implements OnInit {
   public sortOption: string = 'title|asc';
   public cartflag: boolean = false;
   public sortBy: string = '';
+  //addedProductToCart = false;
 
 
   Product!: any;
@@ -42,8 +43,10 @@ export class ProductListComponent implements OnInit {
   }
 
   addProductToCart(id: string){
+    //this.addedProductToCart = true;
+    this.ref();
     this.cartService.addToCart(id, 1);
-    window.alert("Product Added to cart");
+    //window.alert("Product Added to cart");
   }
 
 

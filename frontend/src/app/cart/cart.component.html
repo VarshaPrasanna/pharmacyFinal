@@ -1,3 +1,5 @@
+<app-header></app-header>
+
 <div class="card">
     <div class="card-body">
         <h4 class="card-title ml-4">Shopping Cart</h4>
@@ -5,11 +7,16 @@
     </div>
 </div>
 
-<div class="card" *ngIf="this.cartProducts.length <= 0">
+<!-- <div class="card" *ngIf="this.cartProducts.length <= 0">
     <div class="card-body">
         <h2 class="card-title text-warning text-center">Your Cart is empty!</h2>
         <p class="card-text text-warning text-center">Add products to the cart before proceeding to checkout</p>
     </div>
+</div> -->
+
+<div class="alert alert-warning text-center mt-5" role="alert" *ngIf="this.cartProducts.length <= 0">
+  <h2 class="alert-heading">Your Cart is empty!</h2>
+  <p style="font-size: 20px;">Add products to the cart before proceeding to checkout</p>
 </div>
 
 <div class="d-flex row justify-content-around flex-row">
