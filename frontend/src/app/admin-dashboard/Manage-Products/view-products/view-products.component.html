@@ -65,13 +65,13 @@
 
 <div class="container-fluid">
     <div class=" card text-center"
-        style="width:20%;margin-top: 10px;margin-left: 30%;background-color: rgb(255, 255, 255);">
+        style="width:20%;margin-top: 10px;margin-left: 30%;background-color: rgb(10, 219, 223);">
         <h2>Manage Products</h2>
     </div>
     <!-- <div class=" card text-center" style="width:20%;margin-left: 30%;background-color: rgb(255, 255, 255);">           -->
     <div class="row">
         <div class="card text-center" style="width:10%;height:0px;background-color: rgb(25, 222, 240);">
-            <h4>add product</h4>
+            <h4  style="margin-top: 6%;" >add product</h4>
         </div>
         <div class="card text-center" style="width:5%;height:0px;background-color: rgb(25, 222, 240);">
             <button routerLink="/add-products" class="btn" style="border-radius: 50%; ">
@@ -101,10 +101,10 @@
                     <img class="align-self-center img-fluid" src="{{product.image}}" width="100" height="100">
             </div>
         </div>
-         <div class="card-footer px-sm-3 pt-sm-4 px-0" style="background-color: rgb(163, 234, 105)">
-            <div class="row text-center ">
-                <button type="button" class="btn  btn-secondary d-flex"  style="border-radius: 25%;" [routerLink]="['/update-product',product._id]">update</button> 
-                <button type="button" class="btn  btn-secondary d-flex"  style="border-radius: 25%;" (click)="deleteProduct(product, i)" routerLink="/Manage-Products">delete</button> 
+         <div class="card-footer px-sm-3 pt-sm-4 px-0" style="background-color: rgb(255, 255, 255)">
+            <div class="row">
+                <button type="button" class="btn  btn-success d-flex"  style="border-radius: 25%;" [routerLink]="['/update-product',product._id]">update</button> 
+                <button type="button" class="btn  btn-success d-flex"  style="border-radius: 25%;" (click)="deleteProduct(product, i)" routerLink="/Manage-Products">delete</button> 
             </div>
         </div>
         </div>
