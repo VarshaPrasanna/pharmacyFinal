@@ -73,6 +73,14 @@
                 Enter valid username
               </div>
             </div>
+            <div class="form-group">
+              <input type="password" class="form-control" placeholder="Enter Password" formControlName="password"
+              [ngClass]="{'is-invalid':myForm['password'].errors && (myForm['password'].touched || myForm['password'].dirty),'is-valid' :myForm['password'].valid}">
+              <div class="invalid-feedback">
+                <strong *ngIf="myForm['password'].errors?.['required']">password is required </strong>
+                <strong *ngIf="myForm['password'].errors?.['pattern']">should contain atleast 1 (uppercase,lowercase,number,symbol)</strong>
+              </div>
+            </div>
   
             <div class="form-group">
               <button class="btn btn-success btn-lg btn-block" type="submit">

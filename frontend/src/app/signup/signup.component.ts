@@ -25,11 +25,11 @@ ngOnInit(): void {
     this.firstName = new FormControl('',[Validators.required]);
   this.lastName = new FormControl('',[Validators.required]);
   this.gender =  new FormControl();
-  this.username = new FormControl('',[Validators.required,Validators.minLength(5),Validators.maxLength(25),Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]);
+  this.username = new FormControl('',[Validators.required,Validators.minLength(4),Validators.maxLength(25),Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]);
   this.email = new FormControl('',[Validators.required,Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')]);
-  this.password = new FormControl('',[(c: AbstractControl) =>Validators.required(c),Validators.minLength(5),Validators.pattern(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{8,}/)]);
+  this.password = new FormControl('',[(c: AbstractControl) =>Validators.required(c),Validators.pattern(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{5,}/)]);
   // 'confirmPassword' : new FormControl(''),
-  this.isAdmin = new FormControl('');
+  // this.isAdmin = new FormControl('');
 
   this.signUpForm = new FormGroup({
     'firstName' : this.firstName,
@@ -38,7 +38,7 @@ ngOnInit(): void {
     'username': this.username,
     'email': this.email,
     'password': this.password,
-    'isAdmin': this.isAdmin
+    // 'isAdmin': this.isAdmin
   })
 }
   changeGender(e:any){

@@ -52,6 +52,9 @@ export class AuthService {
         }
         console.log("login working")
         return res.user;
+      },
+      error => {
+        window.alert("invalid credentials");
       })
   }
 
