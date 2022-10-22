@@ -16,7 +16,7 @@ const AuthController = {
             username: req.body.username,
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password, 10),
-            // isAdmin: req.body.isAdmin
+            isAdmin: req.body.isAdmin
         });
 
         try {

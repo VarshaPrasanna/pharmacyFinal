@@ -19,6 +19,7 @@ export class AuthService {
   currentUser = {};
   user = User;
   http: any;
+  roleAs!: any;
 
 
   constructor(private httpClient: HttpClient, public router: Router) {
@@ -40,9 +41,7 @@ export class AuthService {
         localStorage.setItem('accessToken', res.accessToken)
         localStorage.setItem('userId', res._id)
         localStorage.setItem('userName', res.firstName + '  ' + res.lastName)
-
-        //localStorage.setItem('isAdmin', res.isAdmin)
-        //this.currentUserSubject.next(res.user); // <-- pump the value in here
+        localStorage.setItem('isAdmin', res.isAdmin)
         console.log(res.isAdmin)
         if (res.isAdmin) {
           this.router.navigateByUrl('/admin');
@@ -52,10 +51,11 @@ export class AuthService {
         }
         console.log("login working")
         return res.user;
+
       },
-      error => {
-        window.alert("invalid credentials");
-      })
+        error => {
+          window.alert("invalid credentials");
+        })
   }
 
   getAccessToken() {
@@ -65,7 +65,7 @@ export class AuthService {
     return localStorage.getItem('userId');
   }
 
-  get isLoggedIn(): boolean {
+  isLoggedIn() {
     let authToken = localStorage.getItem('accessToken');
     return (authToken !== null) ? true : false;
   }
@@ -78,6 +78,13 @@ export class AuthService {
     if (localStorage.removeItem('accessToken') == null) {
       this.router.navigate(['auth/login']);
     }
+  }
+
+
+
+  getRole() {
+    this.roleAs = localStorage.getItem('isAdmin');
+    return this.roleAs;
   }
 
 
