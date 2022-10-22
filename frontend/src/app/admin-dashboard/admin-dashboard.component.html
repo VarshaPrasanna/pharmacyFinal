@@ -1,90 +1,147 @@
-<app-admin-sidenav (onToggleSideNav)="onToggleSideNav($event)"></app-admin-sidenav>
+<nav class="main-menu">
+  <ul>
+    <li>
+      <a routerLink="/admin">
+        <i class="fa fa-home fa-2x"></i>
+        <span class="nav-text">
+          Dashboard
+        </span>
+      </a>
 
-<!-- <nav class="navbar navbar-expand-lg " style="background-color: #a7a5a8;">
-  <a class="navbar-brand">Digital Pharma</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-    aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" routerLinkActive="active" routerLink="/Manage-Products">Manage Products</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" routerLink="/Manage-orders">Manage Orders</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" routerLink="/Manage-Users">Manage Users </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" routerLink="/Messages">Messages </a>
-      </li>
-    </ul>
+    </li>
+    <li class="has-subnav">
+      <a routerLink="/Manage-Products">
+        <i class="fa fa-box-open fa-3x"></i>
+        <span class="nav-text">
+          Manage Products
+        </span>
+      </a>
+
+    </li>
+    <li class="has-subnav">
+      <a routerLink="/Manage-orders">
+        <i class="fa fa-shopping-cart fa-2x"></i>
+        <span class="nav-text">
+          Manage Orders
+        </span>
+      </a>
+
+    </li>
+    <li class="has-subnav">
+      <a routerLink="/manage-users">
+        <i class="fa fa-person-carry fa-2x"></i>
+        <span class="nav-text">
+          Manage users
+        </span>
+      </a>
+
+    </li>
+    <li>
+      <a routerLink="/messageList">
+        <i class="fa fa-envelope fa-2x"></i>
+        <span class="nav-text">
+          Manage Messages
+        </span>
+      </a>
+    </li>
+
+
+  </ul>
+
+  <ul class="logout">
+    <li>
+      <a href="#">
+        <i class="fa fa-power-off fa-2x"></i>
+        <span class="nav-text">
+          Logout
+        </span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+
+<div class="row g-6 mb-6" style="height: 30%; padding-left:20% ;padding-top:10%;">
+  <div class="col-xl-3 col-sm-6 col-12">
+    <div class="card shadow border-0">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Number of users</span>
+            <span class="h3 font-bold mb-0 ">{{users.users.length}}</span>
+          </div>
+          <div class="col-auto">
+            <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
+              <i class="bi bi-people"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
-  <div>
-    <a routerLinkActive="active" routerLink="/" name="logout" id="logout" class="btn btn-primary " role="button"
-      color>Logout</a>
+  <div class="col-xl-3 col-sm-6 col-12">
+    <div class="card shadow border-0">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total No of orders placed</span>
+            <span class="h3 font-bold mb-0">{{this.order.orders.length}}</span>
+          </div>
+          <div class="col-auto">
+            <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
+              <i class="bi bi-minecart-loaded"></i>
+            </div>
+          </div>
+        </div>
 
+      </div>
+    </div>
   </div>
-</nav> -->
 
-<div style="height: 25%;">
-
-  <h1 style="padding:6%;"> Welcome Admin</h1>
 
 </div>
-
-
-
-<div style="height: 30%; padding-left:5%">
-  <table align="center">
-    <td style="width: 50%;">
-      <div class="card">
-
-        <div class="card-body">
-          <h5 class="card-title">Manage Products</h5>
-          <p class="card-text"> Click below to View ,Add products and update, delete existing products</p>
-          <a routerLinkActive="active" routerLink="Manage-Products" class="btn btn-primary">Manage Products</a>
-        </div>
-      </div>
-    </td>
-    <td style="width:50%">
-      <div class="card">
-
-        <div class="card-body">
-          <h5 class="card-title">Manage Users</h5>
-          <p class="card-text">Click below to View registered users and block them</p>
-          <a routerLinkActive="active" routerLink="manage-users" class="btn btn-primary">Manage Users</a>
+<div class="row g-6 mb-6" style="height: 30%; padding-left:20%;padding-top:11%;">
+  <div class="col-xl-3 col-sm-6 col-12">
+    <div class="card shadow border-0">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Products in store</span>
+            <span class="h3 font-bold mb-0">{{this.product.products.length}}</span>
+          </div>
+          <div class="col-auto">
+            <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
+              <i class="bi bi-box"></i>
+            </div>
+          </div>
         </div>
 
       </div>
-    </td>
-  </table>
-</div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-sm-6 col-12">
+    <div class="card shadow border-0">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Budget</span>
+            <span class="h3 font-bold mb-0">{{result| currency: 'INR'}}</span>
 
-<div style="padding-left:5%">
-  <table align="center">
-    <td style="width: 50%;">
-      <div class="card">
-
-        <div class="card-body">
-          <h5 class="card-title">Manage Orders</h5>
-          <p class="card-text">Click below to see pending orders and change Delivery status of orders </p>
-          <a routerLinkActive="active" routerLink="/Manage-orders" class="btn btn-primary">Manage Orders</a>
+          </div>
+          <div class="col-auto">
+            <div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
+              <i class="bi bi-credit-card"></i>
+            </div>
+          </div>
         </div>
-      </div>
-    </td>
 
-    <td style="width: 50%;">
-      <div class="card">
-
-        <div class="card-body">
-          <h5 class="card-title">Messages</h5>
-          <p class="card-text">Click below to check your Messages and see your Previous Messages</p>
-          <a routerLinkActive="active" routerLink="/messageList" class="btn btn-primary"> Messages </a>
-        </div>
       </div>
-    </td>
-  </table>
+    </div>
+  </div>
+
+  <div style="width:1000px;height:200px;padding: left 200px;">
+    <chart class="dashchart" [type]="type" [data]="data" [options]="options"></chart>
+  </div>
 </div>

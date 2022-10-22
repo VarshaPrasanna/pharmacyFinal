@@ -5,6 +5,11 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { Product } from "../models/product";
 
 import { ProductService } from "../product.service";
+interface SideNavToggle {
+  screenWidth: number;
+  collapsed: boolean;
+}
+
 
 @Component({
   selector: 'app-add-products',
@@ -13,6 +18,15 @@ import { ProductService } from "../product.service";
 })
 
 export class AddProductsComponent implements OnInit {
+
+  isSideNavCollapsed = false;
+  screenWidth = 0;
+
+
+  onToggleSideNav(data: SideNavToggle): void {
+    this.screenWidth = data.screenWidth;
+    this.isSideNavCollapsed = data.collapsed;
+  }
 
   // addProductForm!: FormGroup;
   // product!: Product;

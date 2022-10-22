@@ -18,7 +18,7 @@ export class EditUserComponent implements OnInit {
   // gender!: FormControl;
   username!: FormControl;
   email!: FormControl;
- // password!: FormControl;
+  // password!: FormControl;
 
   constructor(public fb: FormBuilder,
     private actRoute: ActivatedRoute,
@@ -26,23 +26,23 @@ export class EditUserComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.firstName = new FormControl('',[Validators.required]);
-  this.lastName = new FormControl('',[Validators.required]);
-  // this.gender =  new FormControl();
-  this.username = new FormControl('',[Validators.required,Validators.minLength(5),Validators.maxLength(25),Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]);
-  this.email = new FormControl('',[Validators.required,Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')]);
-  //this.password = new FormControl('',[(c: AbstractControl) =>Validators.required(c),Validators.minLength(5),Validators.pattern(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{8,}/)]);
+    this.firstName = new FormControl('', [Validators.required]);
+    this.lastName = new FormControl('', [Validators.required]);
+    // this.gender =  new FormControl();
+    this.username = new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(25), Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]);
+    this.email = new FormControl('', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')]);
+    //this.password = new FormControl('',[(c: AbstractControl) =>Validators.required(c),Validators.minLength(5),Validators.pattern(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{8,}/)]);
 
     let id = this.actRoute.snapshot.paramMap.get('id');
 
     this.editForm = new FormGroup({
 
-      'firstName' : this.firstName,
-    'lastName' : this.lastName,
-    // 'gender': this.gender,
-    'username': this.username,
-    'email': this.email,
-    // 'password': this.password,
+      'firstName': this.firstName,
+      'lastName': this.lastName,
+      // 'gender': this.gender,
+      'username': this.username,
+      'email': this.email,
+      // 'password': this.password,
 
     });
   }
@@ -61,15 +61,7 @@ export class EditUserComponent implements OnInit {
 
 
 
-  // updateEmployee() {
-  //   this.editForm = this.fb.group({
-  //     firstName: [''],
-  //     lastName: [''],
-  //     username: [''],
-  //     email: [''],
-  //     gender: [''],
-  //   });
-  // }
+
 
   onSubmit() {
     this.submitted = true;

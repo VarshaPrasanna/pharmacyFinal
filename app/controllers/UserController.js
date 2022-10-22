@@ -25,10 +25,10 @@ const UserController = {
     async get_user(req, res) {
         try {
             const user = await User.findById(req.params.id);
-            const { password, ...data } = user._doc;
+            //const { ...data } = user._doc;
             res.status(200).json({
                 type: "success",
-                data
+                user
             });
 
         } catch (err) {
@@ -43,10 +43,11 @@ const UserController = {
     async get_myinfo(req, res) {
         try {
             const user = await User.findById(req.params._id);
-            const { password, ...data } = user._doc;
+            // const { ...data } = user._doc;
             res.status(200).json({
                 type: "success",
-                data
+                user
+
             });
 
         } catch (err) {

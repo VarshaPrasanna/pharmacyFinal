@@ -3,12 +3,20 @@ import { ProductService } from '../product.service';
 import { Product } from '../models/product';
 //import { ProductMockData } from 'src/app/mock-data/products-mock-data';
 import { Router, ActivatedRoute } from '@angular/router';
+interface SideNavToggle {
+  screenWidth: number;
+  collapsed: boolean;
+}
+
 @Component({
   selector: 'app-view-products',
   templateUrl: './view-products.component.html',
   styleUrls: ['./view-products.component.css']
 })
 export class ViewProductsComponent implements OnInit {
+
+  users: any;
+
 
   product!: any;
 
