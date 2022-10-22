@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../models/user';
 import { UserService } from '../user.service';
 
+
 @Component({
   selector: 'app-edit-user',
   templateUrl: './edit-user.component.html',
@@ -31,7 +32,7 @@ submitted = false;
       username : ['',[Validators.required,Validators.minLength(5),Validators.maxLength(25),Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]],
       email : ['',[Validators.required,Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')]],
       // gender : [''],
-      // password : ['',],
+      password : [''],
 
     },
     )
@@ -48,7 +49,7 @@ submitted = false;
         username : data.data.username,
         email : data.data.email,  
         // gender : data.data.gender,
-        // password : data.data.password
+        password : data.data.password
 
       })
       console.log(data);
@@ -62,7 +63,7 @@ submitted = false;
       username : ['',[Validators.required,Validators.minLength(5),Validators.maxLength(25),Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]],
       email : ['',[Validators.required,Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')]],
       // gender : [''],
-      // password : [''],
+      password : [''],
     })
   }
 
