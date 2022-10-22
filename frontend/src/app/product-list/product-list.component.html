@@ -15,7 +15,8 @@
         </select>
         <div class="input-group mb-4 mt-3">
 
-            <input class="form-control" placeholder="Search for products  ">
+            <input class="form-control" name="title" [(ngModel)]="title" (ngModelChange)="Search()"
+                placeholder="Search for products  ">
         </div>
     </div>
 
@@ -27,6 +28,7 @@
 <section class="container2" *ngFor="let product of Product.products;let i = index">
 
     <div>
+
 
         <div class="col-md-3 col-sm-6" class="column">
 

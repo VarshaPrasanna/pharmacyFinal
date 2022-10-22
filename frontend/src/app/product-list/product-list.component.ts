@@ -16,6 +16,7 @@ export class ProductListComponent implements OnInit {
   public cartflag: boolean = false;
   public sortBy: string = '';
   //addedProductToCart = false;
+  title!: any;
 
 
   Product!: any;
@@ -47,6 +48,16 @@ export class ProductListComponent implements OnInit {
     this.ref();
     this.cartService.addToCart(id, 1);
     //window.alert("Product Added to cart");
+  }
+  Search() {
+    if (this.title == "") {
+      this.readProducts();
+
+    } else {
+      this.Product.products = this.Product.products.filter((res: { title: string; }) => {
+        return res.title.toLocaleLowerCase().match(this.title.toLocaleLowerCase());
+      });
+    }
   }
 
 

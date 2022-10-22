@@ -49,6 +49,7 @@ import { HomeCareComponent } from './categories/home-care/home-care.component';
 import { ChartModule } from 'angular2-chartjs';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,6 +98,7 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
     PersonalCareComponent,
     HomeCareComponent,
     MyOrdersComponent,
+
 
 
   ],
