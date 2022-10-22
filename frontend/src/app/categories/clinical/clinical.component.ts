@@ -21,7 +21,7 @@ export class ClinicalComponent implements OnInit {
   readProducts() {
     this.productService.getProducts().subscribe((data) => {
       this.Product = data;
-      this.product =  this.Product.products.filter((p: any)=> p.categories === "5: Clinical");
+      this.product =  this.Product.products.filter((p: any)=> p.categories === "Clinical");
     // console.log(this.Product);
     //   console.log(this.product.products)
     });

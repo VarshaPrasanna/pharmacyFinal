@@ -1,48 +1,30 @@
+
+<div id="bg"></div>
 <div class="account section">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-6">
-        <div class="login-form border p-5">
+  <div class="container"  >
+    <div class="row justify-content-center" >
+      <div class="col-lg-6" >
+        <div class="login-form border p-5" style="background-color: grey;"   >
           <div class="text-center heading">
             <h2 class="mb-2">Sign Up</h2>
-            <p class="lead">Already have an account? <a routerLink="/login"> Login now</a></p>
+            <p class="lead" style="color:black"  >Already have an account? <a  style="color: blue;"  routerLink="/login"> Login now</a></p>
           </div>
           <form novalidate [formGroup]="signUpForm" (ngSubmit)="registerUser()">
-
-
-            <div class="form-group">
-              <label for="firstName">Enter your firstName</label>
+            <div class="form-field">
               <input type="text" class="form-control" placeholder="Enter firstName" formControlName="firstName"
               [ngClass]="{'is-invalid':firstName.errors && (firstName.touched || firstName.dirty),'is-valid' :firstName.valid}">
               <div class="invalid-feedback">
                 <strong *ngIf="firstName.errors?.['required']">firstName is required </strong>
               </div>
             </div>
-            <div class="form-group">
-              <label for="lastName">Enter your lastName</label>
+            <div class="form-field">
               <input type="text" class="form-control" placeholder="Enter lastName" formControlName="lastName"
               [ngClass]="{'is-invalid':lastName.errors && (lastName.touched || lastName.dirty),'is-valid' :lastName.valid}">
               <div class="invalid-feedback">
                 <strong *ngIf="lastName.errors?.['required']">lastName is required </strong>
               </div>
             </div>
-            <div class="form-group">
-              <label for="gender">Enter your gender</label>
-              <div  (change)="changeGender($event)" formControlName="gender">
-               <input type="radio"  value='Male' name="gender">Male
-               <input type="radio" value='Female' name="gender">Female
-              </div>
-              <div class="invalid-feedback" *ngIf="gender.errors?.['required']">
-                <p>Please select either value</p>
-              </div>
-              <!-- <input type="text" class="form-control" placeholder="Enter gender" formControlName="gender"
-              [ngClass]="{'is-invalid':gender.errors && (gender.touched || gender.dirty),'is-valid' :gender.valid}">
-              <div class="invalid-feedback">
-                <strong *ngIf="gender.errors?.['required']">gender is required </strong>
-              </div> -->
-            </div>
-            <div class="form-group">
-              <label for="username">Enter username</label>
+            <div class="form-field">
               <input type="text" class="form-control" placeholder="Enter username" formControlName="username"
               [ngClass]="{'is-invalid':username.errors && (username.touched || username.dirty),'is-valid' :username.valid}">
               <div class="invalid-feedback">
@@ -50,30 +32,25 @@
                 <strong *ngIf="username.errors?.['pattern']">invalid username(contain atleast one alphabet and one number) </strong>
               </div>
             </div>
-            <label for="email">Enter Email Address</label>
-            <div class="form-group">
-              <div class="col">
-              <div class="row">
-              <!-- <label for="email">Enter Email Address</label> -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
-                  <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
-                </svg>
+            <div class="form-field">             
               <input type="text" class="form-control" placeholder="Enter emailid" formControlName="email"
-              [ngClass]="{'is-invalid':email.errors && (email.touched || email.dirty),'is-valid' :email.valid}">
-            
-            <div class="invalid-feedback">
-                     
+              [ngClass]="{'is-invalid':email.errors && (email.touched || email.dirty),'is-valid' :email.valid}">           
+            <div class="invalid-feedback">                    
                 <strong *ngIf="email.errors?.['required']">emailid is required </strong>
-                <strong *ngIf="email.errors?.['pattern']">invalid emailid </strong>
-            
+                <strong *ngIf="email.errors?.['pattern']">invalid emailid </strong>           
           </div>
         </div>
-            </div>
-            </div>
-
-            <div class="form-group">
-              <label for="password">Enter Password</label>
-
+        <div class="form-group">
+          <label for="gender"  style="color:rgb(27, 71, 44) " ><h5>Gender</h5></label>
+          <div  (change)="changeGender($event)" formControlName="gender" class="row" >
+           <input type="radio"  value='Male' name="gender" style="width: 5%;"  >Male
+           <input type="radio" value='Female' name="gender" style="width: 5%;">Female
+          </div>
+          <div class="invalid-feedback" *ngIf="gender.errors?.['required']">
+            <p>Please select either value</p>
+          </div>
+        </div>
+            <div class="form-field">
               <input type="password" class="form-control" placeholder="Enter Password" formControlName="password"
               [ngClass]="{'is-invalid':password.errors && (password.touched || password.dirty),'is-valid' :password.valid}">
               <div class="invalid-feedback">
@@ -81,17 +58,7 @@
                 <strong *ngIf="password.errors?.['pattern']">should contain atleast 1 (uppercase,lowercase,number,symbol)</strong>
               </div>
             </div>
-
-           <!--  <div class="form-group">
-              <label>Are you an admin? </label>
-              <input type="isAdmin" class="form-control" formControlName="isAdmin"
-                placeholder="0 if you are user or 1 if you are an admin" required>
-            </div> -->
-
-            <button type="submit" class="btn btn-primary">SignUp</button>
-
-
-
+            <button type="submit" class="btn btn-primary"  *ngIf="signUpForm.valid"  >SignUp</button>
           </form>
         </div>
       </div>

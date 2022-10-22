@@ -15,9 +15,14 @@ interface SideNavToggle {
 })
 export class ViewProductsComponent implements OnInit {
 
-  users: any;
+  title = 'admin-sidenav';
+  isSideNavCollapsed = false;
+  screenWidth = 0;
 
-
+  onToggleSideNav(data: SideNavToggle): void {
+    this.screenWidth = data.screenWidth;
+    this.isSideNavCollapsed = data.collapsed;
+  }
   product!: any;
 
   constructor(

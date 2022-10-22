@@ -13,6 +13,14 @@ const OrderSchema = new mongoose.Schema({
                 required: true,
                 ref: 'Product',
             },
+            image: {
+                type: String,
+                required: true
+            },
+            title: {
+                type: String,
+                required: true
+            },
             quantity: {
                 type: Number,
                 default: 1

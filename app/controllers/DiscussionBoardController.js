@@ -20,8 +20,39 @@ const DiscussionBoardController = {
             })
         }
     },
+
+    //Update message
+    async update_message(req, res) {
+        const existing = await Message.findById(req.params.id);
+        if(!existing){
+            res.status(404).json({
+                type: "error",
+                message: "Message doesn't exists"
+            })
+        } else {
+            try {
+                const updatedMessage = await Message.findByIdAndUpdate(req.params.id, {
+                    $set: req.body
+                },
+                    { new: true }
+                );
+                res.status(200).json({
+                    type: "success",
+                    message: "Message updated successfully",
+                    updatedMessage
+                })
+            } catch (err) {
+                res.status(500).json({
+                    type: "error",
+                    message: "Something went wrong please try again",
+                    err
+                })
+            }
+        }
+    },
+
     /* Post a  reply */
-    async post_reply(req, res) {
+    /* async post_reply(req, res) {
         const reply = new Message(req.body);
         try {
             const savedreply = await reply.save();
@@ -37,7 +68,7 @@ const DiscussionBoardController = {
                 err
             })
         }
-    },
+    }, */
 
     /* get all messages (only admin) */
     async get_messages(req, res) {

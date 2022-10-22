@@ -142,6 +142,6 @@ body {
   background: -webkit-linear-gradient(to right, #74ebd5, #ACB6E5);
   background: linear-gradient(to right, #74ebd5, #ACB6E5);
   min-height: 100vh;
-
+  background-repeat: repeat-y;
 }
 

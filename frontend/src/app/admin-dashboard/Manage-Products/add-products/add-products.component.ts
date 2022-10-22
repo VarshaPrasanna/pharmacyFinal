@@ -121,7 +121,7 @@ export class AddProductsComponent implements OnInit {
       },
       error: (e: any) => {
         console.log(e);
-
+         window.alert("invalid details")
       }
     })
   }

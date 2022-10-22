@@ -63,12 +63,11 @@ export class UserService {
     }
   }
 
-  getUser(id: number) {
+  getUser(id: any) {
     const userId = localStorage.getItem('userId')
     return this.httpClient.get(`${this.API_URL}/users/myinfo/${userId}`, {
       headers: this.getAuthHeader()
-
-    });
+    }).pipe(map((res:any)=>{return res || {};}), catchError(this.errorMgmt));
   }
   // Update user
   updateUser(id: any, data: any): Observable<any> {
@@ -86,6 +85,20 @@ export class UserService {
   deleteUser(id: string){
     return this.httpClient.delete(`${this.API_URL}/users/${id}`, {
       headers: this.getAuthHeader()
+    });
+  }
+  errorMgmt(error: HttpErrorResponse) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+
+      errorMessage = error.error.message;
+    } else {
+
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    console.log(errorMessage);
+    return throwError(() => {
+      return errorMessage;
     });
   }
 }

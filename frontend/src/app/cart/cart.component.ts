@@ -27,7 +27,7 @@ export class CartComponent implements OnInit {
     this.sum = 0;
 
     for(let i=0;i<Object.keys(cart).length; i++){
-      this.productService.getProduct(Object.keys(cart)[i]).subscribe((data) => {
+      this.productService.getProductById(Object.keys(cart)[i]).subscribe((data) => {
         let q = Number(Object.values(cart)[i]);
         this.cartProducts.push({
           productId: Object.keys(cart)[i],

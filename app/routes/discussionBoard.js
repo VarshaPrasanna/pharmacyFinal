@@ -7,6 +7,6 @@ const { authenticationVerifier, accessLevelVerifier, isAdminVerifier } = require
 router.get('/', DiscussionBoardController.get_messages);
 router.get('/:userId', DiscussionBoardController.get_message);
 router.post('/', DiscussionBoardController.post_message)
-router.post('/reply', isAdminVerifier, DiscussionBoardController.post_message)
+router.patch('/reply/:id', DiscussionBoardController.update_message)
 router.delete('/', DiscussionBoardController.delete_messages);
 module.exports = router;
