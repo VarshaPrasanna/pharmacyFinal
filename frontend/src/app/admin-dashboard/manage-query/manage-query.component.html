@@ -1,14 +1,22 @@
 <section class="intro">
-    <div class="bg-image h-100"
-        style="background-image: url('https://mdbootstrap.com/img/Photos/new-templates/tables/img2.jpg');">
-        <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0,0,0,.25);">
+    <div class="h-100" style="background-color: rgb(176, 211, 220);">
+        <div style="padding: 4%;">
+       <!--  <div class="mask d-flex align-items-center h-100"> -->
+
+            <div class="card justify-content-center col-12 border-0"
+            style="background-color: rgb(176, 211, 220);">
+            <div class="card-body">
+                <h2 style="padding-left: 13.5%;" class="card-title">List of User Messages</h2>
+            </div>
+        </div>
+
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-12">
                         <div class="card bg-dark shadow-2-strong">
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-dark table-borderless mb-0">
+                                    <table class="table table-dark table-borderless table-striped mb-0">
                                         <thead>
                                             <tr>
                                                 <th scope="col">User Name</th>
@@ -27,7 +35,9 @@
                                                 <td>{{message.replies}}</td>
                                                 <td>{{message.date | date | date:'short'}}</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#form" (click)="getMessageId(message._id)">Reply</button>
+                                                    <button type="button" class="btn btn-light m-1" data-toggle="modal" data-target="#form" (click)="getMessageId(message._id)">Reply<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-reply-fill ml-1 mb-1" viewBox="0 0 16 16">
+                                                        <path d="M5.921 11.9 1.353 8.62a.719.719 0 0 1 0-1.238L5.921 4.1A.716.716 0 0 1 7 4.719V6c1.5 0 6 0 7 8-2.5-4.5-7-4-7-4v1.281c0 .56-.606.898-1.079.62z"/>
+                                                      </svg></button>
                                                 </td>
                                             </tr>
 

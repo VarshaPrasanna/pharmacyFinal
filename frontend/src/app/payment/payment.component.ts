@@ -59,29 +59,28 @@ export class PaymentComponent implements OnInit {
     let products_arr: any[] = [];
 
     for (let i = 0; i < Object.keys(cart).length; i++) {
-      // this.productService.getProductById(Object.keys(cart)[i]).subscribe((data) => {
-      //   //console.log("data", data['product']);
-      //   products_arr.push({
-      //     productId: Object.keys(cart)[i],
-      //     image: data['product'].image,
-      //     title: data['product'].title,
-      //     quantity: Object.values(cart)[i]
-      //   });  });
+    /*   this.productService.getProductById(Object.keys(cart)[i]).subscribe((data) => {
+        console.log("data", data['product']);
+        products_arr.push({
+          productId: Object.keys(cart)[i],
+          title: data['product'].title,
+          quantity: Object.values(cart)[i]
+        });  }); */
       products_arr.push({
         productId: Object.keys(cart)[i],
         quantity: Object.values(cart)[i]
       })
     }
 
-    //console.log("arr", products_arr);
-    console.log({
+    console.log("arr", products_arr);
+    /* console.log({
       userId: localStorage.getItem('userId'),
       products: products_arr,
       amount: localStorage.getItem('totalAmount'),
       address: this.addressForm.value,
       status: 'Pending'
     })
-
+ */
     this.orderService.createOrder({
       userId: localStorage.getItem('userId'),
       products: products_arr,

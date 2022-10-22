@@ -1,64 +1,74 @@
-
 <div id="bg"></div>
 <div class="account section">
-  <div class="container"  >
-    <div class="row justify-content-center" >
-      <div class="col-lg-6" >
-        <div class="login-form border p-5" style="background-color: grey;"   >
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="login-form border p-5" style="background-color: grey;">
           <div class="text-center heading">
             <h2 class="mb-2">Sign Up</h2>
-            <p class="lead" style="color:black"  >Already have an account? <a  style="color: blue;"  routerLink="/login"> Login now</a></p>
+            <p class="lead" style="color:black">Already have an account? <a style="color: blue;" routerLink="/login">
+                Login now</a></p>
           </div>
           <form novalidate [formGroup]="signUpForm" (ngSubmit)="registerUser()">
             <div class="form-field">
               <input type="text" class="form-control" placeholder="Enter firstName" formControlName="firstName"
-              [ngClass]="{'is-invalid':firstName.errors && (firstName.touched || firstName.dirty),'is-valid' :firstName.valid}">
+                [ngClass]="{'is-invalid':firstName.errors && (firstName.touched || firstName.dirty),'is-valid' :firstName.valid}">
               <div class="invalid-feedback">
                 <strong *ngIf="firstName.errors?.['required']">firstName is required </strong>
               </div>
             </div>
             <div class="form-field">
               <input type="text" class="form-control" placeholder="Enter lastName" formControlName="lastName"
-              [ngClass]="{'is-invalid':lastName.errors && (lastName.touched || lastName.dirty),'is-valid' :lastName.valid}">
+                [ngClass]="{'is-invalid':lastName.errors && (lastName.touched || lastName.dirty),'is-valid' :lastName.valid}">
               <div class="invalid-feedback">
                 <strong *ngIf="lastName.errors?.['required']">lastName is required </strong>
               </div>
             </div>
             <div class="form-field">
               <input type="text" class="form-control" placeholder="Enter username" formControlName="username"
-              [ngClass]="{'is-invalid':username.errors && (username.touched || username.dirty),'is-valid' :username.valid}">
+                [ngClass]="{'is-invalid':username.errors && (username.touched || username.dirty),'is-valid' :username.valid}">
               <div class="invalid-feedback">
                 <strong *ngIf="username.errors?.['required']">userName is required </strong>
-                <strong *ngIf="username.errors?.['pattern']">invalid username(contain atleast one alphabet and one number) </strong>
+                <strong *ngIf="username.errors?.['pattern']">invalid username(contain atleast one alphabet and one
+                  number) </strong>
               </div>
             </div>
-            <div class="form-field">             
+            <div class="form-field">
               <input type="text" class="form-control" placeholder="Enter emailid" formControlName="email"
-              [ngClass]="{'is-invalid':email.errors && (email.touched || email.dirty),'is-valid' :email.valid}">           
-            <div class="invalid-feedback">                    
+                [ngClass]="{'is-invalid':email.errors && (email.touched || email.dirty),'is-valid' :email.valid}">
+              <div class="invalid-feedback">
                 <strong *ngIf="email.errors?.['required']">emailid is required </strong>
-                <strong *ngIf="email.errors?.['pattern']">invalid emailid </strong>           
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="gender"  style="color:rgb(27, 71, 44) " ><h5>Gender</h5></label>
-          <div  (change)="changeGender($event)" formControlName="gender" class="row" >
-           <input type="radio"  value='Male' name="gender" style="width: 5%;"  >Male
-           <input type="radio" value='Female' name="gender" style="width: 5%;">Female
-          </div>
-          <div class="invalid-feedback" *ngIf="gender.errors?.['required']">
-            <p>Please select either value</p>
-          </div>
-        </div>
+                <strong *ngIf="email.errors?.['pattern']">invalid emailid </strong>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="gender" style="color:rgb(27, 71, 44) ">
+                <h5>Gender</h5>
+              </label>
+              <div (change)="changeGender($event)" formControlName="gender" class="row ml-2">
+                <div class="form-check form-check-inline">
+                  <input type="radio" class="form-check-input" value='Male' name="gender"><label
+                    class="form-check-label"> Male </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input type="radio" class="form-check-input" value='Female' name="gender"><label
+                    class="form-check-label"> Female </label>
+                </div>
+              </div>
+              <div class="invalid-feedback" *ngIf="gender.errors?.['required']">
+                <p>Please select either value</p>
+              </div>
+            </div>
             <div class="form-field">
               <input type="password" class="form-control" placeholder="Enter Password" formControlName="password"
-              [ngClass]="{'is-invalid':password.errors && (password.touched || password.dirty),'is-valid' :password.valid}">
+                [ngClass]="{'is-invalid':password.errors && (password.touched || password.dirty),'is-valid' :password.valid}">
               <div class="invalid-feedback">
                 <strong *ngIf="password.errors?.['required']">password is required </strong>
-                <strong *ngIf="password.errors?.['pattern']">should contain atleast 1 (uppercase,lowercase,number,symbol)</strong>
+                <strong *ngIf="password.errors?.['pattern']">should contain atleast 1
+                  (uppercase,lowercase,number,symbol)</strong>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary"  *ngIf="signUpForm.valid"  >SignUp</button>
+            <button type="submit" class="btn btn-primary" *ngIf="signUpForm.valid">SignUp</button>
           </form>
         </div>
       </div>

@@ -20,7 +20,7 @@ import { ManageQueryComponent } from './admin-dashboard/manage-query/manage-quer
 import { AddProductsComponent } from './admin-dashboard/Manage-Products/add-products/add-products.component';
 import { UpdateProductsComponent } from './admin-dashboard/Manage-Products/update-products/update-products.component';
 import { AdminManageOrdersComponent } from './admin-dashboard/admin-manage-orders/admin-manage-orders.component';
-
+import { MyOrdersComponent } from './my-orders/my-orders.component';
 
 import { UpdateOrderStatusComponent } from './admin-dashboard/update-order-status/update-order-status.component';
 import { AyurvedaComponent } from './categories/ayurveda/ayurveda.component';
@@ -96,6 +96,7 @@ const routes: Routes = [
       expectedRole: 'admin'
     }
   },
+  { path: "my-orders", component: MyOrdersComponent }
 
 ];
 

@@ -24,6 +24,11 @@ export class UserProfileComponent implements OnInit {
       console.log(data);
     })
   }
+
+  logout(): void {
+    this.userService.clearSession();
+    this.userService.isUserLogged.next(false);
+  }
 }
 
 
