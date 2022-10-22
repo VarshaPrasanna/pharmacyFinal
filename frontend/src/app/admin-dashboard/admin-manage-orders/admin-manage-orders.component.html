@@ -1,4 +1,3 @@
-<p>admin-manage-orders works!</p>
 <!-- <div class="row" >
 <div class="col-sm-3" style="margin-top: 10px;"  *ngFor="let order of order.orders;let i = index">   
     <div class="card " >
@@ -22,39 +21,41 @@
 </div>
 </div> -->
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>userId</th>
-            <th>amount</th>
-            <th>address</th>
-            <th>status</th>
-            <th>product details</th>
+<body>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>userId</th>
+                <th>amount</th>
+                <th>address</th>
+                <th>status</th>
+                <th>product details</th>
 
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let order of order.orders">
-            <td scope="row">{{order.userId}}</td>
-            <td>{{order.amount | currency: 'INR'}}</td>
-            <!-- <td>{{order.address | json}}</td> -->
-            <td>
-                <div *ngFor="let item of order.address | keyvalue">
-                    {{item.key}}: {{item.value}}
-                </div>
-            </td>
-            <td>{{order.status}}</td>
-            <td>
-                <div *ngFor="let p of order.products">
-                    <p>{{p.productId}} , quantity: {{p.quantity}}</p>
-                </div>
-            </td>
-            <td>
-                <div class="row text-center  ">
-                    <button type="button" class="btn  btn-outline-primary d-flex"
-                        [routerLink]="['/update-status', order._id]">update status</button>
-                </div>
-            </td>
-        </tr>
-    </tbody>
-</table>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let order of order.orders">
+                <td scope="row">{{order.userId}}</td>
+                <td>{{order.amount | currency: 'INR'}}</td>
+                <!-- <td>{{order.address | json}}</td> -->
+                <td>
+                    <div *ngFor="let item of order.address | keyvalue">
+                        {{item.key}}: {{item.value}}
+                    </div>
+                </td>
+                <td>{{order.status}}</td>
+                <td>
+                    <div *ngFor="let p of order.products">
+                        <p>{{p.productId}} , quantity: {{p.quantity}}</p>
+                    </div>
+                </td>
+                <td>
+                    <div class="row text-center  ">
+                        <button type="button" class="btn  btn-outline-primary d-flex"
+                            [routerLink]="['/update-status', order._id]">update status</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>

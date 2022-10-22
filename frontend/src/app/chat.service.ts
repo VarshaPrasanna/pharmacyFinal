@@ -20,7 +20,8 @@ export class ChatService {
     "Order not shipped": "It will be updated within 2 hours from order placed time ",
     "Caugh": "Try some of our caugh medicines",
     "What is getmeds": "Getmeds is a digital pharmacy store",
-    "default": "I don't have an answer for that Sorry"
+    "default": "I don't have an answer for that Sorry",
+    "Cold": ["Hello", "Hi"]
   }
 
   getBotAnswer(msg: string) {

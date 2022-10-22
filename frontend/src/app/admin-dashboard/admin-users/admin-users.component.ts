@@ -13,7 +13,7 @@ interface SideNavToggle {
   styleUrls: ['./admin-users.component.css']
 })
 export class AdminUsersComponent implements OnInit {
-  
+
   title = 'admin-sidenav';
   isSideNavCollapsed = false;
   screenWidth = 0;
@@ -35,15 +35,16 @@ export class AdminUsersComponent implements OnInit {
   }
 
   deleteUser(id: string) {
-    this.userService.deleteUser(id).subscribe(()=>{  
-      console.log("Deleted");  
+    this.userService.deleteUser(id).subscribe(() => {
+      console.log("Deleted");
       this.getUsers();
-  }); 
+    });
   }
 
-  getUsers(){
+  getUsers() {
     this.userService.getAllUsers().subscribe((data) => {
       this.users = data;
+      console.log(this.users.users.length)
     })
   }
 }
