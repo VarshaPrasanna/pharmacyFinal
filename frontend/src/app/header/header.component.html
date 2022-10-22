@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light w-100 navigation" id="navbar">
   <div class="container">
+    <a class="navbar-brand font-weight-bold" roterLink="/">GetMeds</a>
+    <img src="assets/images/pharmacy.png" width="50" height="50" alt="">
 
-    <a class="navbar-brand font-weight-bold" roterLink="/">2 MG</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar"
       aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,9 +16,7 @@
           <a class="nav-link" routerLink="/">Home </a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#">Health Blog</a>
-        </li>
+
 
         <li class="nav-item dropdown dropdown-slide">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-delay="350"
@@ -37,7 +36,7 @@
 
 
           </ul>
-        </li><!-- / Blog -->
+        </li>
 
         <!-- Account -->
         <!-- <li class="nav-item dropdown dropdown-slide">
@@ -56,9 +55,7 @@
           </ul>
         </li> -->
         <!-- / Account -->
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/chat-bot">Ask MedBot</a>
-        </li>
+
 
         <li class="nav-item">
           <a class="nav-link" routerLink="/discussion-board">Dicussion Board</a>
@@ -100,13 +97,14 @@
         <a name="logout" id="logout" class="btn btn-outline-primary m-1" routerLink="/" role="button" (click)="logout()"
           color>Logout</a>
         <li class="cart-nav list-inline-item ml-2 border border-dark rounded-circle cart-btn">
-          <a routerLink="/cart"> <!-- class="dropdown-toggle cart-icon m-1" data-toggle="dropdown" data-hover="dropdown"> -->
+          <a routerLink="/cart">
+            <!-- class="dropdown-toggle cart-icon m-1" data-toggle="dropdown" data-hover="dropdown"> -->
             <i class="tf-ion-android-cart cart-icon"></i>
           </a>
-          </li>
-          <!-- <div class="dropdown-menu cart-dropdown"> -->
-            <!-- Cart Item -->
-           <!--  <div class="media">
+        </li>
+        <!-- <div class="dropdown-menu cart-dropdown"> -->
+        <!-- Cart Item -->
+        <!--  <div class="media">
 
               <a routerLink="/product-info">
                 <img class="media-object img- mr-3" src="assets/images/cart-1.jpg" alt="image" />
@@ -121,8 +119,8 @@
               <a href="#" class="remove"><i class="tf-ion-close"></i></a>
             </div> -->
 
-            <!-- Cart Item -->
-           <!--  <div class="media">
+        <!-- Cart Item -->
+        <!--  <div class="media">
               <a routerLink="/product-info">
                 <img class="media-object img-fluid mr-3" src="assets/images/cart-2.jpg" alt="image" />
               </a>
@@ -135,7 +133,7 @@
               </div>
               <a href="#" class="remove"><i class="tf-ion-close"></i></a>
             </div> -->
-           <!--  <div class="cart-summary">
+        <!--  <div class="cart-summary">
               <span class="h6">Total</span>
               <span class="total-price h6">$1799.00</span>
 

@@ -3,7 +3,6 @@ import { ProductService } from '../product.service';
 import { Product } from '../models/product';
 //import { ProductMockData } from 'src/app/mock-data/products-mock-data';
 import { Router, ActivatedRoute } from '@angular/router';
-
 interface SideNavToggle {
   screenWidth: number;
   collapsed: boolean;

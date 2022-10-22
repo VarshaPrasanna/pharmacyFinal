@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormGroup, FormsModule, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -30,11 +30,10 @@ import { AuthInterceptor } from './auth.interceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { ValueArrayPipe } from './pipes/value-array.pipe';
-import { BlogComponent } from './blog/blog.component';
+
 import { ProductListComponent } from './product-list/product-list.component';
 import { ManageQueryComponent } from './admin-dashboard/manage-query/manage-query.component';
-import { ChatBotComponent } from './chat-bot/chat-bot.component';
-import { ChatService } from './chat.service';
+
 import { GenderImagePipe } from './pipes/gender-image.pipe';
 import { AdminSidenavComponent } from './admin-dashboard/admin-sidenav/admin-sidenav.component';
 
@@ -47,6 +46,8 @@ import { NutrientsComponent } from './categories/nutrients/nutrients.component';
 import { ClinicalComponent } from './categories/clinical/clinical.component';
 import { PersonalCareComponent } from './categories/personal-care/personal-care.component';
 import { HomeCareComponent } from './categories/home-care/home-care.component';
+import { ChartModule } from 'angular2-chartjs';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +70,7 @@ import { HomeCareComponent } from './categories/home-care/home-care.component';
     UserProfileComponent,
     ValueArrayPipe,
 
-    BlogComponent,
+
     ProductListComponent,
     ManageQueryComponent,
 
@@ -82,7 +83,7 @@ import { HomeCareComponent } from './categories/home-care/home-care.component';
     UserProfileComponent,
     EditUserComponent,
     ValueArrayPipe,
-    ChatBotComponent,
+
     GenderImagePipe,
     UpdateOrderStatusComponent,
     AdminSidenavComponent,
@@ -104,6 +105,8 @@ import { HomeCareComponent } from './categories/home-care/home-care.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ChartModule,
+
 
   ],
   exports: [
@@ -112,7 +115,7 @@ import { HomeCareComponent } from './categories/home-care/home-care.component';
     FooterComponent,
   ],
   providers: [
-    ChatService,
+
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
@@ -120,6 +123,7 @@ import { HomeCareComponent } from './categories/home-care/home-care.component';
 
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

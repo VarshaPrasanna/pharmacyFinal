@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -12,11 +13,11 @@ import { UserService } from '../user.service';
 })
 export class EditUserComponent implements OnInit {
 
-submitted = false;
+  submitted = false;
   editForm!: FormGroup;
   userData!: User[];
 
- constructor(public fb: FormBuilder,
+  constructor(public fb: FormBuilder,
     private actRoute: ActivatedRoute,
     private userService: UserService,
     private router: Router) { }
@@ -27,43 +28,58 @@ submitted = false;
     this.getUserById(id);
 
     this.editForm = this.fb.group({
-      firstName : ['', [Validators.required]],
-      lastName : ['', [Validators.required]],
-      username : ['',[Validators.required,Validators.minLength(5),Validators.maxLength(25),Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]],
-      email : ['',[Validators.required,Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')]],
-      // gender : [''],
-      password : [''],
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
+      username: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(25), Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]],
+      email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')]],
+      password: ['', [Validators.required, Validators.pattern(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{5,}/)]],
 
     },
     )
   }
-   get myForm() {
+  get myForm() {
     return this.editForm.controls;
   }
-
-  getUserById(id: any){
-    this.userService.getUser(id).subscribe((data)=>{
+  Password = false;
+  changePassword() {
+    this.Password = true;
+    let id = this.actRoute.snapshot.paramMap.get('id');
+    this.userService.getUser(id).subscribe((data) => {
       this.editForm.setValue({
-        firstName : data.data.firstName,
-        lastName : data.data.lastName,
-        username : data.data.username,
-        email : data.data.email,  
+        firstName: data.data.firstName,
+        lastName: data.data.lastName,
+        username: data.data.username,
+        email: data.data.email,
+        password: "",
+      })
+      console.log(data);
+    });
+  }
+
+  getUserById(id: any) {
+    this.userService.getUser(id).subscribe((data) => {
+      this.editForm.setValue({
+        firstName: data.data.firstName,
+        lastName: data.data.lastName,
+        username: data.data.username,
+        email: data.data.email,
         // gender : data.data.gender,
-        password : data.data.password
+        password: data.data.password
+        // password : "",
 
       })
       console.log(data);
     });
   }
 
-  updateUser(){
+  updateUser() {
     this.editForm = this.fb.group({
-      firstName : ['', [Validators.required]],
-      lasttName : ['', [Validators.required]],
-      username : ['',[Validators.required,Validators.minLength(5),Validators.maxLength(25),Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]],
-      email : ['',[Validators.required,Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')]],
+      firstName: ['', [Validators.required]],
+      lasttName: ['', [Validators.required]],
+      username: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(25), Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]],
+      email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')]],
       // gender : [''],
-      password : [''],
+      password: ['', [Validators.required, Validators.pattern(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{5,}/)]],
     })
   }
 
@@ -94,7 +110,7 @@ submitted = false;
   // lastName!: FormControl;
   // username!: FormControl;
   // email!: FormControl;
- // password!: FormControl;
+  // password!: FormControl;
   // user! : any;
 
   // constructor(public fb: FormBuilder,
@@ -138,28 +154,20 @@ submitted = false;
   //   this.userService.getUser(proid).subscribe((data) => {
   //     this.user = data;
   //     console.log(this.user);
-      
+
   //   })
   // }
 
 
 
 
-  // updateEmployee() {
-  //   this.editForm = this.fb.group({
-  //     firstName: [''],
-  //     lastName: [''],
-  //     username: [''],
-  //     email: [''],
-  //     gender: [''],
-  //   });
-  // }
+
 
   onSubmit() {
     this.submitted = true;
-// if(!this.editForm.valid){
-//   return false;
-// }else{
+    // if(!this.editForm.valid){
+    //   return false;
+    // }else{
     if (window.confirm('Are you sure?')) {
       let id = this.actRoute.snapshot.paramMap.get('id');
       this.userService.updateUser(id, this.editForm.value).subscribe({
@@ -172,7 +180,7 @@ submitted = false;
         },
       });
     }
-  
+
 
   }
 }
