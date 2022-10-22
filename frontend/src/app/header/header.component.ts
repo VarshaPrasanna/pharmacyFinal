@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
   isLogged!: boolean;
   isAdmin!: boolean;
   statusChecker!: number;
+  firstName!: string;
 
   constructor(private router: Router,
     private userService: UserService) {

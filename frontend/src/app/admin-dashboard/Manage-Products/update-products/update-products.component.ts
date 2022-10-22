@@ -11,12 +11,12 @@ import { Product } from '../models/product';
 })
 
 export class UpdateProductsComponent implements OnInit {
-submitted = false;
+  submitted = false;
   updateProductForm!: FormGroup;
 
-   
-constructor(
-  public fb: FormBuilder,
+
+  constructor(
+    public fb: FormBuilder,
     private router: Router,
     private ProductService: ProductService,
     private acRoute: ActivatedRoute
@@ -25,21 +25,21 @@ constructor(
 
     this.updateProduct();
     let id = this.acRoute.snapshot.paramMap.get('id');
-     this.getProductById(id);
+    this.getProductById(id);
     this.updateProductForm = this.fb.group({
-      
-    title: ['', [Validators.required]],
-    description: ['', [Validators.required]],
-    image: ['', [Validators.required]],
-    categories : ['', [Validators.required]],
-    price: ['', [Validators.required]],
-  });
-  
+
+      title: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      image: ['', [Validators.required]],
+      categories: ['', [Validators.required]],
+      price: ['', [Validators.required]],
+    });
+
   }
 
   categoriesList: any[] = ['Ayurveda', 'Health devices', 'Covid essentials', 'Nutrients', 'Clinical', 'Homeopathy', 'Personal Care', 'Home Care'];
 
-    changeCategory(e: any) {
+  changeCategory(e: any) {
     this.myForm['categories'].setValue(e.target.value, {
       onlySelf: true,
     });
@@ -48,7 +48,7 @@ constructor(
   get myForm() {
     return this.updateProductForm.controls;
   }
-getProductById(id: any) {
+  getProductById(id: any) {
     this.ProductService.getProductById(id).subscribe((data) => {
       this.updateProductForm.setValue({
         title: data.product.title,
@@ -57,16 +57,16 @@ getProductById(id: any) {
         categories: data.product.categories,
         price: data.product.price,
       });
-      console.log(data);     
+      console.log(data);
     });
   }
 
-  updateProduct(){
+  updateProduct() {
     this.updateProductForm = this.fb.group({
       title: ['', [Validators.required]],
       description: ['', [Validators.required]],
       image: ['', [Validators.required]],
-      categories : ['', [Validators.required]],
+      categories: ['', [Validators.required]],
       price: ['', [Validators.required]],
     });
   }
@@ -78,7 +78,7 @@ getProductById(id: any) {
       let proid = this.acRoute.snapshot.paramMap.get('id');
       this.ProductService.updateProduct(proid, this.updateProductForm.value).subscribe({
         complete: () => {
-          this.router.navigateByUrl('/admin/Manage-Products');
+          this.router.navigateByUrl('/Manage-Products');
           console.log('product updated successfully');
         },
         error: (e) => {
@@ -160,7 +160,7 @@ getProductById(id: any) {
   //   this.ProductService.getProductById(proid).subscribe((data) => {
   //     this.Product = data;
   //     console.log(this.Product);
-      
+
   //   })
   // }
 
