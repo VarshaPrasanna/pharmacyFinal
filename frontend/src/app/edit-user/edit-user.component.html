@@ -1,5 +1,5 @@
 
-<div class="row justify-content-center">
+<div class="row justify-content-center mt-5">
     <div class="col-md-4 register-employee">
       <!-- form card register -->
       <div class="card card-outline-secondary">
@@ -8,7 +8,7 @@
         </div>
         <div class="card-body">
           <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
-            <button type="button"  class="btn btn-secondary" (click)="changePassword()">click here for change password</button>
+            <button type="button"  class="btn btn-secondary my-3 btn-block" (click)="changePassword()">click here for change password</button>
             <div class="form-group">
               <label for="firstName">firstName</label>
               <input class="form-control" type="text" formControlName="firstName"
@@ -76,6 +76,7 @@
             </div>
             <!-- <button type="button"   (click)="changePassword()"  >change password</button> -->
             <div class="form-group" *ngIf="Password">
+              <label for="inputVerify3">New Password</label>
               <input type="password" class="form-control" placeholder="Enter Password" formControlName="password"
               [ngClass]="{'is-invalid':myForm['password'].errors && (myForm['password'].touched || myForm['password'].dirty),'is-valid' :myForm['password'].valid}">
               <div class="invalid-feedback">

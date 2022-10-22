@@ -1,33 +1,8 @@
-<!-- <div class="row" >
-<div class="col-sm-3" style="margin-top: 10px;"  *ngFor="let order of order.orders;let i = index">   
-    <div class="card " >
-        <div class="card-body" style="background-color: rgb(123, 207, 210);">
-            <div class="media flex-column flex-sm-row" >
-                <div class="media-body ">
-                    <h5 class="bold" style="margin-bottom: 0px;">{{order.userId}}</h5>
-                    <h6 class="mt-3 mb-4 bold" style="margin-bottom: 0px!important;margin-top: 0px!important;"> {{order.amount}}</h6>
-                    <p class="text-muted">{{order.address}} </p>
-                    <p class="text-muted">{{order.status}} </p>
-                    <div class="col  my-auto  border-line "><h6 *ngFor="let p of order.products"><p> {{p.productId}}</p><p> {{p.quantity}}</p></h6></div>                </div>
-            </div>
-        </div>
-         <div class="card-footer  bg-white px-sm-3 pt-sm-4 px-0" style="background-color: rgb(123, 207, 210);">
-            <div class="row text-center  " >
-                <button type="button" class="btn  btn-outline-primary d-flex" >update status</button> 
-            </div>
-        </div>
-        </div>
-    
-</div>
-</div> -->
-
 <body>
-    <!--  <app-admin-sidenav (onToggleSideNav)="onToggleSideNav($event)"></app-admin-sidenav> -->
     <div style="background-color: rgb(176, 211, 220);">
         <div style="padding: 4%;">
 
-            <div class="card justify-content-center col-12 border-0"
-                style="background-color: rgb(176, 211, 220);">
+            <div class="card justify-content-center col-12 border-0"  style="background-color: rgb(176, 211, 220);">
                 <div class="card-body">
                     <h2 style="padding-left: 13.5%;" class="card-title">List of Orders</h2>
                 </div>
@@ -39,18 +14,18 @@
                         <div class="card bg-dark shadow-2-strong">
                             <div class="card-body">
 
-                                <table class="table table-striped table-dark table-borderless" align="center">
+                                <table class="table table-striped table-dark table-borderless text-center" align="center">
                                     <thead class="thead-dark">
                                         <tr>
-                                            <th>userId</th>
-                                            <th>amount</th>
-                                            <th>address</th>
-                                            <th>status</th>
-                                            <th>product details</th>
-
+                                            <th scope="col">UserId</th>
+                                            <th scope="col">Amount</th>
+                                            <th scope="col">Address</th>
+                                            <th scope="col">Status</th>
+                                            <th scope="col">Product details</th>
+                                            <th scope="col">Update status</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                   <tbody>
                                         <tr *ngFor="let order of order.orders">
                                             <td scope="row">{{order.userId}}</td>
                                             <td>{{order.amount | currency: 'INR'}}</td>
@@ -69,9 +44,8 @@
                                             </td>
                                             <td>
                                                 <div class="row text-center  ">
-                                                    <button type="button" class="btn  btn-outline-primary d-flex"
-                                                        [routerLink]="['/update-status', order._id]">update
-                                                        status</button>
+                                                    <button type="button" class="btn  btn-info btn-sm mr-2 w-75"
+                                                        [routerLink]="['/update-status', order._id]">update status</button>
                                                 </div>
                                             </td>
                                         </tr>

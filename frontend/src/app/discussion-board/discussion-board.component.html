@@ -1,96 +1,92 @@
 <app-header></app-header>
 
 <body>
-    
-
-    <div class="container text-center text-white">
-        <div class="row pt-5">
-            <div class="col-lg-8 mx-auto">
-                <h1 class="display-4">Disscussion Board</h1>
-                <p class="lead mb-0">
-                </p>
-                <p class="lead">Powered by GetMeds <a href="https://bootstrapious.com/snippets" class="text-white">
-                        <u></u></a></p>
+    <div class="background w-100 row justify-content-center">
+        <div class="container text-center text-white">
+            <div class="row pt-5">
+                <div class="col-lg-8 mx-auto">
+                    <h1 class="display-4">Disscussion Board</h1>
+                    <p class="lead mb-0">
+                    </p>
+                    <p class="lead">Powered by GetMeds <a href="https://bootstrapious.com/snippets" class="text-white">
+                            <u></u></a></p>
+                </div>
             </div>
-        </div>
-    </div><!-- End -->
+        </div><!-- End -->
 
-    <button type="button" class="button-53 mb-5" data-toggle="modal" data-target="#form"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-fill mt-1 mr-2" viewBox="0 0 16 16">
-        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
-      </svg>Add new query</button>
+        <button type="button" class="button-53 mb-5" data-toggle="modal" data-target="#form"><svg
+                xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                class="bi bi-plus-circle-fill mt-1 mr-2" viewBox="0 0 16 16">
+                <path
+                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+            </svg>Add new query</button>
 
 
-    <div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
+        <div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
 
-                <div class="text-right cross" data-dismiss="modal"> <i class="fa fa-times mr-2"></i> </div>
+                    <div class="text-right cross" data-dismiss="modal"> <i class="fa fa-times mr-2"></i> </div>
 
-                <div class="card-body text-center"> <img src=" https://i.imgur.com/d2dKtI7.png" height="100"
-                        width="100">
-                    <div class="comment-box text-center">
-                        <h4>Post your feedback </h4>
+                    <div class="card-body text-center"> <img src=" https://i.imgur.com/d2dKtI7.png" height="100"
+                            width="100">
+                        <div class="comment-box text-center">
+                            <h4>Post your Query</h4>
 
-                        <!-- <div class="comment-area">
-                        <textarea class="form-control" [(ngModel)]="text" placeholder="Ask us here ,We will reply soon"
-                            rows="4"></textarea>
-                    </div> -->
+                            <div class="modal-body">
+                                <form #formDir="ngForm" [formGroup]="msgForm" (ngSubmit)="addMessage()">
+                                    <div class="form-group">
 
-                        <!-- MESSAGE -->
-
-                        <div class="modal-body">
-                            <form #formDir="ngForm" [formGroup]="msgForm" (ngSubmit)="addMessage()">
-                                <div class="form-group">
-
-                                    <textarea class="form-control" name="message" cols="30" rows="10"
-                                        formControlName="message"></textarea>
-                                    <div class="test">
-                                        <button type="submit" class="btn btn-primary">SUBMIT</button>
+                                        <textarea class="form-control" name="message" cols="30" rows="10"
+                                            formControlName="message"></textarea>
+                                        <div class="test">
+                                            <button type="submit" class="btn btn-primary">SUBMIT</button>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
+
+
+
+                            <!--  -->
+
+
                         </div>
-
-
-
-                        <!--  -->
-
-
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="w-75 mb-3" *ngFor="let msg of messages.reverse()">
+        <div class="w-75 mb-3" *ngFor="let msg of messages.reverse()">
 
-        <div class="card border-secondary">
-            <div class="list-group-item">
-                {{msg.firstName}}<div style="text-align: right; font-size: 10px; font-weight: lighter;">{{msg.date |
-                    date }}</div>
-            </div>
-            <div class="card-body">
-                <!-- <h4 class="card-title">Title</h4> -->
-                <p class="card-text">{{msg.message}}</p>
-            </div>
-            <div *ngIf="msg.replies">
-                <p class="card-header text-secondary mb-2">Replies</p>
-                <div class="card ml-5 mr-2 mb-3">
-                    <div class="card-body">
-                        <p class="card-text">{{msg.replies}}</p>
+            <div class="card border-secondary">
+                <div class="list-group-item">
+                    {{msg.firstName}}<div style="text-align: right; font-size: 10px; font-weight: lighter;">{{msg.date |
+                        date }}</div>
+                </div>
+                <div class="card-body">
+                    <!-- <h4 class="card-title">Title</h4> -->
+                    <p class="card-text">{{msg.message}}</p>
+                </div>
+                <div *ngIf="msg.replies">
+                    <p class="card-header text-secondary mb-2">Replies</p>
+                    <div class="card ml-5 mr-2 mb-3">
+                        <div class="card-body">
+                            <p class="card-text">{{msg.replies}}</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </body>
-        <!--   <div class="container py-5">
+<!--   <div class="container py-5">
         <div class="row">
             <div class="col-lg-7 mx-auto bg-white rounded shadow"> -->
 
-        <!-- Fixed header table-->
-        <!--  <div class="table-responsive">
+<!-- Fixed header table-->
+<!--  <div class="table-responsive">
                     <table class="table table-fixed">
                         <thead>
                             <tr>

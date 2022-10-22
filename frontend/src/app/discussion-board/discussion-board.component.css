@@ -144,3 +144,6 @@ body {
   background-repeat: repeat-y;
 }
 
+.background{
+  background: linear-gradient(to right, #74ebd5, #ACB6E5);
+}
