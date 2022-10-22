@@ -33,8 +33,7 @@ import { ValueArrayPipe } from './pipes/value-array.pipe';
 
 import { ProductListComponent } from './product-list/product-list.component';
 import { ManageQueryComponent } from './admin-dashboard/manage-query/manage-query.component';
-import { ChatBotComponent } from './chat-bot/chat-bot.component';
-import { ChatService } from './chat.service';
+
 import { GenderImagePipe } from './pipes/gender-image.pipe';
 import { AdminSidenavComponent } from './admin-dashboard/admin-sidenav/admin-sidenav.component';
 
@@ -84,7 +83,7 @@ import { ChartModule } from 'angular2-chartjs';
     UserProfileComponent,
     EditUserComponent,
     ValueArrayPipe,
-    ChatBotComponent,
+
     GenderImagePipe,
     UpdateOrderStatusComponent,
     AdminSidenavComponent,
@@ -116,7 +115,7 @@ import { ChartModule } from 'angular2-chartjs';
     FooterComponent,
   ],
   providers: [
-    ChatService,
+
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

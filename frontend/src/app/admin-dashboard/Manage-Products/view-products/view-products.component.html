@@ -1,63 +1,3 @@
-<!-- <div class="container">
-
-
-                <th scope="col center">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let product of product.products;let i = index">
-              
-                <th scope="row">{{product._id}}</th>
-                <td>{{product.img}}</td>
-
-                
-                <td>{{product.title}}</td>
-                <td>{{product.description}}</td>
-                <td>{{product.categories}}</td>
-                <td>{{product.price | currency: 'INR'}}</td>
-
-                <td class="text-center edit-block">
-                    
-                    <span class="edit">
-                        <button type="button" class="btn btn-success btn-sm"  [routerLink]="['/update-product',product._id]">update</button>
-                    </span>
-                    <span class="delete" (click)="deleteProduct(product,i)">
-                        <button type="button" class="btn btn-danger btn-sm"  routerLink="/Manage-Products">delete</button>
-                    </span>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-<button routerLink="/add-products">add products</button> -->
-<!-- <button routerLink="/add-products">add products</button>
-<div class="card" *ngFor="let product of product.products;let i = index">
-    <div>
-        <img class="rounded mx-auto d-block img-responsive mt-3" src="{{product.image}}" alt="Card image cap">
-    </div>
-    <div class="card-body">
-        <h6 class="card-title font-weight-bold">{{product.title}}</h6>
-        <div class="row">
-            <div class="col-md-6">
-                <p class="card-text"> <small> {{product.description}} </small></p>
-            </div>
-            <div class="col-md-6">
-                <p class="card-text"> <small> {{product.categories}} </small></p>
-            </div>
-            <div class="col-md-6">
-                <p class="text-right"> <small> {{product.price | currency: 'INR'}} </small> </p>
-            </div>
-        </div>
-        <div class="">
-            <button type="button" class="btn btn-success btn-sm"  [routerLink]="['/update-product',product._id]">update</button>
-        </div>
-        <div class="">
-            <button type="button" (click)="deleteProduct(product, i)" class="btn btn-danger btn-sm"  routerLink="/Manage-Products">delete</button>
-        </div>
-        
-    </div>
-</div> -->
-
 <h2>VIEW PRODUCTS</h2>
 
 <button routerLink="/add-products">add products</button>
@@ -89,5 +29,4 @@
         </div>
 
     </div>
-</div>
 </div>
