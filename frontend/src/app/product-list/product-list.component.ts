@@ -42,7 +42,7 @@ export class ProductListComponent implements OnInit {
     }, 10)
   }
 
-  addProductToCart(id: string){
+  addProductToCart(id: string) {
     //this.addedProductToCart = true;
     this.ref();
     this.cartService.addToCart(id, 1);

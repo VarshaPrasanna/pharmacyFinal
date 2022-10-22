@@ -23,7 +23,7 @@ export class CartService {
     if (temp === undefined || temp === '' || temp === null) {
       this.cartData = {};
     } else {
-      this.cartData = JSON.parse( temp );
+      this.cartData = JSON.parse(temp);
     }
     console.log(temp)
     return this.cartData
@@ -34,10 +34,10 @@ export class CartService {
 
     if (this.cartData[pid] === undefined) {
       this.cartData[pid] = qty;
-    }else {
+    } else {
       this.cartData[pid] += qty;
     }
-  
+
     if (this.cartData[pid] == 0) {
       delete this.cartData[pid];
     }
