@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -31,14 +32,28 @@ submitted = false;
       lastName : ['', [Validators.required]],
       username : ['',[Validators.required,Validators.minLength(5),Validators.maxLength(25),Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]],
       email : ['',[Validators.required,Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')]],
-      // gender : [''],
-      password : [''],
+      password : ['', [Validators.required,Validators.pattern(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{5,}/)]],
 
     },
     )
   }
    get myForm() {
     return this.editForm.controls;
+  }
+  Password= false;
+  changePassword(){
+       this.Password=true;
+       let id = this.actRoute.snapshot.paramMap.get('id');
+       this.userService.getUser(id).subscribe((data)=>{
+        this.editForm.setValue({
+          firstName : data.data.firstName,
+          lastName : data.data.lastName,
+          username : data.data.username,
+          email : data.data.email,  
+          password : "", 
+        })
+        console.log(data);
+      });
   }
 
   getUserById(id: any){
@@ -50,6 +65,7 @@ submitted = false;
         email : data.data.email,  
         // gender : data.data.gender,
         password : data.data.password
+        // password : "",
 
       })
       console.log(data);
@@ -63,7 +79,7 @@ submitted = false;
       username : ['',[Validators.required,Validators.minLength(5),Validators.maxLength(25),Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]],
       email : ['',[Validators.required,Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')]],
       // gender : [''],
-      password : [''],
+      password : ['', [Validators.required,Validators.pattern(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{5,}/)]],
     })
   }
 
