@@ -20,7 +20,7 @@ import { ManageQueryComponent } from './admin-dashboard/manage-query/manage-quer
 import { AddProductsComponent } from './admin-dashboard/Manage-Products/add-products/add-products.component';
 import { UpdateProductsComponent } from './admin-dashboard/Manage-Products/update-products/update-products.component';
 import { AdminManageOrdersComponent } from './admin-dashboard/admin-manage-orders/admin-manage-orders.component';
-import { ChatBotComponent } from './chat-bot/chat-bot.component';
+
 
 import { UpdateOrderStatusComponent } from './admin-dashboard/update-order-status/update-order-status.component';
 import { AyurvedaComponent } from './categories/ayurveda/ayurveda.component';
@@ -60,7 +60,7 @@ const routes: Routes = [
   { path: "Nutrients", component: NutrientsComponent },
   { path: "personal-care", component: PersonalCareComponent },
   { path: "messageList", component: ManageQueryComponent },
-  { path: "chat-bot", component: ChatBotComponent }
+
 ];
 
 @NgModule({
