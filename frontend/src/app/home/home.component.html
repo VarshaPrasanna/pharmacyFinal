@@ -104,7 +104,8 @@
     </div>
 
     <div>
-      <section class="container2" *ngFor="let product of products_arr;let i = index">
+      <app-product-card [product]="product" *ngFor="let product of products_arr;let i = index"></app-product-card>
+      <!-- <section class="container2" *ngFor="let product of products_arr;let i = index">
 
         <div>
     
@@ -114,15 +115,15 @@
                         <a [routerLink]="['/product-info',product._id]">
                             <div class="pic">
                                 <img src="{{product.image}}" />
-                                <!-- <img src="{{product.image}}"> -->
+                                
                             </div>
                             <div class="card-body">
                                 <h6 class="card-title font-weight-bold">{{product.title}}</h6>
-                                    <!-- <div> class="row"> -->
+                                    
                                     <div>
                                         <p class="card-text text-truncate"> <small> {{product.description}} </small></p>
                                     </div>
-                                    <div> <!-- class="col-md-6"> -->
+                                    <div> 
                                         <p class="font-weight-bold"> {{product.price | currency: 'INR'}} </p>
                                     </div>
     
@@ -135,7 +136,7 @@
                     </div>
             </div>
         </div>
-    </section>
+    </section> -->
   </div>
      <!--  <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5">
         <div class="product">

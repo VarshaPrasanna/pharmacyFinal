@@ -48,6 +48,7 @@ import { PersonalCareComponent } from './categories/personal-care/personal-care.
 import { HomeCareComponent } from './categories/home-care/home-care.component';
 import { ChartModule } from 'angular2-chartjs';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { ProductCardComponent } from './product-card/product-card.component';
 
 
 @NgModule({
@@ -98,6 +99,7 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
     PersonalCareComponent,
     HomeCareComponent,
     MyOrdersComponent,
+    ProductCardComponent,
 
 
 
