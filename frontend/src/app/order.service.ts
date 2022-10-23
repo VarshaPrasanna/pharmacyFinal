@@ -27,7 +27,7 @@ export class OrderService {
   getOrderById(id: any): Observable<any> {
     return this.httpClient.get(`${this.API_URL}/orders/${id}`).pipe(catchError(this.errorMgmt));
   }
-  getOrderPopular() {
+  getOrderPopular(): Observable<any> {
     return this.httpClient.get(`${this.API_URL}/orders/popular`).pipe(catchError(this.errorMgmt));
   }
 

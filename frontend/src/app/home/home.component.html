@@ -47,43 +47,48 @@
   <div class="row">
 
     <div class="col-md-3 col-sm-6">
-      <div class="our-team">
-        <div class="pic">
-          <img src="https://newassets.apollo247.com/pub/media/catalog/category/h_and_n.png">
+      <a routerLink="/Nutrients">
+        <div class="our-team">
+          <div class="pic">
+            <img src="https://newassets.apollo247.com/pub/media/catalog/category/h_and_n.png">
+          </div>
+          <h3 class="title">Health & Nutrients</h3>
         </div>
-        <h3 class="title">Health & Nutrients</h3>
-      </div>
+      </a>
     </div>
 
     <div class="col-md-3 col-sm-6">
-      <div class="our-team">
-        <div class="pic">
-          <img src="https://newassets.apollo247.com/pub/media/catalog/category/ayurveda.jpg">
+      <a routerLink="/Ayurveda">
+        <div class="our-team">
+          <div class="pic">
+            <img src="https://newassets.apollo247.com/pub/media/catalog/category/ayurveda.jpg">
+          </div>
+          <h3 class="title">Ayurveda</h3>
         </div>
-        <h3 class="title">Ayurveda</h3>
-
-
-      </div>
+      </a>
     </div>
 
     <div class="col-md-3 col-sm-6">
-      <div class="our-team">
-        <div class="pic">
-          <img src="https://newassets.apollo247.com/pub/media/catalog/category/health_devices_22oct.png">
-        </div>
-        <h3 class="title">Health devices</h3>
+      <a routerLink="/health-device">
+        <div class="our-team">
+          <div class="pic">
+            <img src="https://newassets.apollo247.com/pub/media/catalog/category/health_devices_22oct.png">
+          </div>
+          <h3 class="title">Health devices</h3>
 
-      </div>
+        </div>
+      </a>
     </div>
 
     <div class="col-md-3 col-sm-6">
-      <div class="our-team">
-        <div class="pic">
-          <img src="https://newassets.apollo247.com/pub/media/catalog/category/logo.jpg">
+      <a routerLink="/covid-essential">
+        <div class="our-team">
+          <div class="pic">
+            <img src="https://newassets.apollo247.com/pub/media/catalog/category/logo.jpg">
+          </div>
+          <h3 class="title">Covid Essential</h3>
         </div>
-        <h3 class="title">Covid Essential</h3>
-
-      </div>
+      </a>
     </div>
 
   </div>
@@ -104,197 +109,24 @@
     </div>
 
     <div>
-      <app-product-card [product]="product" *ngFor="let product of products_arr;let i = index"></app-product-card>
-      <!-- <section class="container2" *ngFor="let product of products_arr;let i = index">
-
-        <div>
-    
-            <div class="col-md-3 col-sm-6" class="column">
-                
-                    <div class="our-team-product">
-                        <a [routerLink]="['/product-info',product._id]">
-                            <div class="pic">
-                                <img src="{{product.image}}" />
-                                
-                            </div>
-                            <div class="card-body">
-                                <h6 class="card-title font-weight-bold">{{product.title}}</h6>
-                                    
-                                    <div>
-                                        <p class="card-text text-truncate"> <small> {{product.description}} </small></p>
-                                    </div>
-                                    <div> 
-                                        <p class="font-weight-bold"> {{product.price | currency: 'INR'}} </p>
-                                    </div>
-    
-    
-                            </div>
-                        </a>
-                        <button type='button' class="btn btn-sm btn-primary mb-1" (click)="addProductToCart(product._id)">Add to
-                            Cart</button>
-                            
-                    </div>
-            </div>
-        </div>
-    </section> -->
-  </div>
-     <!--  <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5">
-        <div class="product">
-          <div class="product-wrap">
-            <a routerLink="/product-info"><img class="img-fluid w-100 mb-3 img-first" src="assets/images/322.jpg"
-                alt="product-img" /></a>
-            <a routerLink="/product-info"><img class="img-fluid w-100 mb-3 img-second" src="assets/images/444.jpg"
-                alt="product-img" /></a>
-          </div>
-
-          <div class="product-hover-overlay">
-            <a href="#"><i class="tf-ion-android-cart"></i></a>
-            <a href="#"><i class="tf-ion-ios-heart"></i></a>
-          </div>
-
-          <div class="product-info">
-            <h2 class="product-title h5 mb-0"><a href="#">Dettol</a></h2>
-            <span class="price">
-              $29.10
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5">
-        <div class="product">
-          <div class="product-wrap">
-            <a routerLink="/product-info"><img class="img-fluid w-100 mb-3 img-first" src="assets/images/111.jpg"
-                alt="product-img" /></a>
-            <a routerLink="/product-info"><img class="img-fluid w-100 mb-3 img-second" src="assets/images/444.jpg"
-                alt="product-img" /></a>
-          </div>
-
-          <span class="onsale">Sale</span>
-          <div class="product-hover-overlay">
-            <a href="#"><i class="tf-ion-android-cart"></i></a>
-            <a href="#"><i class="tf-ion-ios-heart"></i></a>
-          </div>
-
-          <div class="product-info">
-            <h2 class="product-title h5 mb-0"><a href="#">Eye drops</a></h2>
-            <span class="price">
-              $350.00 – $355.00
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5">
-        <div class="product">
-          <div class="product-wrap">
-            <a routerLink="/product-info"><img class="img-fluid w-100 mb-3 img-first" src="assets/images/222.jpg"
-                alt="product-img" /></a>
-            <a routerLink="/product-info"><img class="img-fluid w-100 mb-3 img-second" src="assets/images/322.jpg"
-                alt="product-img" /></a>
-          </div>
-
-          <div class="product-hover-overlay">
-            <a href="#"><i class="tf-ion-android-cart"></i></a>
-            <a href="#"><i class="tf-ion-ios-heart"></i></a>
-          </div>
-
-          <div class="product-info">
-            <h2 class="product-title h5 mb-0"><a href="#">Hand wash</a></h2>
-            <span class="price">$249</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5">
-        <div class="product">
-          <div class="product-wrap">
-            <a routerLink="/product-single"><img class="img-fluid w-100 mb-3 img-first" src="assets/images/322.jpg"
-                alt="product-img" /></a>
-            <a routerLink="/product-single"><img class="img-fluid w-100 mb-3 img-second" src="assets/images/111.jpg"
-                alt="product-img" /></a>
-          </div>
-
-          <div class="product-hover-overlay">
-            <a href="#"><i class="tf-ion-android-cart"></i></a>
-            <a href="#"><i class="tf-ion-ios-heart"></i></a>
-          </div>
-
-          <div class="product-info">
-            <h2 class="product-title h5 mb-0"><a href="#">Dettol</a></h2>
-            <span class="price">
-              $59.10
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5">
-        <div class="product">
-          <div class="product-wrap">
-            <a href="#"><img class="img-fluid w-100 mb-3 img-first" src="assets/images/322.jpg" alt="product-img" /></a>
-            <a href="#"><img class="img-fluid w-100 mb-3 img-second" src="assets/images/222.jpg"
-                alt="product-img" /></a>
-          </div>
-
-          <div class="product-hover-overlay">
-            <a href="#"><i class="tf-ion-android-cart"></i></a>
-            <a href="#"><i class="tf-ion-ios-heart"></i></a>
-          </div>
-
-          <div class="product-info">
-            <h2 class="product-title h5 mb-0"><a href="#"> Dettol</a></h2>
-            <span class="price">
-              $99.00
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5 ">
-        <div class="product">
-          <div class="product-wrap">
-            <a href="#"><img class="img-fluid w-100 mb-3 img-first" src="assets/images/111.jpg" alt="product-img" /></a>
-            <a href="#"><img class="img-fluid w-100 mb-3 img-second" src="assets/images/444.jpg"
-                alt="product-img" /></a>
-          </div>
-
-          <div class="product-hover-overlay">
-            <a href="#"><i class="tf-ion-android-cart"></i></a>
-            <a href="#"><i class="tf-ion-ios-heart"></i></a>
-          </div>
-
-          <div class="product-info">
-            <h2 class="product-title h5 mb-0"><a href="#">Eye drops</a></h2>
-            <span class="price">
-              $329.10
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5 ">
-        <div class="product">
-          <div class="product-wrap">
-            <a href="#"><img class="img-fluid w-100 mb-3 img-first" src="assets/images/222.jpg" alt="product-img" /></a>
-            <a href="#"><img class="img-fluid w-100 mb-3 img-second" src="assets/images/322.jpg"
-                alt="product-img" /></a>
-          </div>
-
-          <div class="product-hover-overlay">
-            <a href="#"><i class="tf-ion-android-cart"></i></a>
-            <a href="#"><i class="tf-ion-ios-heart"></i></a>
-          </div>
-
-          <div class="product-info">
-            <h2 class="product-title h5 mb-0"><a href="#"> Eye drops</a></h2>
-            <span class="price"><del>60
-                <pre wp-pre-tag-5=""></pre>
-              </del>$50.10</span>
-          </div>
-        </div>
-      </div> -->
+      <app-product-card [product]="product" *ngFor="let product of newProducts;let i = index"></app-product-card>
     </div>
+  </div>
+</section>
+
+<section class="section products-main h-25">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="title text-center">
+          <h2>Popular Products</h2>
+        </div>
+      </div>
+    </div>
+    <div>
+      <app-product-card [product]="product" *ngFor="let product of popularProducts;let i = index"></app-product-card>
+    </div>
+  </div>
 </section>
 
 
@@ -305,15 +137,15 @@
       <div class="col-lg-6 offset-lg-6">
         <div class="ads-content">
  -->
-          <!-- syo-timer -->
-       <!--    <div id="simple-timer" class="syotimer mb-5"></div>
+<!-- syo-timer -->
+<!--    <div id="simple-timer" class="syotimer mb-5"></div>
           <a href="#" class="btn btn-main"><i class="ti-bag mr-2"></i>Shop Now </a>
         </div>
       </div>
     </div>
   </div>
 </section> -->
-<section class="section products-list">
+<!-- <section class="section products-list">
   <div class="container">
     <div class="row">
       <div class="col-lg-4 col-sm-12 col-md-12">
@@ -463,5 +295,5 @@
       </div>
     </div>
   </div>
-</section>
-<app-footer></app-footer>
+</section> -->
+<app-footer></app-footer> 
