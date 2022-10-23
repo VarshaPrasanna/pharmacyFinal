@@ -1,9 +1,9 @@
 <app-header></app-header>
 
-<div class="alert alert-success" role="alert" *ngIf="this.cartflag">
+<!-- <div class="alert alert-success" role="alert" *ngIf="this.cartflag">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     Product Added to cart!
-</div>
+</div> -->
 
 <div class="col-md-3">
     <div class=" mb-4 mt-2">
@@ -24,8 +24,8 @@
 
 </div>
 
-
-<section class="container2" *ngFor="let product of Product.products;let i = index">
+<app-product-card [product] = "product" *ngFor="let product of Product.products;let i = index"></app-product-card>
+<!-- <section class="container2" *ngFor="let product of Product.products;let i = index">
 
     <div>
 
@@ -35,27 +35,53 @@
             <div class="our-team">
                 <a [routerLink]="['/product-info',product._id]">
                     <div class="pic">
-                        <img src="{{product.image}}" />
+                        <img src="{{product.image}}" /> -->
                         <!-- <img src="{{product.image}}"> -->
-                    </div>
+                    <!-- </div>
                     <div class="card-body">
                         <h6 class="card-title font-weight-bold">{{product.title}}</h6>
-                        <!-- <div> class="row"> -->
-                        <div>
+                         --><!-- <div> class="row"> -->
+                        <!-- <div>
                             <p class="card-text text-truncate"> <small> {{product.description}} </small></p>
                         </div>
-                        <div>
+                        <div> -->
                             <!-- class="col-md-6"> -->
-                            <p class="font-weight-bold"> {{product.price | currency: 'INR'}} </p>
+                            <!-- <p class="font-weight-bold"> {{product.price | currency: 'INR'}} </p>
                         </div>
 
 
                     </div>
                 </a>
-                <button type='button' class="btn btn-sm btn-primary mb-1" (click)="addProductToCart(product._id)">Add to
+                <button type='button' class="btn btn-sm btn-primary mb-1" (click)="addProductToCart(product._id)"
+                    data-toggle="modal" data-target="#modalCart">Add to
                     Cart</button>
 
+                <div class="modal fade right" id="modalCart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                    aria-hidden="true" data-backdrop="false">
+                    <div class="modal-dialog modal-side modal-bottom-right modal-notify modal-info" role="document">
+                         --><!--Content-->
+                        <!-- <div class="modal-content"> -->
+                            <!--Header-->
+                            <div class="modal-header">
+                            <!--     <p class="heading">Product is added to the cart
+                                </p>
+
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true" class="white-text">&times;</span>
+                                </button>
+                            </div> -->
+
+                            <!--Footer-->
+                            <!-- <div class="modal-footer justify-content-center">
+                                <a type="button" class="btn btn-success" routerLink="/cart">Go to cart</a>
+                                <a type="button" class="btn btn-outline-success waves-effect" 
+                                    data-dismiss="modal">Cancel</a>
+                            </div>
+                        </div> -->
+                        <!--/.Content-->
+                    <!-- </div>
+                </div>
             </div>
         </div>
     </div>
-</section>
+</section> -->
