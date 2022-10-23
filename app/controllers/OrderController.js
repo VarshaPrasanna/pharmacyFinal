@@ -86,6 +86,53 @@ const OrderController = {
             })
         }
     },
+    /* Most sold products*/
+
+
+    /* get user stats */
+    async get_popular(req, res) {
+        const _id = await Order.findById(req.params.id);
+
+        try {
+            const data = await Order.aggregate([
+                {
+                    $unwind: {
+                        path: "$products"
+                    }
+                },
+                {
+                    $group: {
+                        _id: "$products.productId",
+                        quantity: {
+                            $sum: "$products.quantity"
+                        },
+                        totalSold: {
+                            $sum: 1
+                        }
+                    }
+                },
+                {
+                    $sort: {
+                        "totalSold": -1
+                    }
+                },
+                {
+                    $limit: 5
+                }
+            ]);
+            res.status(200).json({
+                type: "success",
+                data
+            })
+        } catch (err) {
+            res.status(500).json({
+                type: "error",
+                message: "Something went wrong please try again",
+                err
+            })
+        }
+    },
+
 
     /* delete order */
     async delete_order(req, res) {

@@ -58,41 +58,7 @@ const UserController = {
         }
     },
 
-    /* get user stats */
-    async get_stats(req, res) {
-        const date = new Date();
-        const lastYear = new Date(date.setFullYear(date.getFullYear() - 1));
-        try {
-            const data = await User.aggregate([
-                {
-                    $match: {
-                        createdAt: { $gte: lastYear }
-                    }
-                },
-                {
-                    $project: {
-                        month: { $month: "$createdAt" }
-                    }
-                },
-                {
-                    $group: {
-                        _id: "$month",
-                        total: { $sum: 1 },
-                    }
-                }
-            ]);
-            res.status(200).json({
-                type: "success",
-                data
-            })
-        } catch (err) {
-            res.status(500).json({
-                type: "error",
-                message: "Something went wrong please try again",
-                err
-            })
-        }
-    },
+
 
     /* update user */
     async update_user(req, res) {
@@ -135,7 +101,38 @@ const UserController = {
                 err
             })
         }
-    }
+    },
+
+
+    /* get user stats */
+    get_stats(req, res) {
+        const date = new Date();
+        const lastYear = new Date(date.setFullYear(date.getFullYear() - 1));
+
+        const data = User.aggregate([
+            {
+                $match: {
+                    createdAt: { $gte: lastYear }
+                }
+            },
+            {
+                $project: {
+                    month: { $month: "$createdAt" }
+                }
+            },
+            {
+                $group: {
+                    _id: "$month",
+                    total: { $sum: 1 },
+                }
+            }
+        ]);
+        res.status(200).json({
+            type: "success",
+            data
+        })
+
+    },
 };
 
 module.exports = UserController;
