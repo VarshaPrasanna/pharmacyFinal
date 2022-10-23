@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpParams } from '@angular/common/http';
 import { CartService } from '../cart/cart.service';
 import { ProductService } from '../product-list/product.service';
+import { MyOrdersComponent } from '../my-orders/my-orders.component';
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -23,8 +24,10 @@ export class UserProfileComponent implements OnInit {
   obj: any = this.cartData;
   result: any;
   total: number = 0;
-  constructor(private userService: UserService, private cartService: CartService, private route: ActivatedRoute, private router: Router, private productService: ProductService) {
+  totalOrders: number = 0;
+  constructor(private userService: UserService, private order: MyOrdersComponent, private cartService: CartService, private route: ActivatedRoute, private router: Router, private productService: ProductService) {
     this.loadCart()
+
 
   }
   ngOnInit(): void {
@@ -56,6 +59,7 @@ export class UserProfileComponent implements OnInit {
     console.log(this.cartData)
     return this.cartData
   }
+
 
 }
 
