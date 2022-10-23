@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpParams } from '@angular/common/http';
 import { CartService } from '../cart/cart.service';
 import { ProductService } from '../product-list/product.service';
+import { OrderService } from '../order.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -23,9 +24,14 @@ export class UserProfileComponent implements OnInit {
   len: any;
   obj: any = this.cartData;
   result: any;
+  order: any;
+  Order: any;
+  product: any;
   total: number = 0;
-  constructor(private userService: UserService, private cartService: CartService, private route: ActivatedRoute, private router: Router, private productService: ProductService) {
+  pending: any;
+  constructor(private userService: UserService, private cartService: CartService, private OrderService: OrderService, private route: ActivatedRoute, private router: Router, private productService: ProductService) {
     this.loadCart()
+    this.readOrders()
 
   }
   ngOnInit(): void {
@@ -40,6 +46,7 @@ export class UserProfileComponent implements OnInit {
     this.userService.clearSession();
     this.userService.isUserLogged.next(false);
   }
+  //TOTAL cart
   loadCart(): any {
     let temp = localStorage.getItem('mycart');
 
@@ -56,6 +63,22 @@ export class UserProfileComponent implements OnInit {
     console.log(this.total)
     console.log(this.cartData)
     return this.cartData
+  }
+
+  //TOTAL ORDERS
+  readOrders() {
+    this.OrderService.getOrders().subscribe((data) => {
+      this.order = data;
+      const userId = localStorage.getItem('userId')
+      console.log(userId)
+      this.Order = this.order.orders.filter((p: any) => p.userId === userId);
+      console.log(this.Order)
+      this.pending = this.Order.filter((p: any) => p.status === 'Pending');
+
+      console.log(this.pending)
+      console.log(this.order)
+      // console.log(userId);
+    });
   }
 
 }

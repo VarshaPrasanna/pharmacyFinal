@@ -145,7 +145,10 @@ export class AdminDashboardComponent implements OnInit {
     });
   }
 
-
+  logout(): void {
+    this.userService.clearSession();
+    this.userService.isUserLogged.next(false);
+  }
 
 
 }
