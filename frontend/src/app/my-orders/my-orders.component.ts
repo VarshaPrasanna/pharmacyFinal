@@ -13,6 +13,7 @@ export class MyOrdersComponent implements OnInit {
   order: any;
   Order: any;
   product: any;
+  pending: any;
 
   constructor(private router: Router, private OrderService: OrderService, private productService: ProductService) {
     this.readOrders();
@@ -28,23 +29,14 @@ export class MyOrdersComponent implements OnInit {
       console.log(userId)
       this.Order = this.order.orders.filter((p: any) => p.userId === userId);
       console.log(this.Order)
-      console.log(this.Order.length)
+      this.pending = this.Order.filter((p: any) => p.status === 'Pending');
+
+      console.log(this.pending)
       console.log(this.order)
       // console.log(userId);
     });
   }
-  // getProductById(){
-  //   for(let j=0;j<this.order.orders.length;j++){
-  //   for(let i=0;i<this.order.orders.products.length;i++){
-  //     let id = this.order.orders[j].products[i].productId;
-  //     this.productService.getProductById(id).subscribe((data)=>{
-  //          this.product = data;
-  //          console.log(data);          
-  //     })
-  //     console.log(id);
-  //   }
-  // }
-  // }
+
 
 
 }
