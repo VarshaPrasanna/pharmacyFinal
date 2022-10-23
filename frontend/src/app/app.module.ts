@@ -1,4 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { FormGroup, FormsModule, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -49,6 +51,7 @@ import { HomeCareComponent } from './categories/home-care/home-care.component';
 import { ChartModule } from 'angular2-chartjs';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { ProductCardComponent } from './product-card/product-card.component';
+import { SortPipe } from './pipes/sort.pipe';
 
 
 @NgModule({
@@ -100,6 +103,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
     HomeCareComponent,
     MyOrdersComponent,
     ProductCardComponent,
+    SortPipe,
 
 
 
@@ -112,6 +116,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
     ReactiveFormsModule,
     HttpClientModule,
     ChartModule,
+    NgxPaginationModule
 
 
   ],
@@ -119,6 +124,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
+    NgxPaginationModule
   ],
   providers: [
 

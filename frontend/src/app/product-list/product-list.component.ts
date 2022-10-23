@@ -19,8 +19,16 @@ export class ProductListComponent implements OnInit {
   title!: any;
 
 
+
   Product!: any;
+  config: { id: string; itemsPerPage: number; currentPage: number; };
   constructor(private productService: ProductService, private cartService: CartService) {
+    this.config = {
+      id: 'basicPaginate',
+      itemsPerPage: 8,
+      currentPage: 1,
+
+    };
 
     this.readProducts();
 
@@ -42,13 +50,17 @@ export class ProductListComponent implements OnInit {
       this.cartflag = true;
     }, 10)
   }
+  pageChanged(event: any) {
+    this.config.currentPage = event;
+  }
 
- /*  addProductToCart(id: string) {
-    //this.addedProductToCart = true;
-    this.ref();
-    this.cartService.addToCart(id, 1);
-    //window.alert("Product Added to cart");
-  } */
+
+  /*  addProductToCart(id: string) {
+     //this.addedProductToCart = true;
+     this.ref();
+     this.cartService.addToCart(id, 1);
+     //window.alert("Product Added to cart");
+   } */
   Search() {
     if (this.title == "") {
       this.readProducts();
