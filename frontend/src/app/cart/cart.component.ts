@@ -13,20 +13,20 @@ export class CartComponent implements OnInit {
   sum: number = 0;
   shippingCharges: number = 50;
 
-  constructor(private cartService: CartService, 
-    private productService: ProductService) { 
+  constructor(private cartService: CartService,
+    private productService: ProductService) {
     this.getCartProducts();
   }
 
   ngOnInit(): void {
   }
 
-  getCartProducts(){
+  getCartProducts() {
 
     let cart = this.cartService.loadCart();
     this.sum = 0;
 
-    for(let i=0;i<Object.keys(cart).length; i++){
+    for (let i = 0; i < Object.keys(cart).length; i++) {
       this.productService.getProductById(Object.keys(cart)[i]).subscribe((data) => {
         let q = Number(Object.values(cart)[i]);
         this.cartProducts.push({
@@ -41,23 +41,23 @@ export class CartComponent implements OnInit {
       })
     }
 
-    console.log("cartdata",this.cartProducts);
+    console.log("cartdata", this.cartProducts);
   }
 
-  changeQty(id: any, qty:number){
-    this.cartService.addToCart(id,qty);
+  changeQty(id: any, qty: number) {
+    this.cartService.addToCart(id, qty);
     this.cartProducts = [];
     this.getCartProducts();
   }
 
-  deleteCart(){
-    if(window.confirm("Are you sure you want to clear the cart?")){
+  deleteCart() {
+    if (window.confirm("Are you sure you want to clear the cart?")) {
       this.cartProducts = [];
       this.cartService.emptyCart();
     }
   }
 
-  saveTotalAmount(){
+  saveTotalAmount() {
     localStorage.setItem('totalAmount', JSON.stringify(this.sum + this.shippingCharges));
   }
 }

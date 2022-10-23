@@ -90,5 +90,5 @@ export class PaymentComponent implements OnInit {
     }).subscribe((data) => {
       console.log(data);
     })
-}
+  }
 }

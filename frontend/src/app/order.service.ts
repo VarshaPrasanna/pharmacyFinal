@@ -33,7 +33,7 @@ export class OrderService {
     return this.httpClient.put(url, product).pipe(catchError(this.errorMgmt));
   }
 
-  createOrder(order: any): Observable<any>{
+  createOrder(order: any): Observable<any> {
     return this.httpClient.post(`${this.API_URL}/orders`, order).pipe(catchError(this.errorMgmt));
   }
 

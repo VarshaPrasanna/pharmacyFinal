@@ -24,7 +24,7 @@ export class ProductService {
         Authorization: '' + this.auth.getAccessToken()
       }
     );
-    console.log(headers);
+
     return headers;
 
 
