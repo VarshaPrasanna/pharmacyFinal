@@ -65,28 +65,28 @@
 
 <div class="container-fluid">
     <div class=" card text-center"
-        style="width:20%;margin-top: 10px;margin-left: 30%;background-color: rgb(10, 219, 223);">
-        <h2>Manage Products</h2>
+        style="width:20%;margin-top: 10px;margin-left: 30%;background-color: rgb(176, 211, 220)">
+        <h2  style="color:Black" >Manage Products</h2>
     </div>
     <!-- <div class=" card text-center" style="width:20%;margin-left: 30%;background-color: rgb(255, 255, 255);">           -->
     <div class="row">
-        <div class="card text-center" style="width:10%;height:0px;background-color: rgb(25, 222, 240);">
-            <h4  style="margin-top: 6%;" >add product</h4>
-        </div>
-        <div class="card text-center" style="width:5%;height:0px;background-color: rgb(25, 222, 240);">
-            <button routerLink="/add-products" class="btn" style="border-radius: 50%; ">
+        <!-- <div class="card text-center" style="width:10%;height:0px;background-color: rgb(25, 222, 240);">
+            <h4  style="margin-top: 6%;" >Add product</h4>
+        </div> -->
+        <div class="card text-center" style="width:5%;height:0px;background-color: rgb(176, 211, 220)">
+            <button routerLink="/add-products" class="btn btn-outline-secondary " style="border-radius: 50%; ">
                 <h3 style="color:blue">+</h3>
             </button>
         </div>
     </div>
-    <div class="row">
+    <!-- <div class="row">
         <div class="card text-center" style="margin-top: 3%;width:10%;height:0px;background-color: rgb(25, 222, 240);">
         </div>
         <div class="card text-center" style="margin-top: 3%;width:5%;height:0px;background-color: rgb(25, 222, 240);">
         </div>
-    </div>
+    </div> -->
 
-<div class="row">
+<div class="row"  style="margin-top: 45px;" >
 <div class="col-sm-3" style="margin-top: 10px;"  *ngFor="let product of product.products;let i = index">   
     <div class="card " style="border-color: greenyellow;border-radius: 7%;">
         <div class="card-body" style="background-color: rgb(255, 255, 255);border-radius: 7%;">
@@ -103,8 +103,8 @@
         </div>
          <div class="card-footer px-sm-3 pt-sm-4 px-0" style="background-color: rgb(255, 255, 255)">
             <div class="row">
-                <button type="button" class="btn  btn-success d-flex"  style="border-radius: 25%;" [routerLink]="['/update-product',product._id]">update</button> 
-                <button type="button" class="btn  btn-success d-flex"  style="border-radius: 25%;" (click)="deleteProduct(product, i)" routerLink="/Manage-Products">delete</button> 
+                <button type="button" class="btn  btn-outline-success"  style="border-radius: 10%;" [routerLink]="['/update-product',product._id]">update</button> 
+                <button type="button" class="btn  btn-outline-success"  style="border-radius: 10%;" (click)="deleteProduct(product, i)" routerLink="/Manage-Products">delete</button> 
             </div>
         </div>
         </div>
