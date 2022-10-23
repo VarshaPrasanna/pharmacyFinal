@@ -1,6 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ChartData } from 'chart.js';
 import { Observable } from 'rxjs';
+import { __values } from 'tslib';
 import { AuthService } from '../auth.service';
 import { ProductService } from '../product-list/product.service';
 
@@ -11,7 +13,9 @@ export class CartService {
 
   //API_URL: string = 'http://localhost:3000/carts';
   cartData: any = {};
-
+  len: any;
+  obj: any = this.cartData;
+  result: any;
   constructor(private productService: ProductService,
     private httpClient: HttpClient,
     private auth: AuthService) {
@@ -20,12 +24,19 @@ export class CartService {
 
   loadCart(): any {
     let temp = localStorage.getItem('mycart');
+
     if (temp === undefined || temp === '' || temp === null) {
       this.cartData = {};
     } else {
       this.cartData = JSON.parse(temp);
     }
-    console.log(temp)
+    var total = 0;
+    for (var property in this.cartData) {
+      total += this.cartData[property];
+    }
+    //Object.values(this.cartData).reduce((a,b)=>a+b,0));
+    console.log(total)
+    console.log(this.cartData)
     return this.cartData
   }
 

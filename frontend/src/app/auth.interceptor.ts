@@ -25,7 +25,7 @@ export class AuthInterceptor implements HttpInterceptor {
           'Authorization': 'Bearer ' + accessToken
         }
       });
-      console.log(accessToken)
+
       return next.handle(cloned);
     }
     else {

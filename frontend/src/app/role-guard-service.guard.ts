@@ -15,15 +15,15 @@ export class RoleGuardServiceGuard implements CanActivate {
     public authService: AuthService,
     public router: Router
   ) { }
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): boolean {
-    const expectedRole = localStorage.getItem('isAdmin');
-    const token = localStorage.getItem('accessToken');
-    if (!expectedRole) {
-      return false;
+
+  canActivate() {
+    if (this.authService.isRole()) {
+      return true
     }
-    return true;
+    alert("You do not have access for this")
+    this.router.navigate(['login'])
+    return false
+
   }
 
 }

@@ -16,11 +16,14 @@ export class AuthGuard implements CanActivate {
     public router: Router
   ) { }
 
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    let url: string = state.url;
-    return this.checkUserLogin(next, url);
+  canActivate() {
+    if (this.authService.isLoggedIn()) {
+      return true
+    }
+    alert("You have to login in to access this")
+    this.router.navigate(['login'])
+    return false
+
   }
 
   // canActivate(
@@ -34,17 +37,26 @@ export class AuthGuard implements CanActivate {
   // }
 
 
-  checkUserLogin(route: ActivatedRouteSnapshot, url: any): boolean {
-    if (this.authService.isLoggedIn()) {
-      const userRole = this.authService.getRole();
-      if (route.data['roleAs'] && route.data['roleAs'].indexOf(userRole) === -1) {
-        this.router.navigate(['/']);
-        return false;
-      }
-      return true;
-    }
+  // checkUserLogin(route: ActivatedRouteSnapshot, url: any): boolean {
+  //   if (this.authService.isLoggedIn()) {
+  //     const userRole = this.authService.getRole();
+  //     if (route.data['roleAs'] && route.data['roleAs'].indexOf(userRole) === -1) {
+  //       this.router.navigate(['/']);
+  //       return false;
+  //     }
+  //     return true;
+  //   }
 
-    this.router.navigate(['/']);
-    return false;
-  }
+  //   this.router.navigate(['/']);
+  //   return false;
+  // }
+
+  // hasPermission(component): Observable<boolean> {
+  //   return this.authService.isLoggedIn().map(res => {
+
+  //     this.permissions = this.getPermissions();
+  //     // Check if user object has permissions to access the current component.
+  //     return this.checkPermission(component.data.permission);
+  //   });
+  // }
 }

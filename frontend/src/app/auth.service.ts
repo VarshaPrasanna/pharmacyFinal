@@ -42,12 +42,16 @@ export class AuthService {
         localStorage.setItem('userId', res._id)
         localStorage.setItem('userName', res.firstName + '  ' + res.lastName)
         localStorage.setItem('isAdmin', res.isAdmin)
+
         console.log(res.isAdmin)
         if (res.isAdmin) {
           this.router.navigateByUrl('/admin');
+          localStorage.setItem('role', 'admin')
+
         }
         else {
           this.router.navigateByUrl('/');
+          localStorage.setItem('role', 'user')
         }
         console.log("login working")
         return res.user;
@@ -68,6 +72,17 @@ export class AuthService {
   isLoggedIn() {
     let authToken = localStorage.getItem('accessToken');
     return (authToken !== null) ? true : false;
+  }
+  isRole() {
+    let role = localStorage.getItem('role');
+    if (role === 'admin') {
+      return true;
+    }
+    else {
+
+      this.router.navigateByUrl('/');
+      return false;
+    }
   }
   clearSession(): void {
     localStorage.clear();

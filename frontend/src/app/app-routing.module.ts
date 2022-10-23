@@ -37,46 +37,32 @@ const routes: Routes = [
   { path: "product-info/:id", component: ProductInfoComponent },
   {
     path: "Manage-orders", component: AdminManageOrdersComponent, canActivate: [RoleGuardServiceGuard],
-    data: {
-      expectedRole: 'admin'
-    }
+
   },
   { path: 'update-status/:id', component: UpdateOrderStatusComponent },
   { path: "signup", component: SignupComponent },
   { path: "login", component: LoginComponent },
-  { path: "cart", component: CartComponent },
+  { path: "cart", component: CartComponent, canActivate: [AuthGuard] },
   { path: "payment", component: PaymentComponent },
   {
-    path: "admin", component: AdminDashboardComponent, canActivate: [RoleGuardServiceGuard],
-    data: {
-      expectedRole: 'admin'
-    }
+    path: "admin", component: AdminDashboardComponent, canActivate: [RoleGuardServiceGuard]
   },
-  { path: "discussion-board", component: DiscussionBoardComponent },
+  { path: "discussion-board", component: DiscussionBoardComponent, canActivate: [AuthGuard] },
   {
-    path: "add-products", component: AddProductsComponent, canActivate: [RoleGuardServiceGuard],
-    data: {
-      expectedRole: 'admin'
-    }
+    path: "add-products", component: AddProductsComponent, canActivate: [RoleGuardServiceGuard]
   },
   {
     path: "update-product/:id", component: UpdateProductsComponent, canActivate: [RoleGuardServiceGuard],
-    data: {
-      expectedRole: 'admin'
-    }
+
   },
   { path: "profile", component: UserProfileComponent },
   {
     path: "manage-users", component: AdminUsersComponent, canActivate: [RoleGuardServiceGuard],
-    data: {
-      expectedRole: 'admin'
-    }
+
   },
   {
     path: "Manage-Products", component: ViewProductsComponent, canActivate: [RoleGuardServiceGuard],
-    data: {
-      expectedRole: 'admin'
-    }
+
   },
   { path: 'profile/:id', component: UserProfileComponent },
   { path: 'edit-user', component: EditUserComponent },
