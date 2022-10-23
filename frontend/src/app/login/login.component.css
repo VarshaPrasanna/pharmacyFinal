@@ -1,13 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700");
 #bg {
-  background-image: url('img/background.jpg');
+  background-image: url('https://img.freepik.com/free-vector/clean-medical-background_53876-97927.jpg?w=900&t=st=1666518831~exp=1666519431~hmac=8f99925819a0f3b16b5ff190b4ff708e057d204f0f5c889ef474a571b3e38c6e');
   position: fixed;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   background-size: cover;
-  filter: blur(5px);
+  /* filter: blur(5px); */
 }
 
 .body {
