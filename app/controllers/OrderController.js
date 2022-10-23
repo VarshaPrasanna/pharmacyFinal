@@ -25,7 +25,7 @@ const OrderController = {
     /* get user's orders */
     async get_order(req, res) {
         try {
-            const orders = await Order.findById(req.params._id);
+            const orders = await Order.findById(req.params.id);
             if (!orders) {
                 res.status(404).json({
                     type: "error",
