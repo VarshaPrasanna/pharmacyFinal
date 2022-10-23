@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../order.service';
 import { Order } from '../models/order';
-import { Router,ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ProductService } from '../admin-dashboard/Manage-Products/product.service';
 @Component({
   selector: 'app-my-orders',
@@ -10,14 +10,14 @@ import { ProductService } from '../admin-dashboard/Manage-Products/product.servi
 })
 export class MyOrdersComponent implements OnInit {
 
-  order:any;
-  Order:any;
+  order: any;
+  Order: any;
   product: any;
 
-  constructor( private router: Router,private OrderService:OrderService,private productService : ProductService) {
+  constructor(private router: Router, private OrderService: OrderService, private productService: ProductService) {
     this.readOrders();
     // this.getProductById();
-   }
+  }
 
   ngOnInit(): void {
   }
@@ -26,8 +26,9 @@ export class MyOrdersComponent implements OnInit {
       this.order = data;
       const userId = localStorage.getItem('userId')
       console.log(userId)
-      this.Order =  this.order.orders.filter((p: any)=> p.userId ===userId);
+      this.Order = this.order.orders.filter((p: any) => p.userId === userId);
       console.log(this.Order)
+      console.log(this.Order.length)
       console.log(this.order)
       // console.log(userId);
     });

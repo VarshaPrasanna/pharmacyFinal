@@ -61,8 +61,7 @@ const routes: Routes = [
 
   },
   {
-    path: "Manage-Products", component: ViewProductsComponent, canActivate: [RoleGuardServiceGuard],
-
+    path: "Manage-Products", component: ViewProductsComponent, canActivate: [RoleGuardServiceGuard]
   },
   { path: 'profile/:id', component: UserProfileComponent },
   { path: 'edit-user', component: EditUserComponent },

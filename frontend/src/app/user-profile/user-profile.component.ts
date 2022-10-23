@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpParams } from '@angular/common/http';
 import { CartService } from '../cart/cart.service';
 import { ProductService } from '../product-list/product.service';
+
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
