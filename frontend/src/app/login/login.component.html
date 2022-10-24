@@ -52,7 +52,7 @@
     <input type="text"   formControlName="username" placeholder="Enter Username" 
     [ngClass]="{'is-invalid':username.errors && (username.touched || username.dirty),'is-valid' :username.valid}">
     <div class="invalid-feedback" >
-      <strong *ngIf="username.errors?.['required']" >userName is required </strong>
+      <strong *ngIf="username.errors?.['required']" >Username is required </strong>
     </div>
   </div>
   
@@ -61,7 +61,7 @@
     <input type="password" formControlName="password"  placeholder="Password" 
     [ngClass]="{'is-invalid':password.errors && (password.touched || password.dirty),'is-valid' :password.valid}">
     <div class="invalid-feedback" >
-      <strong *ngIf="password.errors?.['required']">password is required </strong>
+      <strong *ngIf="password.errors?.['required']">Password is required </strong>
     </div> 
   </div>
   
