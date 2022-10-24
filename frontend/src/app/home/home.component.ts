@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart/cart.service';
+import { OrderService } from '../order.service';
 import { ProductService } from '../product-list/product.service';
 @Component({
   selector: 'app-home',
@@ -10,9 +11,12 @@ export class HomeComponent implements OnInit {
 
   public cartflag: boolean = false;
   Product!: any;
-  products_arr : any[] = [];
+  newProducts : any[] = [];
+  popularProducts : any[] = [];
 
-  constructor(private productService: ProductService, private cartService: CartService) { 
+  constructor(private productService: ProductService,
+             private cartService: CartService,
+             private orderService: OrderService) { 
     this.readProducts()
   }
 
@@ -24,9 +28,30 @@ export class HomeComponent implements OnInit {
   readProducts() {
     this.productService.getProducts().subscribe((data) => {
       this.Product = data;
-      this.products_arr = this.Product.products.reverse().slice(0, 8)
-      console.log(this.products_arr)
+      this.newProducts = this.Product.products.reverse().slice(0, 8)
+      //console.log(this.products_arr)
     });
+
+    var popProductIds: any[] = [];
+    this.orderService.getOrderPopular().subscribe((data) => {
+      console.log("pop orders", data);
+      popProductIds = data['data'];
+    }, (err) => {
+      console.log(err);
+    }, () => {
+      this.getPopularProducts(popProductIds);
+    })
+
+    
+  }
+
+  async getPopularProducts(popProductIds: any[]){
+    for await (let id of popProductIds){
+      this.productService.getProductById(id._id).subscribe((data) => {
+        this.popularProducts.push(data['product']);
+      })
+    }
+    console.log("popProducts", this.popularProducts)
   }
 
   ref() {

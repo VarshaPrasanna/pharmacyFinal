@@ -110,7 +110,7 @@ const ProductController = {
     },
 
     /* delete product */
-    async delete_user(req, res) {
+    async delete_product(req, res) {
         const existing = await Product.findById(req.params.id);
         if (!existing) {
             res.status(200).json({
