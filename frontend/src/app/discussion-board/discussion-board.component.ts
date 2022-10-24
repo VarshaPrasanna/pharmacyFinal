@@ -46,7 +46,7 @@ export class DiscussionBoardComponent implements OnInit {
     console.log("addmsg",this.msgForm.value.message)
     this.msgService.addMessage({
       userId: localStorage.getItem('userId'),
-      firstName: 'ramk',
+      firstName: localStorage.getItem('userName'),
       message: this.msgForm.value.message
     }).subscribe((data)=> {
       console.log(data);
