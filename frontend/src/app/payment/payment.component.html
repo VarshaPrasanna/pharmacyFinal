@@ -16,7 +16,7 @@
 
  <div class="alert alert-success text-center" role="alert" *ngIf="submitted">
     <h2 class="text-success">Your Order has been placed!</h2>
-    <a class="btn btn-success" role="button">View order status</a>
+    <a class="btn btn-success" role="button" routerLink="/my-orders">View your orders</a>
  </div>
 
 <div class="row justify-content-around" *ngIf="!submitted">
