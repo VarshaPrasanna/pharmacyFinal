@@ -14,7 +14,7 @@
 </div>
  -->
 
- <div class="alert alert-success text-center" role="alert" *ngIf="submitted">
+<div class="alert alert-success text-center" role="alert" *ngIf="submitted">
     <h2 class="text-success">Your Order has been placed!</h2>
     <a class="btn btn-success" role="button" routerLink="/my-orders">View your orders</a>
  </div>
@@ -31,13 +31,13 @@
                         [ngClass]="{'is-invalid':AddressForm['fullName'].errors && (AddressForm['fullName'].touched || AddressForm['fullName'].dirty), 'is-valid': AddressForm['fullName'].valid}" />
 
                      Error-->
-                    <!-- <div class="invalid-feedback" *ngIf="AddressForm['fullName'].errors?.['required']">
+                <!-- <div class="invalid-feedback" *ngIf="AddressForm['fullName'].errors?.['required']">
                         Name is required
                     </div>
                     <div class="invalid-feedback" *ngIf="AddressForm['fullName'].errors?.['minlength']">
                         Name should be minimum 3 characters
                     </div>
-                </div> --> 
+                </div> -->
 
                 <div class="form-group">
                     <label for="address">Street Address</label>
@@ -45,7 +45,8 @@
                         [ngClass]="{'is-invalid':AddressForm['streetAddress'].errors && (AddressForm['streetAddress'].touched || AddressForm['streetAddress'].dirty), 'is-valid': AddressForm['streetAddress'].valid}" />
 
                     <!-- Error-->
-                    <div class="invalid-feedback" *ngIf="AddressForm['streetAddress'].errors?.['required'] && (AddressForm['streetAddress'].touched || AddressForm['streetAddress'].dirty)">
+                    <div class="invalid-feedback"
+                        *ngIf="AddressForm['streetAddress'].errors?.['required'] && (AddressForm['streetAddress'].touched || AddressForm['streetAddress'].dirty)">
                         Shipping Address is required
                     </div>
                 </div>
@@ -90,7 +91,7 @@
                     </div>
                 </div>
 
-           </form> 
+            </form>
         </div>
     </div>
 
@@ -116,7 +117,7 @@
                 <div class="form-group">
                     <label for="cardNumber">Card Number</label>
                     <input type="text" formControlName="cardNumber" class="form-control"
-                    [ngClass]="{'is-invalid':PaymentForm['cardNumber'].errors && (PaymentForm['cardNumber'].touched || PaymentForm['cardNumber'].dirty), 'is-valid': PaymentForm['cardNumber'].valid}" />
+                        [ngClass]="{'is-invalid':PaymentForm['cardNumber'].errors && (PaymentForm['cardNumber'].touched || PaymentForm['cardNumber'].dirty), 'is-valid': PaymentForm['cardNumber'].valid}" />
 
                     <!-- Error-->
                     <div class="invalid-feedback" *ngIf="PaymentForm['cardNumber'].errors?.['required']">
@@ -132,7 +133,7 @@
                     <div class="form-group col">
                         <label for="expDate">Exp Date</label>
                         <input type="month" formControlName="expDate" class="form-control" value="23-07"
-                        [ngClass]="{'is-invalid':PaymentForm['expDate'].errors && (PaymentForm['expDate'].touched || PaymentForm['expDate'].dirty), 'is-valid': PaymentForm['expDate'].valid}" />
+                            [ngClass]="{'is-invalid':PaymentForm['expDate'].errors && (PaymentForm['expDate'].touched || PaymentForm['expDate'].dirty), 'is-valid': PaymentForm['expDate'].valid}" />
 
                         <!-- Error-->
                         <div class="invalid-feedback" *ngIf="PaymentForm['expDate'].errors?.['required']">
@@ -142,8 +143,8 @@
 
                     <div class="form-group col">
                         <label for="cvv">cvv</label>
-                        <input type="text" formControlName="cvv" class="form-control"
-                        [ngClass]="{'is-invalid':PaymentForm['cvv'].errors && (PaymentForm['cvv'].touched || PaymentForm['cvv'].dirty), 'is-valid': PaymentForm['cvv'].valid}" />
+                        <input type="password" formControlName="cvv" class="form-control"
+                            [ngClass]="{'is-invalid':PaymentForm['cvv'].errors && (PaymentForm['cvv'].touched || PaymentForm['cvv'].dirty), 'is-valid': PaymentForm['cvv'].valid}" />
 
                         <!-- Error-->
                         <div class="invalid-feedback" *ngIf="PaymentForm['cvv'].errors?.['required']">
@@ -152,15 +153,16 @@
                         <div class="invalid-feedback" *ngIf="PaymentForm['cvv'].errors?.['pattern']">
                             CVV should contain only numbers
                         </div>
-                        <div class="invalid-feedback" *ngIf="PaymentForm['cvv'].errors?.['minlength'] || PaymentForm['cvv'].errors?.['maxlength']">
+                        <div class="invalid-feedback"
+                            *ngIf="PaymentForm['cvv'].errors?.['minlength'] || PaymentForm['cvv'].errors?.['maxlength']">
                             CVV should contain only 3 or 4 digits
                         </div>
                     </div>
 
                 </div>
             </form>
-            <button type="button"class="btn btn-dark mt-5 mb-5 btn-lg btn-block" [disabled]="(addressForm.invalid) && (paymentForm.invalid)"
-            (click)="onSubmit()">Place Order</button>
+            <button type="button" class="btn btn-dark mt-5 mb-5 btn-lg btn-block"
+                [disabled]="(addressForm.invalid) && (paymentForm.invalid)" (click)="onSubmit()">Place Order</button>
         </div>
     </div>
 </div>

@@ -89,7 +89,6 @@ const OrderController = {
     /* Most sold products*/
 
 
-    /* get user stats */
     async get_popular(req, res) {
         const _id = await Order.findById(req.params.id);
 
