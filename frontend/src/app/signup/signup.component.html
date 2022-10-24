@@ -3,13 +3,13 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-6">
-        <div class="login-form border p-5" style="background-color: #f08a5d">
+        <div class="login-form border p-5" style="background-color: aliceblue; border-radius: 50px;">
           <div class="text-center heading">
             <h2 class="mb-2">SIGN UP</h2>
             <p class="lead" style="color:black">Already have an account? <a style="color: blue;" routerLink="/login">
                 Login now</a></p>
           </div>
-          <form novalidate [formGroup]="signUpForm" (ngSubmit)="registerUser()">
+          <form novalidate [formGroup]="signUpForm" (ngSubmit)="registerUser()" class="w-100">
             <div class="form-field">
               <input type="text" class="form-control" placeholder="Enter firstName" formControlName="firstName"
                 [ngClass]="{'is-invalid':firstName.errors && (firstName.touched || firstName.dirty),'is-valid' :firstName.valid}">
