@@ -73,14 +73,7 @@ export class PaymentComponent implements OnInit {
     }
 
     console.log("arr", products_arr);
-    /* console.log({
-      userId: localStorage.getItem('userId'),
-      products: products_arr,
-      amount: localStorage.getItem('totalAmount'),
-      address: this.addressForm.value,
-      status: 'Pending'
-    })
- */
+   
     this.orderService.createOrder({
       userId: localStorage.getItem('userId'),
       products: products_arr,
@@ -89,6 +82,10 @@ export class PaymentComponent implements OnInit {
       status: 'Pending'
     }).subscribe((data) => {
       console.log(data);
+    }, (err) => {
+      console.log(err);
+    }, ()=>{
+        this.cartService.emptyCart();
     })
   }
 }

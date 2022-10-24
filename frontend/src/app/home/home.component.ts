@@ -45,12 +45,13 @@ export class HomeComponent implements OnInit {
 
   }
 
-  async getPopularProducts(popProductIds: any[]) {
-    for await (let id of popProductIds) {
+  async getPopularProducts(popProductIds: any[]){
+    for await (let id of popProductIds.slice(0, 4)){
       this.productService.getProductById(id._id).subscribe((data) => {
         this.popularProducts.push(data['product']);
       })
     }
+   
     console.log("popProducts", this.popularProducts)
   }
 
