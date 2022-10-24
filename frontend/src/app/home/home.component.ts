@@ -11,12 +11,12 @@ export class HomeComponent implements OnInit {
 
   public cartflag: boolean = false;
   Product!: any;
-  newProducts : any[] = [];
-  popularProducts : any[] = [];
+  newProducts: any[] = [];
+  popularProducts: any[] = [];
 
   constructor(private productService: ProductService,
-             private cartService: CartService,
-             private orderService: OrderService) { 
+    private cartService: CartService,
+    private orderService: OrderService) {
     this.readProducts()
   }
 
@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
     this.productService.getProducts().subscribe((data) => {
       this.Product = data;
       this.newProducts = this.Product.products.reverse().slice(0, 8)
-      //console.log(this.products_arr)
+
     });
 
     var popProductIds: any[] = [];
@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
       this.getPopularProducts(popProductIds);
     })
 
-    
+
   }
 
   async getPopularProducts(popProductIds: any[]){
@@ -62,7 +62,7 @@ export class HomeComponent implements OnInit {
     }, 10)
   }
 
-  addProductToCart(id: string){
+  addProductToCart(id: string) {
     //this.addedProductToCart = true;
     this.ref();
     this.cartService.addToCart(id, 1);

@@ -56,12 +56,7 @@ export class ProductListComponent implements OnInit {
   }
 
 
-  /*  addProductToCart(id: string) {
-     //this.addedProductToCart = true;
-     this.ref();
-     this.cartService.addToCart(id, 1);
-     //window.alert("Product Added to cart");
-   } */
+
   Search() {
     if (this.title == "") {
       this.readProducts();
