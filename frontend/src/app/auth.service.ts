@@ -42,7 +42,6 @@ export class AuthService {
         localStorage.setItem('userId', res._id)
         localStorage.setItem('userName', res.firstName + '  ' + res.lastName)
         localStorage.setItem('isAdmin', res.isAdmin)
-
         console.log(res.isAdmin)
         if (res.isAdmin) {
           this.router.navigateByUrl('/admin');

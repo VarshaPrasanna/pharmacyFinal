@@ -21,7 +21,7 @@ export class RoleGuardServiceGuard implements CanActivate {
       return true
     }
     alert("You do not have access for this")
-    this.router.navigate(['login'])
+    this.router.navigate(['/'])
     return false
 
   }

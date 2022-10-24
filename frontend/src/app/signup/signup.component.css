@@ -1,16 +1,8 @@
-/* .row{
-    display : flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-}
-.col{
-    display : flex;
-    flex-direction: column;
-} */
+
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700");
 #bg {
-  background-image: url('https://img.freepik.com/free-vector/clean-medical-background_53876-97927.jpg?w=900&t=st=1666518831~exp=1666519431~hmac=8f99925819a0f3b16b5ff190b4ff708e057d204f0f5c889ef474a571b3e38c6e');
-  /* background-color: #7c9170; */
+  background-image: url("/frontend/src/assets/images/sign.jpg");
+  /* background-color: #f08a5d;  */
   position: fixed;
   left: 0;
   top: 0;
@@ -18,6 +10,9 @@
   height: 100%;
   background-size: cover;
   /* filter: blur(5px); */
+}
+.btn2{
+  background-color: #f08a5d
 }
 
 .body {

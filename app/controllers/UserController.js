@@ -104,35 +104,7 @@ const UserController = {
     },
 
 
-    /* get user stats */
-    get_stats(req, res) {
-        const date = new Date();
-        const lastYear = new Date(date.setFullYear(date.getFullYear() - 1));
 
-        const data = User.aggregate([
-            {
-                $match: {
-                    createdAt: { $gte: lastYear }
-                }
-            },
-            {
-                $project: {
-                    month: { $month: "$createdAt" }
-                }
-            },
-            {
-                $group: {
-                    _id: "$month",
-                    total: { $sum: 1 },
-                }
-            }
-        ]);
-        res.status(200).json({
-            type: "success",
-            data
-        })
-
-    },
 };
 
 module.exports = UserController;

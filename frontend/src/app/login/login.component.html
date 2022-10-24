@@ -41,37 +41,33 @@
 
 <div class="body">
 
-<div id="bg"></div>
+  <div id="bg"></div>
 
-<form novalidate [formGroup]="loginForm" (ngSubmit)="loginUser()">
-  <div class="text-center heading">
-    <h2 class="mb-2">Login</h2>
-    <p class="lead">Don't have an account? <a routerLink="/signup">Register</a></p>
-  </div>
-  <div class="form-field">
-    <input type="text"   formControlName="username" placeholder="Enter Username" 
-    [ngClass]="{'is-invalid':username.errors && (username.touched || username.dirty),'is-valid' :username.valid}">
-    <div class="invalid-feedback" >
-      <strong *ngIf="username.errors?.['required']" >userName is required </strong>
+  <form novalidate [formGroup]="loginForm" (ngSubmit)="loginUser()">
+    <div class="text-center heading">
+      <h2 class="mb-2">Login</h2>
+      <p class="lead">Don't have an account? <a routerLink="/signup">Register</a></p>
     </div>
-  </div>
-  
-  
-  <div class="form-field">
-    <input type="password" formControlName="password"  placeholder="Password" 
-    [ngClass]="{'is-invalid':password.errors && (password.touched || password.dirty),'is-valid' :password.valid}">
-    <div class="invalid-feedback" >
-      <strong *ngIf="password.errors?.['required']">password is required </strong>
-    </div> 
-  </div>
-  
-  
-  <div class="form-field">
-    <button class="btn" type="submit">Log in</button>
-  </div>
-</form>
+    <div class="form-field">
+      <input type="text" formControlName="username" placeholder="Enter Username"
+        [ngClass]="{'is-invalid':username.errors && (username.touched || username.dirty),'is-valid' :username.valid}">
+      <div class="invalid-feedback">
+        <strong *ngIf="username.errors?.['required']">userName is required </strong>
+      </div>
+    </div>
+
+
+    <div class="form-field">
+      <input type="password" formControlName="password" placeholder="Password"
+        [ngClass]="{'is-invalid':password.errors && (password.touched || password.dirty),'is-valid' :password.valid}">
+      <div class="invalid-feedback">
+        <strong *ngIf="password.errors?.['required']">password is required </strong>
+      </div>
+    </div>
+
+
+    <div class="form-field">
+      <button class="btn" type="submit">Log in</button>
+    </div>
+  </form>
 </div>
-
-  
-
-

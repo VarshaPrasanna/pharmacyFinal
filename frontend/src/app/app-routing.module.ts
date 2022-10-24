@@ -32,6 +32,7 @@ import { HomeCareComponent } from './categories/home-care/home-care.component';
 import { NutrientsComponent } from './categories/nutrients/nutrients.component';
 import { PersonalCareComponent } from './categories/personal-care/personal-care.component';
 import { RoleGuardServiceGuard } from './role-guard-service.guard';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "product-info/:id", component: ProductInfoComponent },
@@ -45,7 +46,7 @@ const routes: Routes = [
   { path: "cart", component: CartComponent, canActivate: [AuthGuard] },
   { path: "payment", component: PaymentComponent },
   {
-    path: "admin", component: AdminDashboardComponent, canActivate: [RoleGuardServiceGuard]
+    path: "admin", component: AdminDashboardComponent, canActivate: [RoleGuardServiceGuard],
   },
   { path: "discussion-board", component: DiscussionBoardComponent, canActivate: [AuthGuard] },
   {
@@ -77,11 +78,14 @@ const routes: Routes = [
   { path: "personal-care", component: PersonalCareComponent },
   {
     path: "messageList", component: ManageQueryComponent, canActivate: [RoleGuardServiceGuard],
-    data: {
-      expectedRole: 'admin'
-    }
+
   },
-  { path: "my-orders", component: MyOrdersComponent }
+  { path: "my-orders", component: MyOrdersComponent },
+  {
+    path: '**', pathMatch: 'full',
+    component: PagenotfoundComponent
+  },
+
 
 ];
 

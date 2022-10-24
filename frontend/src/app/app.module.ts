@@ -52,6 +52,7 @@ import { ChartModule } from 'angular2-chartjs';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { SortPipe } from './pipes/sort.pipe';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 
 @NgModule({
@@ -104,6 +105,7 @@ import { SortPipe } from './pipes/sort.pipe';
     MyOrdersComponent,
     ProductCardComponent,
     SortPipe,
+    PagenotfoundComponent,
 
 
 
