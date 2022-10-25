@@ -47,7 +47,7 @@ export class UserService {
   getAuthHeader(): HttpHeaders {
     const headers = new HttpHeaders(
       {
-        Authorization: ''+this.auth.getAccessToken()
+        Authorization: '' + this.auth.getAccessToken()
       }
     );
     return headers;
@@ -67,7 +67,7 @@ export class UserService {
     const userId = localStorage.getItem('userId')
     return this.httpClient.get(`${this.API_URL}/users/myinfo/${userId}`, {
       headers: this.getAuthHeader()
-    }).pipe(map((res:any)=>{return res || {};}), catchError(this.errorMgmt));
+    }).pipe(map((res: any) => { return res || {}; }), catchError(this.errorMgmt));
   }
   // Update user
   updateUser(id: any, data: any): Observable<any> {
@@ -82,7 +82,7 @@ export class UserService {
     return this.httpClient.get(url) //, { headers: this.getAuthHeader() });
   }
 
-  deleteUser(id: string){
+  deleteUser(id: string) {
     return this.httpClient.delete(`${this.API_URL}/users/${id}`, {
       headers: this.getAuthHeader()
     });

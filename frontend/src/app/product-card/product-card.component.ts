@@ -10,11 +10,11 @@ import { UserService } from '../user.service';
 })
 export class ProductCardComponent implements OnInit {
 
-  @Input()  product : any;
+  @Input() product: any;
   isLogged!: boolean;
 
   constructor(private cartService: CartService,
-              private userService: UserService) { }
+    private userService: UserService) { }
 
   ngOnInit(): void {
     this.isLogged = this.userService.isLoggedIn();
@@ -26,7 +26,7 @@ export class ProductCardComponent implements OnInit {
   }
 
   addProductToCart(id: string) {
-    if(this.isLogged){
+    if (this.isLogged) {
       this.cartService.addToCart(id, 1);
     }
     //window.alert("Product Added to cart");

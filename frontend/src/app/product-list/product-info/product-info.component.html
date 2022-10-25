@@ -51,12 +51,59 @@
             {{this.Product.product.description}}
           </p>
           <form class="cart" action="#" method="post">
-            <div class="quantity d-flex align-items-center">
+            <!-- <div class="quantity d-flex align-items-center">
               <input type="number" id="#" class="input-text qty text form-control w-25 mr-3" step="1" min="1" max="9"
                 name="quantity" value="1" title="Qty" size="4">
-              <a class="btn btn-main btn-small">Add to cart</a>
-            </div>
+              <a class="btn btn-main btn-small" (click)="addProductToCart(product._id)">Add to cart</a>
+            </div> -->
+            <button type='button' class="btn btn-info mb-2" (click)="addProductToCart(product._id)" data-toggle="modal"
+              data-target="#modalCart">Add to
+              Cart</button>
           </form>
+          <div class="modal fade right" id="modalCart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true" data-backdrop="false">
+            <div class="modal-dialog modal-side modal-bottom-right modal-notify modal-info" role="document">
+              <!--Content-->
+              <div class="modal-content" *ngIf="isLogged">
+                <!--Header-->
+                <div class="modal-header">
+                  <p class="heading text-success">Product is added to the cart
+                  </p>
+
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                  </button>
+                </div>
+
+                <!--Footer-->
+                <div class="modal-footer justify-content-center">
+                  <a type="button" class="btn btn-success" routerLink="/cart">Go to cart</a>
+                  <a type="button" class="btn btn-outline-success waves-effect" data-dismiss="modal">Cancel</a>
+                </div>
+              </div>
+              <!--/.Content-->
+
+              <!--Content-->
+              <div class="modal-content border border-warning border-50" *ngIf="!isLogged">
+                <!--Header-->
+                <div class="modal-header">
+                  <p class="heading text-dark">Please Login or Signup to add products to the cart
+                  </p>
+
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                  </button>
+                </div>
+
+                <!--Footer-->
+                <div class="modal-footer justify-content-center">
+                  <a type="button" class="btn btn-warning" routerLink="/login">Login</a>
+                  <a type="button" class="btn btn-warning waves-effect" routerLink="/signup">Signup</a>
+                </div>
+              </div>
+              <!--/.Content-->
+            </div>
+          </div>
 
 
 
@@ -84,103 +131,5 @@
     </div>
 
 
-  </div>
-</section>
-<section class="products related-products section">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-6">
-        <div class="title text-center">
-          <h2>You may like this</h2>
-          <p>The best Online sales to shop these weekend</p>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-3 col-6">
-        <div class="product">
-          <div class="product-wrap">
-            <a routerLink="/product-info"><img class="img-fluid w-100 mb-3 img-first" src="assets/images/322.jpg"
-                alt="product-img" /></a>
-            <a routerLink="/product-info"><img class="img-fluid w-100 mb-3 img-second" src="assets/images/444.jpg"
-                alt="product-img" /></a>
-          </div>
-          <span class="onsale">Sale</span>
-          <div class="product-hover-overlay">
-            <a href="#"><i class="tf-ion-android-cart"></i></a>
-            <a href="#"><i class="tf-ion-ios-heart"></i></a>
-          </div>
-          <div class="product-info">
-            <h2 class="product-title h5 mb-0"><a routerLink="/product-info">Kirby Shirt</a></h2>
-            <span class="price">
-              $329.10
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-6">
-        <div class="product">
-          <div class="product-wrap">
-            <a routerLink="/product-info"><img class="img-fluid w-100 mb-3 img-first" src="assets/images/111.jpg"
-                alt="product-img" /></a>
-            <a routerLink="/product-info"><img class="img-fluid w-100 mb-3 img-second" src="assets/images/222.jpg"
-                alt="product-img" /></a>
-          </div>
-          <span class="onsale">Sale</span>
-          <div class="product-hover-overlay">
-            <a href="#"><i class="tf-ion-android-cart"></i></a>
-            <a href="#"><i class="tf-ion-ios-heart"></i></a>
-          </div>
-          <div class="product-info">
-            <h2 class="product-title h5 mb-0"><a routerLink="/product-info">Kirby Shirt</a></h2>
-            <span class="price">
-              $329.10
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-6">
-        <div class="product">
-          <div class="product-wrap">
-            <a routerLink="/product-info"><img class="img-fluid w-100 mb-3 img-first" src="assets/images/111.jpg"
-                alt="product-img" /></a>
-            <a routerLink="/product-info"><img class="img-fluid w-100 mb-3 img-second" src="assets/images/322.jpg"
-                alt="product-img" /></a>
-          </div>
-          <span class="onsale">Sale</span>
-          <div class="product-hover-overlay">
-            <a href="#"><i class="tf-ion-android-cart"></i></a>
-            <a href="#"><i class="tf-ion-ios-heart"></i></a>
-          </div>
-          <div class="product-info">
-            <h2 class="product-title h5 mb-0"><a routerLink="/product-info">Kirby Shirt</a></h2>
-            <span class="price">
-              $329.10
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-6">
-        <div class="product">
-          <div class="product-wrap">
-            <a routerLink="/product-info"><img class="img-fluid w-100 mb-3 img-first" src="assets/images/444.jpg"
-                alt="product-img" /></a>
-            <a routerLink="/product-info"><img class="img-fluid w-100 mb-3 img-second" src="assets/images/222.jpg"
-                alt="product-img" /></a>
-          </div>
-          <span class="onsale">Sale</span>
-          <div class="product-hover-overlay">
-            <a href="#"><i class="tf-ion-android-cart"></i></a>
-            <a href="#"><i class="tf-ion-ios-heart"></i></a>
-          </div>
-          <div class="product-info">
-            <h2 class="product-title h5 mb-0"><a routerLink="/product-info">Kirby Shirt</a></h2>
-            <span class="price">
-              $329.10
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>

@@ -20,9 +20,9 @@ export class MessageService {
   message = Message;
   http: any;
 
-  constructor(private httpClient: HttpClient, public router: Router, private auth: AuthService) {  }
+  constructor(private httpClient: HttpClient, public router: Router, private auth: AuthService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
 
   getAccessToken() {
@@ -51,7 +51,7 @@ export class MessageService {
   }
 
   //Update message
-  updateMessage(message: any, id:any): Observable<any>{
+  updateMessage(message: any, id: any): Observable<any> {
     console.log("update msg service", message)
     let url = `${this.API_URL}/message/reply/${id}`;
     return this.httpClient.patch(url, message, { headers: this.getAuthHeader() }).pipe(catchError(this.errorMgmt));
@@ -72,17 +72,6 @@ export class MessageService {
     });
   }
 
-  // addMessage(msg: Message) {
-  //   return this.httpClient.post<any>(`${this.API_URL}/message`, msg)
-  //     .subscribe((res: any) => {
-  //       // localStorage.setItem('token', res.accessToken)
-  //       localStorage.setItem('messageId', res._id)
 
-  //       // console.log(res.message)
-
-
-  //       return res.message;
-  //     })
-  // }
 
 }

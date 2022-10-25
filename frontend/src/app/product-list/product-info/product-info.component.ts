@@ -4,6 +4,9 @@ import { Subscription } from 'rxjs';
 import { Product } from 'src/app/admin-dashboard/Manage-Products/models/product';
 // import { Product } from 'src/app/models/product';
 import { ProductService } from '../product.service';
+import { CartService } from 'src/app/cart/cart.service';
+
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-product-info',
@@ -14,6 +17,10 @@ export class ProductInfoComponent implements OnInit {
   Product!: any;
   id!: any;
 
+  isLogged!: boolean;
+  product: any;
+
+
 
   public sortOption: string = 'title|asc';
   public cartflag: boolean = false;
@@ -21,7 +28,8 @@ export class ProductInfoComponent implements OnInit {
 
 
 
-  constructor(private productService: ProductService, private acRoute: ActivatedRoute) {
+  constructor(private productService: ProductService, private acRoute: ActivatedRoute, private cartService: CartService,
+    private userService: UserService) {
   }
 
 
@@ -31,6 +39,12 @@ export class ProductInfoComponent implements OnInit {
     this.Product = new Product();
     // this.getProductById(id);
     this.getProductById(id);
+    this.isLogged = this.userService.isLoggedIn();
+    this.userService
+      .isUserLogged
+      .subscribe((data: any) => {
+        this.isLogged = data;
+      });
 
 
   }
@@ -42,6 +56,12 @@ export class ProductInfoComponent implements OnInit {
 
     });
 
+  }
+  addProductToCart(id: string) {
+    if (this.isLogged) {
+      this.cartService.addToCart(id, 1);
+    }
+    //window.alert("Product Added to cart");
   }
 
 }
