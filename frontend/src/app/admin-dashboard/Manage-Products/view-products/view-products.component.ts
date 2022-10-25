@@ -42,13 +42,15 @@ export class ViewProductsComponent implements OnInit {
       console.log(this.product)
     });
   }
-  deleteProduct(product: any, index: any) {
+  deleteProduct(id: any, index: any) {
     if (window.confirm('Are you sure')) {
-      this.productService.deleteProduct(product._id).subscribe(
+      this.productService.deleteProduct(id).subscribe(
         (data) => {
           this.product.products.splice(index, 1);
           // this.product = data;
         })
+        console.log(id);
+        
     }
   }
 

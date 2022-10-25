@@ -1,14 +1,13 @@
 <app-header></app-header>
 <div class="col-md-3">
     <div class=" mb-4 mt-2">
-        <select class="form-control" [(ngModel)]="sortOption">
-            <option value="product_name|asc">Sort By Name (A to Z)</option>
-            <option value="product_name|desc">Sort By Name (Z to A)</option>
-            <option value="product_price|lth">Sort By Price (Low to High)</option>
-            <option value="product_price|htl">Sort By Price (High to Low)</option>
+        <select class="form-control" [(ngModel)]="sortByOption">
+            <option value="title|asc">Sort By Name (A to Z)</option>
+            <option value="title|desc">Sort By Name (Z to A)</option>
+            <option value="price|lth">Sort By Price (Low to High)</option>
+            <option value="price|htl">Sort By Price (High to Low)</option>
         </select>
     </div>
 </div>
 
-
-<app-product-card [product]="product" *ngFor="let product of product;let i = index"></app-product-card>
+<app-product-card [product]="product" *ngFor="let product of product | sort : sortByOption"></app-product-card>

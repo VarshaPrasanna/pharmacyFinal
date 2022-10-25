@@ -104,7 +104,7 @@
          <div class="card-footer px-sm-3 pt-sm-4 px-0" style="background-color: rgb(255, 255, 255)">
             <div class="row">
                 <button type="button" class="btn  btn-outline-success"  style="border-radius: 10%;" [routerLink]="['/update-product',product._id]">update</button> 
-                <button type="button" class="btn  btn-outline-success"  style="border-radius: 10%;" (click)="deleteProduct(product, i)" routerLink="/Manage-Products">delete</button> 
+                <button type="button" class="btn  btn-outline-success"  style="border-radius: 10%;" (click)="deleteProduct(product._id, i)" routerLink="/Manage-Products">delete</button> 
             </div>
         </div>
         </div>

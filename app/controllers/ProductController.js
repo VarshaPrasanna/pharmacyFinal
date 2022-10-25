@@ -1,7 +1,7 @@
 const Product = require('../models/Product');
 
 const ProductController = {
-    
+
     /* get all products */
     async get_products(req, res) {
 
@@ -12,10 +12,10 @@ const ProductController = {
 
             let products;
 
-            if(qNew) {
+            if (qNew) {
                 products = await Product.find().sort({ createdAt: -1 }).limit(5);
             } else if (qCategory) {
-                products = await Product.find({ 
+                products = await Product.find({
                     categories: {
                         $in: [qCategory]
                     }
@@ -40,17 +40,17 @@ const ProductController = {
     async get_product(req, res) {
         try {
             const product = await Product.findById(req.params.id);
-            if(!product) {
+            if (!product) {
                 res.status(404).json({
                     type: "error",
                     message: "Product doesn't exists"
                 })
-            } else{
+            } else {
                 res.status(200).json({
                     type: "success",
                     product
                 })
-            }   
+            }
         } catch (err) {
             res.status(500).json({
                 type: "error",
@@ -82,7 +82,7 @@ const ProductController = {
     /* update product */
     async update_product(req, res) {
         const existing = await Product.findById(req.params.id);
-        if(!existing){
+        if (!existing) {
             res.status(404).json({
                 type: "error",
                 message: "Product doesn't exists"
@@ -109,6 +109,31 @@ const ProductController = {
         }
     },
 
+    //     /* delete product */
+    //     async delete_product(req, res) {
+    //         const existing = await Product.findById(req.params.id);
+    //         if (!existing) {
+    //             res.status(200).json({
+    //                 type: "error",
+    //                 message: "Product doesn't exists"
+    //             })
+    //         } else {
+    //             try {
+    //                 await Product.findOneAndDelete(req.params.id);
+    //                 res.status(200).json({
+    //                     type: "success",
+    //                     message: "Product has been deleted successfully"
+    //                 });
+    //             } catch (err) {
+    //                 res.status(500).json({
+    //                     type: "error",
+    //                     message: "Something went wrong please try again",
+    //                     err
+    //                 })
+    //             }
+    //         }
+    //     }
+    // };
     /* delete product */
     async delete_product(req, res) {
         const existing = await Product.findById(req.params.id);
@@ -119,7 +144,7 @@ const ProductController = {
             })
         } else {
             try {
-                await Product.findOneAndDelete(req.params.id);
+                await Product.findByIdAndDelete(req.params.id);
                 res.status(200).json({
                     type: "success",
                     message: "Product has been deleted successfully"
