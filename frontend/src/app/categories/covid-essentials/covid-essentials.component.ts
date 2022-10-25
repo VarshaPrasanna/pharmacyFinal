@@ -8,10 +8,11 @@ import { ProductService } from 'src/app/product-list/product.service';
 })
 export class CovidEssentialsComponent implements OnInit {
 
-  public sortOption: string = 'title|asc';
+  public sortByOption: string = 'title|asc';
   public cartflag: boolean = false;
   public sortBy: string = '';
-  constructor(private productService: ProductService) { this.readProducts() }
+  constructor(private productService: ProductService) { this.readProducts();
+    this.sortByOption = 'title' }
   Product!: any;
   product! : any;
   
