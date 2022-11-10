@@ -7,7 +7,6 @@ import {
 import { Pipe, PipeTransform } from '@angular/core';
 import { catchError, map } from 'rxjs/operators';
 import { AuthService } from "src/app/auth.service";
-//import { ServerResponse } from "./models/ServerResponse";
 import { Order } from './models/order';
 import { Router } from "@angular/router";
 

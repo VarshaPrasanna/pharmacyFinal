@@ -2,7 +2,7 @@
     <div style="background-color: rgb(176, 211, 220);">
         <div style="padding: 4%;">
 
-            <div class="card justify-content-center col-12 border-0"  style="background-color: rgb(176, 211, 220);">
+            <div class="card justify-content-center col-12 border-0" style="background-color: rgb(176, 211, 220);">
                 <div class="card-body">
                     <h2 style="padding-left: 13.5%;" class="card-title">List of Orders</h2>
                 </div>
@@ -14,7 +14,8 @@
                         <div class="card bg-dark shadow-2-strong">
                             <div class="card-body">
 
-                                <table class="table table-striped table-dark table-borderless text-center" align="center">
+                                <table class="table table-striped table-dark table-borderless text-center"
+                                    align="center">
                                     <thead class="thead-dark">
                                         <tr>
                                             <th scope="col">UserId</th>
@@ -25,7 +26,7 @@
                                             <th scope="col">Update status</th>
                                         </tr>
                                     </thead>
-                                   <tbody>
+                                    <tbody>
                                         <tr *ngFor="let order of order.orders">
                                             <td scope="row">{{order.userId}}</td>
                                             <td>{{order.amount | currency: 'INR'}}</td>
@@ -38,14 +39,16 @@
                                             <td>{{order.status}}</td>
                                             <td>
                                                 <div *ngFor="let p of order.products">
-                                                    <p class="text-light">productId:{{p.productId}} , quantity: {{p.quantity}}
+                                                    <p class="text-light">productId:{{p.productId}} , quantity:
+                                                        {{p.quantity}}
                                                     </p>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="row text-center  ">
                                                     <button type="button" class="btn  btn-info btn-sm"
-                                                        [routerLink]="['/update-status', order._id]">update status</button>
+                                                        [routerLink]="['/update-status', order._id]">update
+                                                        status</button>
                                                 </div>
                                             </td>
                                         </tr>

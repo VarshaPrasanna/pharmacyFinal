@@ -31,14 +31,5 @@ export class AuthInterceptor implements HttpInterceptor {
     else {
       return next.handle(req);
     }
-
-
   }
-  // req = req.clone({
-  //   headers: req.headers.set('Content-Type', 'application/json', 'token', 'accessToken')
-  //   // setHeaders: {
-  //   //   token: 'accessToken'
-  //   // }
-  // });
-
 }

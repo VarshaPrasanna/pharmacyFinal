@@ -28,4 +28,5 @@
     *ngFor="let product of Product.products | paginate: config | sort : sortByOption  ">
 
 </app-product-card>
+
 <pagination-controls id="basicPaginate" (pageChange)="pageChanged($event)"></pagination-controls>

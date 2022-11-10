@@ -5,7 +5,6 @@ import { Product } from 'src/app/admin-dashboard/Manage-Products/models/product'
 // import { Product } from 'src/app/models/product';
 import { ProductService } from '../product.service';
 import { CartService } from 'src/app/cart/cart.service';
-
 import { UserService } from 'src/app/user.service';
 
 @Component({
@@ -61,7 +60,6 @@ export class ProductInfoComponent implements OnInit {
     if (this.isLogged) {
       this.cartService.addToCart(id, 1);
     }
-    //window.alert("Product Added to cart");
   }
 
 }
