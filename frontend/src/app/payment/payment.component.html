@@ -20,7 +20,7 @@
  </div>
 
 <div class="row justify-content-around" *ngIf="!submitted">
-    <div class="col-lg-5">
+    <div class="col ml-3">
         <h5 class="p-3"> Shipping Details</h5>
         <div class="container">
             <form [formGroup]="addressForm">
@@ -95,7 +95,7 @@
         </div>
     </div>
 
-    <div class="col-lg-5">
+    <div class="col">
         <h5 class="p-3">Payment Details</h5>
         <div class="container">
             <form [formGroup]="paymentForm">
@@ -162,7 +162,21 @@
                 </div>
             </form>
             <button type="button" class="btn btn-dark mt-5 mb-5 btn-lg btn-block"
-                [disabled]="(addressForm.invalid) && (paymentForm.invalid)" (click)="onSubmit()">Place Order</button>
+                [disabled]="(addressForm.invalid) || (paymentForm.invalid)" (click)="onSubmit()">Place Order</button>
+        </div>
+    </div>
+    <div class="col-md-2 mr-4 mt-2">
+        <div class="card border rounded flex-row">
+            <div class="card-body">
+                <h4 class="card-title">Order Summary</h4>
+                <hr>
+                <table class="table table-borderless">
+                    <tr>
+                        <td scope="row">Total Amount</td>
+                        <td>{{this.totalAmount| currency : 'INR'}}</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 </div>

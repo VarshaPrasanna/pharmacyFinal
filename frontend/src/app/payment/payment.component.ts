@@ -13,6 +13,7 @@ export class PaymentComponent implements OnInit {
   submitted = false;
   addressForm!: FormGroup;
   paymentForm!: FormGroup;
+  totalAmount = localStorage.getItem('totalAmount');
 
   constructor(private fb: FormBuilder,
     private orderService: OrderService,
@@ -77,7 +78,7 @@ export class PaymentComponent implements OnInit {
     this.orderService.createOrder({
       userId: localStorage.getItem('userId'),
       products: products_arr,
-      amount: localStorage.getItem('totalAmount'),
+      amount: this.totalAmount,
       address: this.addressForm.value,
       status: 'Pending'
     }).subscribe((data) => {

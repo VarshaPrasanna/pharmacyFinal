@@ -43,7 +43,7 @@ export class DiscussionBoardComponent implements OnInit {
   }
 
   addMessage() {
-    console.log("addmsg",this.msgForm.value.message)
+    //console.log("addmsg",this.msgForm.value.message)
     this.msgService.addMessage({
       userId: localStorage.getItem('userId'),
       firstName: localStorage.getItem('userName'),

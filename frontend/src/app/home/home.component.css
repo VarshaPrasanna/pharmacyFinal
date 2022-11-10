@@ -3,40 +3,31 @@
     margin-top: 5rem;
   }
   
-  .our-team {
-    padding: 0.2rem 0.2rem;
-    background: #173C96;
-    border-radius: 1rem;
+  .category{
+    height: 175px;
+    margin: 5px;
+    padding: 10px;
+    background-color: rgb(140, 218, 229);
+    border-radius: 10px;
     text-align: center;
-    border: 0.5px solid #173C96;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px,
-      rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
-  }
-  .our-team .pic {
-    display: inline-block;
-    width: 80%;
-    height: 100%;
-    background: #173C96;
-    padding: 0.75rem;
-    margin-bottom: 1.5rem;
-    transition: all 0.5s ease 0s;
-  }
-  .our-team:hover .pic {
-    background: lightblue;/* #E55246; */
-    border-radius: 50%;
-  }
-  .pic img {
-    width: 20%;
-    height: auto;
-    border-radius: 50%;
-  }
-  .our-team .title {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #60c5a8;
-    margin: 0 0 7px 0;
-  }
+}
+
+.category:hover{
+    background: rgb(75, 190, 205);/* #E55246; */
+}
+
+.category img{
+    width: 100px;
+    margin: auto;
+    margin-top: 5px;
+    align-self: center;
+}
+
+.category-title{
+  padding-top: 10px;
+text-align: center;
+}
+  
 
   body {
     background-color: #eee
