@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-//import { UserMockData } from './mock-data/users-mock-data';
 import { User } from './models/user';
 import { Observable, Subject, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
