@@ -10,7 +10,6 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-transparent justify-content-center">
               <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
-
             </ol>
           </nav>
         </div>
@@ -24,17 +23,10 @@
       <div class="col-md-5">
         <div class="single-product-slider">
           <div class="carousel slide" data-ride="carousel" id="single-product-slider">
-
-
-
             <img src={{this.Product.product.image}} class="img-fluid">
-
-
-
           </div>
         </div>
       </div>
-
       <div class="col-md-7">
         <div class="single-product-details mt-5 mt-lg-0">
           <h2> {{this.Product.product.title}}</h2>
@@ -42,20 +34,13 @@
             Expiry Date: <span class="text-muted">24/06/2024 </span>
           </div>
           <hr>
-
           <h3 class="product-price">{{this.Product.product.price|currency:"INR":"symbol"}}
             <del>{{this.Product.product.price+50|currency:"INR":"symbol"}}</del>
           </h3>
-
           <p class="product-description my-4 ">
             {{this.Product.product.description}}
           </p>
           <form class="cart" action="#" method="post">
-            <!-- <div class="quantity d-flex align-items-center">
-              <input type="number" id="#" class="input-text qty text form-control w-25 mr-3" step="1" min="1" max="9"
-                name="quantity" value="1" title="Qty" size="4">
-              <a class="btn btn-main btn-small" (click)="addProductToCart(product._id)">Add to cart</a>
-            </div> -->
             <button type='button' class="btn btn-info mb-2" (click)="addProductToCart(product._id)" data-toggle="modal"
               data-target="#modalCart">Add to
               Cart</button>
